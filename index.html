@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InmoÉlite | Vendemos tu piso al mejor precio en tiempo récord</title>
+<meta name="description" content="Agencia inmobiliaria especializada en la venta de viviendas. Valoración gratuita, marketing premium y venta media en 47 días." />
+<style>
+  :root{
+    --azul:#0b2545;
+    --azul-2:#13315c;
+    --dorado:#c9a24b;
+    --dorado-claro:#e6c878;
+    --gris:#f5f6f8;
+    --texto:#1f2937;
+    --blanco:#ffffff;
+    --sombra:0 10px 30px rgba(11,37,69,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;color:var(--texto);line-height:1.6;background:#fff}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* NAVBAR */
+  header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1180px;margin:0 auto}
+  .logo{font-weight:800;font-size:1.4rem;color:var(--azul);letter-spacing:-.5px}
+  .logo span{color:var(--dorado)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{font-weight:500;color:var(--azul-2);transition:color .2s}
+  .nav-links a:hover{color:var(--dorado)}
+  .btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s;font-size:.95rem}
+  .btn-primary{background:var(--dorado);color:var(--azul)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,75,.4)}
+  .btn-outline{background:transparent;color:var(--azul);border:2px solid var(--azul)}
+  .btn-outline:hover{background:var(--azul);color:#fff}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--azul);cursor:pointer}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-2) 100%);color:#fff;padding:80px 0 100px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,162,75,.15),transparent 70%);border-radius:50%}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+  .hero h1{font-size:2.8rem;line-height:1.15;font-weight:800;margin-bottom:20px;letter-spacing:-1px}
+  .hero h1 span{color:var(--dorado-claro)}
+  .hero p.lead{font-size:1.15rem;opacity:.92;margin-bottom:28px;max-width:520px}
+  .hero-bullets{list-style:none;margin-bottom:30px}
+  .hero-bullets li{padding:6px 0;display:flex;align-items:center;gap:10px}
+  .hero-bullets li::before{content:"✓";color:var(--dorado);font-weight:800;font-size:1.2rem}
+
+  /* FORMULARIO */
+  .form-card{background:#fff;color:var(--texto);border-radius:16px;padding:36px 32px;box-shadow:var(--sombra)}
+  .form-card h3{color:var(--azul);font-size:1.4rem;margin-bottom:6px}
+  .form-card .sub{font-size:.92rem;color:#6b7280;margin-bottom:22px}
+  .form-group{margin-bottom:14px}
+  .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--azul-2)}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--dorado)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form-card .btn{width:100%;padding:14px;font-size:1rem;margin-top:8px}
+  .form-note{font-size:.78rem;color:#6b7280;text-align:center;margin-top:12px}
+  .success-msg{display:none;background:#d1fae5;color:#065f46;padding:14px;border-radius:8px;margin-top:14px;text-align:center;font-weight:600}
+
+  /* BARRA CONFIANZA */
+  .trust{background:var(--gris);padding:40px 0}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+  .trust-item h3{font-size:2.2rem;color:var(--azul);font-weight:800}
+  .trust-item p{font-size:.9rem;color:#6b7280;margin-top:4px}
+
+  /* SECCIONES */
+  section{padding:80px 0}
+  .section-title{text-align:center;margin-bottom:50px}
+  .section-title .tag{color:var(--dorado);font-weight:700;letter-spacing:2px;font-size:.85rem;text-transform:uppercase}
+  .section-title h2{font-size:2.2rem;color:var(--azul);margin-top:8px;font-weight:800;letter-spacing:-.5px}
+  .section-title p{color:#6b7280;max-width:640px;margin:12px auto 0}
+
+  /* BENEFICIOS */
+  .benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .benefit{background:#fff;padding:30px 24px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.05);transition:transform .3s,box-shadow .3s;border-top:4px solid var(--dorado)}
+  .benefit:hover{transform:translateY(-6px);box-shadow:var(--sombra)}
+  .benefit .icon{width:52px;height:52px;background:linear-gradient(135deg,var(--azul),var(--azul-2));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--dorado);font-size:1.5rem;margin-bottom:16px}
+  .benefit h3{color:var(--azul);font-size:1.15rem;margin-bottom:10px}
+  .benefit p{font-size:.92rem;color:#4b5563}
+
+  /* PROCESO */
+  .proceso{background:var(--gris)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative}
+  .step{text-align:center;position:relative}
+  .step-num{width:60px;height:60px;border-radius:50%;background:var(--azul);color:var(--dorado);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 16px;box-shadow:var(--sombra)}
+  .step h3{color:var(--azul);margin-bottom:8px;font-size:1.1rem}
+  .step p{font-size:.9rem;color:#4b5563}
+
+  /* SERVICIOS */
+  .servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .servicio{padding:32px 28px;border-radius:12px;background:#fff;border:1.5px solid #e5e7eb;transition:all .3s}
+  .servicio:hover{border-color:var(--dorado);box-shadow:var(--sombra)}
+  .servicio h3{color:var(--azul);margin-bottom:10px;font-size:1.2rem}
+  .servicio ul{list-style:none;margin-top:14px}
+  .servicio ul li{padding:6px 0;font-size:.92rem;color:#4b5563;display:flex;gap:8px}
+  .servicio ul li::before{content:"→";color:var(--dorado);font-weight:700}
+
+  /* TESTIMONIOS */
+  .testimonios{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-2) 100%);color:#fff}
+  .testimonios .section-title h2{color:#fff}
+  .testimonios .section-title p{color:rgba(255,255,255,.8)}
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .test-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,.12)}
+  .test-card .stars{color:var(--dorado);margin-bottom:12px;font-size:1.05rem}
+  .test-card p{font-style:italic;margin-bottom:18px;opacity:.95}
+  .test-author{display:flex;align-items:center;gap:12px}
+  .test-avatar{width:44px;height:44px;border-radius:50%;background:var(--dorado);color:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .test-author strong{display:block}
+  .test-author span{font-size:.82rem;opacity:.75}
+
+  /* FAQ */
+  .faq-list{max-width:780px;margin:0 auto}
+  .faq-item{background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+  .faq-item.active{border-color:var(--dorado)}
+  .faq-q{padding:18px 22px;font-weight:600;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  .faq-q::after{content:"+";font-size:1.5rem;color:var(--dorado);transition:transform .3s}
+  .faq-item.active .faq-q::after{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 22px;color:#4b5563;font-size:.95rem}
+  .faq-item.active .faq-a{max-height:300px;padding:0 22px 20px}
+
+  /* CTA FINAL */
+  .cta-final{background:var(--dorado);text-align:center;padding:70px 0}
+  .cta-final h2{color:var(--azul);font-size:2rem;margin-bottom:14px;font-weight:800}
+  .cta-final p{color:var(--azul-2);margin-bottom:26px;font-size:1.1rem}
+  .cta-final .btn{background:var(--azul);color:#fff;padding:16px 36px;font-size:1.05rem}
+  .cta-final .btn:hover{background:var(--azul-2)}
+
+  /* FOOTER */
+  footer{background:var(--azul);color:rgba(255,255,255,.8);padding:60px 0 20px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .foot-col h4{color:#fff;margin-bottom:16px;font-size:1rem}
+  .foot-col a,.foot-col p{display:block;padding:4px 0;font-size:.9rem;color:rgba(255,255,255,.7);transition:color .2s}
+  .foot-col a:hover{color:var(--dorado)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;font-size:.85rem;color:rgba(255,255,255,.5)}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px;box-shadow:var(--sombra)}
+    .nav-links.open{display:flex}
+    .menu-toggle{display:block}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:2rem}
+    .trust-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+    .benefits-grid,.steps,.servicios-grid,.test-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .form-row{grid-template-columns:1fr}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">Inmo<span>Élite</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#beneficios">Ventajas</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Opiniones</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" class="btn btn-primary">Valoración gratis</a>
+    </div>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Vendemos tu vivienda <span>al mejor precio</span> y en tiempo récord</h1>
+      <p class="lead">Somos la agencia inmobiliaria de referencia. Marketing premium, fotografía profesional y una cartera de +12.000 compradores qualificados trabajando para ti.</p>
+      <ul class="hero-bullets">
+        <li>Valoración gratuita en 24h</li>
+        <li>Venta media en 47 días</li>
+        <li>Sin gastos hasta la venta</li>
+        <li>98% de clientes satisfechos</li>
+      </ul>
+      <a href="#contacto" class="btn btn-primary">Solicitar valoración gratuita →</a>
+    </div>
+
+    <!-- FORMULARIO -->
+    <form class="form-card" id="leadForm" onsubmit="return enviarForm(event)">
+      <h3>🏠 Valoración gratuita de tu inmueble</h3>
+      <p class="sub">Descubre cuánto vale tu propiedad hoy mismo</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre *</label>
+          <input type="text" name="nombre" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input type="tel" name="telefono" required placeholder="600 000 000">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" name="email" required placeholder="tu@email.com">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tipo de inmueble</label>
+          <select name="tipo">
+            <option>Piso</option>
+            <option>Casa / Chalet</option>
+            <option>Ático</option>
+            <option>Local / Oficina</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ubicación</label>
+          <input type="text" name="ubicacion" placeholder="Ciudad / Zona">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cuéntanos brevemente (opcional)</label>
+        <textarea name="mensaje" rows="2" placeholder="m², estado, urgencia..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Quiero mi valoración gratis</button>
+      <p class="form-note">🔒 Tus datos están seguros. Sin compromiso.</p>
+      <div class="success-msg" id="successMsg">✅ ¡Gracias! Te contactaremos en menos de 24h.</div>
+    </form>
+  </div>
+</section>
+
+<!-- CONFIANZA -->
+<section class="trust" style="padding:50px 0">
+  <div class="container trust-grid">
+    <div class="trust-item"><h3>+1.200</h3><p>Viviendas vendidas</p></div>
+    <div class="trust-item"><h3>47 días</h3><p>Tiempo medio de venta</p></div>
+    <div class="trust-item"><h3>98%</h3><p>Clientes satisfechos</p></div>
+    <div class="trust-item"><h3>15 años</h3><p>De experiencia</p></div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section id="beneficios">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">Por qué elegirnos</span>
+      <h2>Más que una inmobiliaria, tu socio estratégico</h2>
+      <p>Combinamos tecnología, marketing digital y un equipo humano experto para conseguir el máximo precio por tu propiedad.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="icon">📊</div>
+        <h3>Tasación precisa</h3>
+        <p>Análisis comparativo de mercado con datos reales para fijar el precio óptimo de venta.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">📸</div>
+        <h3>Marketing premium</h3>
+        <p>Fotografía profesional, tour virtual 360º, home staging y campañas en +30 portales.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">🤝</div>
+        <h3>Asesoría legal</h3>
+        <p>Gestionamos contratos, certificados, hipotecas y toda la documentación sin coste.</p>
+      </div>
+      <div class="benefit">
+        <div class="icon">⚡</div>
+        <h3>Venta rápida</h3>
+        <p>Nuestra cartera de compradores cualificados acelera el proceso de forma notable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="proceso" id="proceso">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">Cómo trabajamos</span>
+      <h2>4 pasos hasta la venta</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Valoración</h3><p>Visitamos tu inmueble y te entregamos un informe de valor gratuito en 24h.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Preparación</h3><p>Sesión fotográfica, tour virtual y optimización para portales y redes.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Promoción</h3><p>Difusión masiva, visitas filtradas y negociación experta por ti.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Cierre</h3><p>Firma ante notario, gestión fiscal y cobro garantizado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">Nuestros servicios</span>
+      <h2>Todo lo que necesitas bajo un mismo techo</h2>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <h3>🏡 Venta de viviendas</h3>
+        <p>Servicio integral para vender tu piso, casa o chalet al mejor precio.</p>
+        <ul>
+          <li>Tasación gratuita</li>
+          <li>Home staging</li>
+          <li>Fotografía HDR</li>
+          <li>Tour virtual 360º</li>
+        </ul>
+      </div>
+      <div class="servicio">
+        <h3>🔑 Alquiler gestionado</h3>
+        <p>Encontramos inquilinos fiables y nos encargamos de todo el proceso.</p>
+        <ul>
+          <li>Filtro de solvencia</li>
+          <li>Contratos legales</li>
+          <li>Cobro de rentas</li>
+          <li>Seguro impago</li>
+        </ul>
+      </div>
+      <div class="servicio">
+        <h3>💼 Inversión inmobiliaria</h3>
+        <p>Asesoramos a inversores para maximizar la rentabilidad de su capital.</p>
+        <ul>
+          <li>Estudio de rentabilidad</li>
+          <li>Búsqueda a medida</li>
+          <li>Reformas llave en mano</li>
+          <li>Gestión patrimonial</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag" style="color:var(--dorado-claro)">Opiniones reales</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Vendieron mi piso en 3 semanas y por encima del precio que pedía. Profesionalidad absoluta."</p>
+        <div class="test-author"><div class="test-avatar">LM</div><div><strong>Laura Martínez</strong><span>Vendió piso en Madrid</span></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"El tour virtual fue clave. Recibimos 40 visitas en la primera semana y cerramos con una familia encantadora."</p>
+        <div class="test-author"><div class="test-avatar">JR</div><div><strong>Javier Ruiz</strong><span>Vendió chalet en Valencia</span></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p>"Me gestionaron todo: papeles, hipoteca del comprador, notaría... solo tuve que firmar. 10/10."</p>
+        <div class="test-author"><div class="test-avatar">AS</div><div><strong>Ana Sánchez</strong><span>Vendió ático en Barcelona</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">¿Cuánto cobráis por vender mi vivienda?</div><div class="faq-a"><p>Nuestros honorarios son entre un 3% y un 5% sobre el precio final de venta, según el tipo de inmueble y ubicación. No cobramos nada hasta que se cierra la operación.</p></div></div>
+      <div class="faq-item"><div class="faq-q">¿Cuánto tardaréis en vender mi piso?</div><div class="faq-a"><p>Nuestro tiempo medio de venta es de 47 días. Depende del precio, ubicación y estado, pero te daremos una estimación realista desde la primera visita.</p></div></div>
+      <div class="faq-item"><div class="faq-q">¿Puedo cancelar el mandato en cualquier momento?</div><div class="faq-a"><p>Sí. Trabajamos con contratos transparentes y sin permanencias abusivas. Puedes cancelar con un preaviso de 15 días.</p></div></div>
+      <div class="faq-item"><div class="faq-q">¿Os encargáis de la documentación legal?</div><div class="faq-a"><p>Completamente. Revisamos cédulas, certificados energéticos, cargas registrales y preparamos toda la documentación para la notaría.</p></div></div>
+      <div class="faq-item"><div class="faq-q">¿Qué es el home staging y por qué lo recomendáis?</div><div class="faq-a"><p>Es una técnica de presentación del inmueble que puede aumentar el precio final entre un 5% y un 15% y reducir el tiempo de venta a la mitad. Lo incluimos en nuestros paquetes premium.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contacto">
+  <div class="container">
+    <h2>¿Listo para vender tu inmueble al mejor precio?</h2>
+    <p>Solicita tu valoración gratuita hoy. Sin compromiso.</p>
+    <a href="#leadForm" class="btn">Quiero mi valoración gratis →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo" style="color:#fff;margin-bottom:12px">Inmo<span>Élite</span></div>
+        <p>Tu agencia inmobiliaria de confianza. Más de 15 años ayudando a familias a vender su hogar al mejor precio.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Servicios</h4>
+        <a href="#">Venta</a><a href="#">Alquiler</a><a href="#">Inversión</a><a href="#">Tasaciones</a>
+      </div>
+      <div class="foot-col">
+        <h4>Empresa</h4>
+        <a href="#">Sobre nosotros</a><a href="#">Equipo</a><a href="#">Blog</a><a href="#">Trabaja con nosotros</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <p>📞 +34 900 123 456</p>
+        <p>✉️ hola@inmoelite.es</p>
+        <p>📍 C/ Gran Vía 25, Madrid</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 InmoÉlite. Todos los derechos reservados. | <a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  // FAQ acordeón
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      item.classList.toggle('active');
+    });
+  });
+
+  // Envío formulario (simulado - conectar con backend/CRM)
+  function enviarForm(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+    console.log('Lead recibido:',data);
+    // TODO: enviar a tu CRM / email / webhook
+    // fetch('/api/leads',{method:'POST',body:JSON.stringify(data)})
+    document.getElementById('successMsg').style.display='block';
+    form.reset();
+    setTimeout(()=>document.getElementById('successMsg').style.display='none',6000);
+    return false;
+  }
+
+  // Cerrar menú móvil al hacer clic
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+</body>
+</html>
