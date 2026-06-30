@@ -1,448 +1,1015 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InmoÉlite | Vendemos tu piso al mejor precio en tiempo récord</title>
-<meta name="description" content="Agencia inmobiliaria especializada en la venta de viviendas. Valoración gratuita, marketing premium y venta media en 47 días." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InmoÉlite · Vendemos tu vivienda al mejor precio · Demo WhiteMoon</title>
+<meta name="description" content="Agencia inmobiliaria especializada en venta de viviendas. Valoración gratuita, marketing premium y venta media en 47 días.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --azul:#0b2545;
-    --azul-2:#13315c;
-    --dorado:#c9a24b;
-    --dorado-claro:#e6c878;
-    --gris:#f5f6f8;
-    --texto:#1f2937;
-    --blanco:#ffffff;
-    --sombra:0 10px 30px rgba(11,37,69,.12);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;color:var(--texto);line-height:1.6;background:#fff}
-  img{max-width:100%;display:block}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1180px;margin:0 auto;padding:0 20px}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#070b14;
+  --blue:#5b8fd6;
+  --blue2:#f08080;
+  --blue-dim:rgba(91,143,214,.1);
+  --rose:#c9a24b;
+  --rose-dim:rgba(201,162,75,.08);
+  --cream:#f1f5f9;
+  --card:#0a1120;
+  --border:rgba(91,143,214,.18);
+  --border-rose:rgba(201,162,75,.18);
+  --white:#f1f5f9;
+  --muted:#7e8aa0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.5}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--blue);color:#fff}
 
-  /* NAVBAR */
-  header{position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1180px;margin:0 auto}
-  .logo{font-weight:800;font-size:1.4rem;color:var(--azul);letter-spacing:-.5px}
-  .logo span{color:var(--dorado)}
-  .nav-links{display:flex;gap:28px}
-  .nav-links a{font-weight:500;color:var(--azul-2);transition:color .2s}
-  .nav-links a:hover{color:var(--dorado)}
-  .btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s;font-size:.95rem}
-  .btn-primary{background:var(--dorado);color:var(--azul)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,75,.4)}
-  .btn-outline{background:transparent;color:var(--azul);border:2px solid var(--azul)}
-  .btn-outline:hover{background:var(--azul);color:#fff}
-  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--azul);cursor:pointer}
+/* DEMO STRIP */
+.demo-strip{background:#5b8fd6;text-align:center;padding:9px 20px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#070b14;position:sticky;top:0;z-index:300}
+.demo-strip a{color:#070b14;text-decoration:underline}
 
-  /* HERO */
-  .hero{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-2) 100%);color:#fff;padding:80px 0 100px;position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,162,75,.15),transparent 70%);border-radius:50%}
-  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
-  .hero h1{font-size:2.8rem;line-height:1.15;font-weight:800;margin-bottom:20px;letter-spacing:-1px}
-  .hero h1 span{color:var(--dorado-claro)}
-  .hero p.lead{font-size:1.15rem;opacity:.92;margin-bottom:28px;max-width:520px}
-  .hero-bullets{list-style:none;margin-bottom:30px}
-  .hero-bullets li{padding:6px 0;display:flex;align-items:center;gap:10px}
-  .hero-bullets li::before{content:"✓";color:var(--dorado);font-weight:800;font-size:1.2rem}
+/* PRELOADER */
+.preloader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease .2s}
+.preloader.hide{opacity:0;pointer-events:none}
+.pre-logo{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,5vw,4rem);letter-spacing:-.02em}
 
-  /* FORMULARIO */
-  .form-card{background:#fff;color:var(--texto);border-radius:16px;padding:36px 32px;box-shadow:var(--sombra)}
-  .form-card h3{color:var(--azul);font-size:1.4rem;margin-bottom:6px}
-  .form-card .sub{font-size:.92rem;color:#6b7280;margin-bottom:22px}
-  .form-group{margin-bottom:14px}
-  .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--azul-2)}
-  .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s}
-  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--dorado)}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .form-card .btn{width:100%;padding:14px;font-size:1rem;margin-top:8px}
-  .form-note{font-size:.78rem;color:#6b7280;text-align:center;margin-top:12px}
-  .success-msg{display:none;background:#d1fae5;color:#065f46;padding:14px;border-radius:8px;margin-top:14px;text-align:center;font-weight:600}
+/* NAV */
+.nav{position:fixed;top:35px;left:0;right:0;z-index:200;display:flex;align-items:center;padding:18px 52px;transition:all .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(7,11,20,.92);backdrop-filter:blur(20px);border-bottom-color:var(--border)}
+.nav-logo{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:-.01em;color:var(--white)}
+.nav-logo span{color:var(--rose)}
+.nav-links{display:flex;align-items:center;gap:44px;margin-left:auto;margin-right:36px}
+.nav-links a{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s}
+.nav-links a:hover{opacity:.6}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#5b8fd6;color:#070b14;border-radius:40px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.nav-cta:hover{background:#f08080;color:#070b14;transform:translateY(-1px)}
 
-  /* BARRA CONFIANZA */
-  .trust{background:var(--gris);padding:40px 0}
-  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-  .trust-item h3{font-size:2.2rem;color:var(--azul);font-weight:800}
-  .trust-item p{font-size:.9rem;color:#6b7280;margin-top:4px}
+/* HERO */
+.hero{position:relative;height:100dvh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:110px 52px 72px}
+.hero-bg{position:absolute;inset:0;z-index:0;background:url("https://images.unsplash.com/photo-1757359056339-22968344cce6?fm=jpg&q=80&w=1600&auto=format&fit=crop") center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(7,11,20,.55) 0%,rgba(7,11,20,.88) 55%,rgba(7,11,20,.97) 100%),
+  radial-gradient(ellipse at 75% 30%,rgba(91,143,214,.12),transparent 55%),
+  radial-gradient(ellipse at 15% 80%,rgba(201,162,75,.08),transparent 50%)}
 
-  /* SECCIONES */
-  section{padding:80px 0}
-  .section-title{text-align:center;margin-bottom:50px}
-  .section-title .tag{color:var(--dorado);font-weight:700;letter-spacing:2px;font-size:.85rem;text-transform:uppercase}
-  .section-title h2{font-size:2.2rem;color:var(--azul);margin-top:8px;font-weight:800;letter-spacing:-.5px}
-  .section-title p{color:#6b7280;max-width:640px;margin:12px auto 0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,11,20,.97) 0%,rgba(7,11,20,.4) 55%,rgba(7,11,20,.1) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid #5b8fd6;border-radius:40px;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5b8fd6;margin-bottom:22px;background:rgba(91,143,214,.1)}
+.hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);animation:blink 1.8s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,5.5vw,5.5rem);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:22px}
+.hero h1 .lav{color:var(--blue)}
+.hero h1 .rose{color:var(--rose)}
+.hero-sub{font-size:clamp(.9rem,1.4vw,1.1rem);color:rgba(255,255,255,.55);max-width:520px;margin-bottom:36px;line-height:1.7}
+.hero-cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:#5b8fd6;color:#070b14;border-radius:40px;font-size:.88rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif}
+.btn-primary:hover{background:#f08080;color:#070b14;transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:transparent;color:var(--white);border-radius:40px;font-size:.88rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose)}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap}
+.h-stat strong{font-family:'Anton',sans-serif;font-size:2rem;color:#5b8fd6;display:block;line-height:1}
+.h-stat span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 
-  /* BENEFICIOS */
-  .benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  .benefit{background:#fff;padding:30px 24px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.05);transition:transform .3s,box-shadow .3s;border-top:4px solid var(--dorado)}
-  .benefit:hover{transform:translateY(-6px);box-shadow:var(--sombra)}
-  .benefit .icon{width:52px;height:52px;background:linear-gradient(135deg,var(--azul),var(--azul-2));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--dorado);font-size:1.5rem;margin-bottom:16px}
-  .benefit h3{color:var(--azul);font-size:1.15rem;margin-bottom:10px}
-  .benefit p{font-size:.92rem;color:#4b5563}
+/* MARQUEE 1 */
+.marquee-wrap{overflow:hidden;background:#5b8fd6;padding:13px 0}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+.marquee-item{display:inline-flex;align-items:center;gap:14px;padding:0 22px;font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#070b14}
+.marquee-item .sep{opacity:.4}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* PROCESO */
-  .proceso{background:var(--gris)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative}
-  .step{text-align:center;position:relative}
-  .step-num{width:60px;height:60px;border-radius:50%;background:var(--azul);color:var(--dorado);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 16px;box-shadow:var(--sombra)}
-  .step h3{color:var(--azul);margin-bottom:8px;font-size:1.1rem}
-  .step p{font-size:.9rem;color:#4b5563}
+/* SERVICIOS */
+.servicios{padding:120px 52px;background:var(--black)}
+.section-header{max-width:1200px;margin:0 auto 60px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.section-tag{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.section-title{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,4.5vw,4.5rem);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.section-title .lav{color:var(--blue)}
+.section-title .rose{color:var(--rose)}
+.section-subtitle{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:340px}
+.serv-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;transition:transform .35s,border-color .35s;position:relative;overflow:hidden}
+.serv-card:hover{transform:translateY(-7px);border-color:rgba(91,143,214,.5)}
+.serv-card.rose-card{border-color:var(--border-rose)}
+.serv-card.rose-card:hover{border-color:rgba(201,162,75,.5)}
+.serv-num{font-family:'Anton',sans-serif;font-size:3.5rem;color:rgba(91,143,214,.06);line-height:1;margin-bottom:-8px}
+.serv-card.rose-card .serv-num{color:rgba(201,162,75,.06)}
+.serv-card h3{font-family:'Anton',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px;color:var(--white)}
+.serv-card p{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.serv-link{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.serv-card.rose-card .serv-link{color:var(--rose)}
 
-  /* SERVICIOS */
-  .servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .servicio{padding:32px 28px;border-radius:12px;background:#fff;border:1.5px solid #e5e7eb;transition:all .3s}
-  .servicio:hover{border-color:var(--dorado);box-shadow:var(--sombra)}
-  .servicio h3{color:var(--azul);margin-bottom:10px;font-size:1.2rem}
-  .servicio ul{list-style:none;margin-top:14px}
-  .servicio ul li{padding:6px 0;font-size:.92rem;color:#4b5563;display:flex;gap:8px}
-  .servicio ul li::before{content:"→";color:var(--dorado);font-weight:700}
+/* MENÚS */
+.tarifas{padding:120px 52px;background:#0a0f1c}
+.tarifas-grid{max-width:1200px;margin:60px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tarifa-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden}
+.tarifa-card.featured{border-color:var(--blue);background:linear-gradient(135deg,rgba(91,143,214,.12),rgba(91,143,214,.02))}
+.tarifa-badge{display:inline-block;padding:4px 12px;background:var(--blue);color:#070b14;border-radius:20px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.tarifa-card h3{font-family:'Anton',sans-serif;font-size:1.5rem;text-transform:uppercase;margin-bottom:8px}
+.tarifa-precio{font-family:'Anton',sans-serif;font-size:2.2rem;color:var(--blue);line-height:1;margin:16px 0 4px}
+.tarifa-precio.rose{color:var(--rose)}
+.tarifa-periodo{font-size:.78rem;color:var(--muted);margin-bottom:20px}
+.tarifa-desc{font-size:.85rem;color:var(--muted);line-height:1.7}
 
-  /* TESTIMONIOS */
-  .testimonios{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-2) 100%);color:#fff}
-  .testimonios .section-title h2{color:#fff}
-  .testimonios .section-title p{color:rgba(255,255,255,.8)}
-  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .test-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:28px;border-radius:12px;border:1px solid rgba(255,255,255,.12)}
-  .test-card .stars{color:var(--dorado);margin-bottom:12px;font-size:1.05rem}
-  .test-card p{font-style:italic;margin-bottom:18px;opacity:.95}
-  .test-author{display:flex;align-items:center;gap:12px}
-  .test-avatar{width:44px;height:44px;border-radius:50%;background:var(--dorado);color:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:800}
-  .test-author strong{display:block}
-  .test-author span{font-size:.82rem;opacity:.75}
+/* SOBRE */
+.sobre{padding:120px 52px;background:var(--black)}
+.sobre-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sobre-text h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,4rem);text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:22px}
+.sobre-text h2 .lav{color:var(--blue)}
+.sobre-text p{color:var(--muted);line-height:1.75;margin-bottom:14px;font-size:.92rem}
+.sobre-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.stat-box.rose-box{border-color:var(--border-rose)}
+.stat-num{font-family:'Anton',sans-serif;font-size:2.2rem;color:var(--blue);line-height:1}
+.stat-box.rose-box .stat-num{color:var(--rose)}
+.stat-lbl{font-size:.72rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+.sobre-img-wrap{border-radius:20px;overflow:hidden;border:2px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;min-height:320px;padding:40px}
 
-  /* FAQ */
-  .faq-list{max-width:780px;margin:0 auto}
-  .faq-item{background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;margin-bottom:12px;overflow:hidden;transition:border-color .2s}
-  .faq-item.active{border-color:var(--dorado)}
-  .faq-q{padding:18px 22px;font-weight:600;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-  .faq-q::after{content:"+";font-size:1.5rem;color:var(--dorado);transition:transform .3s}
-  .faq-item.active .faq-q::after{transform:rotate(45deg)}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 22px;color:#4b5563;font-size:.95rem}
-  .faq-item.active .faq-a{max-height:300px;padding:0 22px 20px}
+/* MARQUEE 2 */
+.marquee-wrap2{overflow:hidden;background:#c9a24b;padding:13px 0}
+.marquee-track2{display:flex;white-space:nowrap;animation:marquee2 34s linear infinite}
+.marquee-item2{display:inline-flex;align-items:center;gap:14px;padding:0 22px;font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#070b14}
+@keyframes marquee2{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* CTA FINAL */
-  .cta-final{background:var(--dorado);text-align:center;padding:70px 0}
-  .cta-final h2{color:var(--azul);font-size:2rem;margin-bottom:14px;font-weight:800}
-  .cta-final p{color:var(--azul-2);margin-bottom:26px;font-size:1.1rem}
-  .cta-final .btn{background:var(--azul);color:#fff;padding:16px 36px;font-size:1.05rem}
-  .cta-final .btn:hover{background:var(--azul-2)}
+/* CONTACTO */
+.contacto{padding:120px 52px;background:#0a0f1c}
+.contacto-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+.contacto-text h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,4rem);text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:20px}
+.contacto-text h2 .lav{color:var(--blue)}
+.contacto-text p{color:var(--muted);line-height:1.75;margin-bottom:24px;font-size:.92rem}
+.contact-items{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.c-item{display:flex;align-items:center;gap:14px;font-size:.9rem;color:rgba(255,255,255,.75)}
+.c-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0}
+.contacto-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px}
+.contacto-box h3{font-family:'Anton',sans-serif;font-size:1.6rem;text-transform:uppercase;margin-bottom:8px;color:var(--blue)}
+.contacto-box p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:28px}
+.contacto-box .btn-primary{width:100%;justify-content:center;margin-bottom:12px}
+.contacto-box .btn-outline{width:100%;justify-content:center;border-color:rgba(201,162,75,.3);color:var(--rose)}
 
-  /* FOOTER */
-  footer{background:var(--azul);color:rgba(255,255,255,.8);padding:60px 0 20px}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-  .foot-col h4{color:#fff;margin-bottom:16px;font-size:1rem}
-  .foot-col a,.foot-col p{display:block;padding:4px 0;font-size:.9rem;color:rgba(255,255,255,.7);transition:color .2s}
-  .foot-col a:hover{color:var(--dorado)}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;font-size:.85rem;color:rgba(255,255,255,.5)}
+/* FAQ */
+.faq{padding:120px 52px;background:var(--black)}
+.faq-in{max-width:800px;margin:0 auto}
+.faq-list{margin-top:60px}
+.faq-item{border-top:1px solid rgba(255,255,255,.06)}
+.faq-item:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+.faq-q{width:100%;background:none;border:none;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif}
+.faq-q-text{font-size:.95rem;font-weight:600;color:var(--white);line-height:1.45}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue);font-size:1.1rem;transition:transform .3s,background .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--blue);color:#070b14;border-color:var(--blue)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{font-size:.87rem;color:var(--muted);line-height:1.75;padding:0 0 22px}
 
-  /* RESPONSIVE */
-  @media(max-width:900px){
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px;box-shadow:var(--sombra)}
-    .nav-links.open{display:flex}
-    .menu-toggle{display:block}
-    .hero-grid{grid-template-columns:1fr;gap:40px}
-    .hero h1{font-size:2rem}
-    .trust-grid{grid-template-columns:repeat(2,1fr);gap:30px}
-    .benefits-grid,.steps,.servicios-grid,.test-grid{grid-template-columns:1fr}
-    .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
-    .form-row{grid-template-columns:1fr}
-    section{padding:60px 0}
-  }
+/* CTA */
+.cta-sec{padding:120px 52px;background:#0a0f1c;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'JILTON';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Anton',sans-serif;font-size:clamp(5rem,18vw,16rem);color:var(--white);opacity:.025;white-space:nowrap;pointer-events:none;letter-spacing:-.04em}
+.cta-sec .wrap{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.cta-sec h2{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,5.5vw,5rem);text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:16px}
+.cta-sec h2 .lav{color:var(--blue)}
+.cta-sec h2 .rose{color:var(--rose)}
+.cta-sec p{color:var(--muted);margin-bottom:36px;font-size:1rem;line-height:1.7}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px}
+.footer-in{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo{font-family:'Anton',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:14px}
+.footer-brand .logo span{color:var(--rose)}
+.footer-brand p{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.footer-col a,.footer-col p{font-size:.82rem;color:var(--muted);display:block;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.3)}
+.footer-copy a{color:var(--blue)}
+.footer-badge{font-family:'Anton',sans-serif;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.2);text-transform:uppercase}
+
+/* CHATBOT */
+.cb-fab{position:fixed;bottom:28px;right:28px;z-index:500;width:60px;height:60px;background:#5b8fd6;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(91,143,214,.45);font-size:1.4rem;transition:all .25s;color:#fff}
+.cb-fab:hover{transform:scale(1.1);background:#f08080}
+.cb-fab .notif{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:var(--rose);border-radius:50%;border:2px solid var(--black);animation:blink 2s infinite}
+.cb-mod{position:fixed;bottom:100px;right:28px;z-index:499;width:360px;max-width:calc(100vw - 32px);background:#0e1623;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);transform:scale(.85) translateY(20px);opacity:0;pointer-events:none;transition:all .3s;display:flex;flex-direction:column;max-height:600px}
+.cb-mod.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.cb-head{background:linear-gradient(135deg,#5b8fd6 0%,#c9a24b 100%);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.cb-head-ava{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;color:#fff}
+.cb-head-info{flex:1}
+.cb-head-name{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.02em;color:#070b14}
+.cb-head-sub{font-size:.7rem;color:rgba(7,11,20,.7);margin-top:1px}
+.cb-head-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0}
+.cb-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.75);line-height:1;transition:color .2s;display:flex;align-items:center;justify-content:center}
+.cb-close:hover{color:#fff}
+.cb-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);background:#0a1120}
+.cb-tab{flex:1;padding:10px 6px;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:all .2s;border-bottom:2px solid transparent}
+.cb-tab.active-lav{color:var(--blue);border-bottom-color:var(--blue)}
+.cb-tab.active-rose{color:var(--rose);border-bottom-color:var(--rose)}
+.cb-body{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:10px;min-height:120px;max-height:180px}
+.cb-body::-webkit-scrollbar{width:4px}
+.cb-body::-webkit-scrollbar-track{background:transparent}
+.cb-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.msg{display:flex}
+.msg.bot{justify-content:flex-start}
+.msg.usr{justify-content:flex-end}
+.bub{max-width:82%;padding:10px 14px;border-radius:14px;font-size:.83rem;line-height:1.55;white-space:pre-line}
+.msg.bot .bub{background:#141d2e;color:var(--white);border-radius:14px 14px 14px 4px}
+.msg.usr .bub{background:var(--blue);color:#070b14;border-radius:14px 14px 4px 14px}
+.cb-panel{display:none;padding:12px 14px;gap:8px;flex-direction:column;overflow-y:auto;max-height:300px}
+.cb-panel.show{display:flex}
+.cita-btn{background:#101728;border:1px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;color:var(--white);text-align:left;display:flex;align-items:center;gap:10px;transition:all .2s}
+.cita-btn:hover{border-color:var(--blue);background:#10203a;color:var(--blue)}
+.cita-btn.rose-btn{border-color:var(--border-rose)}
+.cita-btn.rose-btn:hover{border-color:var(--rose);color:var(--rose);background:#1f1424}
+.cb-icon{font-size:1.1rem;flex-shrink:0}
+.cb-label{font-weight:600;display:block;font-size:.82rem;margin-bottom:2px}
+.cb-sub{font-size:.72rem;color:var(--muted)}
+.cb-text-panel{display:none;padding:10px 14px 12px}
+.cb-text-panel.show{display:block}
+.cb-text-row{display:flex;gap:8px;align-items:center}
+.cb-input{flex:1;background:#101728;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:.84rem;color:var(--white);outline:none;transition:border-color .2s}
+.cb-input:focus{border-color:var(--blue)}
+.cb-input::placeholder{color:var(--muted)}
+.cb-send{width:38px;height:38px;border-radius:50%;background:#5b8fd6;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:#070b14;flex-shrink:0}
+.cb-send:hover{background:#f08080;transform:scale(1.08)}
+.cb-foot2{background:#080d18;border-top:1px solid rgba(255,255,255,.04);text-align:center;padding:8px;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+/* Calendario inline en chat */
+.cal{background:#101728;border:1px solid var(--border);border-radius:12px;padding:.9rem;margin-bottom:.5rem;max-width:280px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}
+.cal-title{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--white)}
+.cal-nav{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--white);cursor:pointer;font-size:.95rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:.2s}
+.cal-nav:hover:not(:disabled){background:rgba(91,143,214,.3)}
+.cal-nav:disabled{opacity:.3;cursor:not-allowed}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:.3rem}
+.cal-dow span{text-align:center;font-size:.6rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;padding:.2rem 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{aspect-ratio:1;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--white);font-family:'Inter',sans-serif;font-size:.76rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s ease}
+.cal-day.is-empty{visibility:hidden;cursor:default}
+.cal-day:hover:not(:disabled):not(.is-selected){background:rgba(91,143,214,.3)}
+.cal-day.is-disabled{color:#37445c;cursor:not-allowed}
+.cal-day.is-today{border-color:var(--blue)}
+.cal-day.is-selected{background:var(--blue);color:#070b14;border-color:var(--blue)}
+.flow-opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+.flow-opts button{border:1px solid var(--border);background:#101728;color:var(--white);font-family:'Inter',sans-serif;font-size:.8rem;padding:.5rem .85rem;border-radius:18px;cursor:pointer;transition:.2s}
+.flow-opts button:hover:not(:disabled){background:rgba(91,143,214,.3)}
+.flow-opts button.is-selected{background:var(--blue);border-color:var(--blue);color:#070b14}
+.flow-form{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.5rem}
+.flow-form input{background:#101728;border:1px solid var(--border);border-radius:10px;padding:.65rem .85rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.84rem}
+.flow-form input:focus{outline:none;border-color:var(--blue)}
+.flow-submit{border:none;border-radius:10px;background:var(--blue);color:#070b14;font-family:'Inter',sans-serif;font-weight:600;padding:.7rem;cursor:pointer;transition:.2s}
+.flow-submit:hover{background:#f08080}
+.flow-err{color:#f87171;font-size:.74rem;min-height:1em}
+.chat-widget.used{opacity:.7;pointer-events:none}
+.chat-widget.used button:disabled,.chat-widget.used input:disabled{opacity:.6}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:14px 24px}
+  .nav-links{display:none}
+  .hero{padding:100px 24px 52px}
+  .hero h1{font-size:clamp(2.8rem,13vw,5.5rem)}
+  .servicios,.tarifas,.sobre,.contacto,.faq,.cta-sec{padding:80px 24px}
+  .serv-grid,.tarifas-grid{grid-template-columns:1fr}
+  .sobre-in{grid-template-columns:1fr;gap:40px}
+  .sobre-img-wrap{display:none}
+  .contacto-in{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cb-mod{right:12px;left:12px;width:auto}
+  .cb-fab{bottom:20px;right:20px}
+  .marquee-wrap,.marquee-wrap2{display:none}
+}
+@media(max-width:600px){
+  .hero-stats{gap:28px}
+  .sobre-stats{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<header>
-  <nav class="nav">
-    <a href="#" class="logo">Inmo<span>Élite</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="#beneficios">Ventajas</a>
-      <a href="#proceso">Cómo funciona</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#testimonios">Opiniones</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacto" class="btn btn-primary">Valoración gratis</a>
-    </div>
-    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
-  </nav>
-</header>
+<div class="demo-strip">
+  DEMO · Inmobiliaria · WhiteMoon Agencia IA · <a href="https://whitemoon.es">whitemoon.es</a>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-grid">
+<div class="preloader" id="pre">
+  <div class="pre-logo"><span style="color:#c9a24b">Inmo</span><span style="color:#5b8fd6">Élite</span></div>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo" style="display:flex;flex-direction:column;line-height:1.2;text-decoration:none;gap:1px"><span style="font-family:'Anton',sans-serif;font-size:1rem;color:#fff">Inmobiliaria</span><span style="font-size:.65rem;color:rgba(255,255,255,.55)">Venta · Alquiler · Inversión</span><span style="font-family:'Anton',sans-serif;font-size:.85rem"><span style="color:#c9a24b">Inmo</span><span style="color:#5b8fd6">Élite</span></span></a>
+  <div class="nav-links">
+    <a href="#servicios">Ventajas</a>
+    <a href="#partidos">Servicios</a>
+    <a href="#nosotros">Cómo funciona</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="tel:643199580" class="nav-cta">643 199 580</a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      +1.200 viviendas vendidas
+    </div>
+    <h1>
+      Vende tu vivienda<br>
+      <span class="lav">al mejor precio</span> y en <span class="rose">tiempo récord</span>
+    </h1>
+    <p class="hero-sub">
+      Agencia inmobiliaria de referencia. Marketing premium, fotografía profesional y una cartera de +12.000 compradores cualificados trabajando para ti.
+    </p>
+    <div class="hero-cta-row">
+      <a href="tel:643199580" class="btn-primary">Llamar ahora</a>
+      <button type="button" class="btn-outline" data-openchat>Habla con Carlos</button>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><strong>47 días</strong><span>venta media</span></div>
+      <div class="h-stat"><strong>98%</strong><span>clientes satisfechos</span></div>
+      <div class="h-stat"><strong>15 años</strong><span>de experiencia</span></div>
+      <div class="h-stat"><strong>0€</strong><span>hasta la venta</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Tasación gratuita <span class="sep">·</span></span>
+    <span class="marquee-item">Marketing premium <span class="sep">·</span></span>
+    <span class="marquee-item">Tour virtual 360º <span class="sep">·</span></span>
+    <span class="marquee-item">Asesoría legal incluida <span class="sep">·</span></span>
+    <span class="marquee-item">+12.000 compradores <span class="sep">·</span></span>
+    <span class="marquee-item">Venta en 47 días <span class="sep">·</span></span>
+    <span class="marquee-item">Tasación gratuita <span class="sep">·</span></span>
+    <span class="marquee-item">Marketing premium <span class="sep">·</span></span>
+    <span class="marquee-item">Tour virtual 360º <span class="sep">·</span></span>
+    <span class="marquee-item">Asesoría legal incluida <span class="sep">·</span></span>
+    <span class="marquee-item">+12.000 compradores <span class="sep">·</span></span>
+    <span class="marquee-item">Venta en 47 días <span class="sep">·</span></span>
+  </div>
+</div>
+
+<section class="servicios" id="servicios">
+  <div class="section-header">
     <div>
-      <h1>Vendemos tu vivienda <span>al mejor precio</span> y en tiempo récord</h1>
-      <p class="lead">Somos la agencia inmobiliaria de referencia. Marketing premium, fotografía profesional y una cartera de +12.000 compradores qualificados trabajando para ti.</p>
-      <ul class="hero-bullets">
-        <li>Valoración gratuita en 24h</li>
-        <li>Venta media en 47 días</li>
-        <li>Sin gastos hasta la venta</li>
-        <li>98% de clientes satisfechos</li>
-      </ul>
-      <a href="#contacto" class="btn btn-primary">Solicitar valoración gratuita →</a>
+      <div class="section-tag">01 — Por qué elegirnos</div>
+      <h2 class="section-title">Más que una<br><span class="lav">inmobiliaria</span></h2>
     </div>
+    <p class="section-subtitle">Combinamos tecnología, marketing digital y un equipo humano experto para conseguir el máximo precio por tu propiedad.</p>
+  </div>
+  <div class="serv-grid">
+    <div class="serv-card">
+      <div class="serv-num">01</div>
+      <h3>Tasación precisa</h3>
+      <p>Análisis comparativo de mercado con datos reales para fijar el precio óptimo de venta.</p>
+      <span class="serv-link">Valoración en 24h</span>
+    </div>
+    <div class="serv-card rose-card">
+      <div class="serv-num">02</div>
+      <h3>Marketing premium</h3>
+      <p>Fotografía profesional, tour virtual 360º, home staging y campañas en +30 portales.</p>
+      <span class="serv-link">Máxima visibilidad</span>
+    </div>
+    <div class="serv-card">
+      <div class="serv-num">03</div>
+      <h3>Asesoría legal</h3>
+      <p>Gestionamos contratos, certificados, hipotecas y toda la documentación sin coste.</p>
+      <span class="serv-link">Incluida siempre</span>
+    </div>
+    <div class="serv-card rose-card">
+      <div class="serv-num">04</div>
+      <h3>Venta rápida</h3>
+      <p>Nuestra cartera de +12.000 compradores cualificados acelera el proceso de forma notable.</p>
+      <span class="serv-link">47 días de media</span>
+    </div>
+    <div class="serv-card">
+      <div class="serv-num">05</div>
+      <h3>Alquiler gestionado</h3>
+      <p>Filtro de solvencia, contratos legales, cobro de rentas y seguro de impago.</p>
+      <span class="serv-link">Sin preocupaciones</span>
+    </div>
+    <div class="serv-card rose-card">
+      <div class="serv-num">06</div>
+      <h3>Inversión inmobiliaria</h3>
+      <p>Estudio de rentabilidad, búsqueda a medida, reformas llave en mano y gestión patrimonial.</p>
+      <span class="serv-link">Para inversores</span>
+    </div>
+  </div>
+</section>
 
-    <!-- FORMULARIO -->
-    <form class="form-card" id="leadForm" onsubmit="return enviarForm(event)">
-      <h3>🏠 Valoración gratuita de tu inmueble</h3>
-      <p class="sub">Descubre cuánto vale tu propiedad hoy mismo</p>
+<section class="tarifas" id="partidos">
+  <div class="section-header" style="max-width:1200px;margin:0 auto 0">
+    <div>
+      <div class="section-tag">02 — Cómo trabajamos</div>
+      <h2 class="section-title">4 pasos<br><span class="rose">hasta la venta</span></h2>
+    </div>
+    <p class="section-subtitle">Un proceso claro, transparente y sin sorpresas, desde la primera visita hasta la firma en notaría.</p>
+  </div>
+  <div class="tarifas-grid">
+    <div class="tarifa-card featured">
+      <div class="tarifa-badge">Paso 1</div>
+      <h3>Valoración</h3>
+      <div class="tarifa-precio">24h</div>
+      <div class="tarifa-periodo">informe gratuito</div>
+      <p class="tarifa-desc">Visitamos tu inmueble y te entregamos un informe de valor gratuito en 24 horas.</p>
+    </div>
+    <div class="tarifa-card">
+      <div class="tarifa-badge">Paso 2</div>
+      <h3>Preparación</h3>
+      <div class="tarifa-precio rose">Premium</div>
+      <div class="tarifa-periodo">marketing visual</div>
+      <p class="tarifa-desc">Sesión fotográfica, tour virtual y optimización para portales y redes sociales.</p>
+    </div>
+    <div class="tarifa-card">
+      <div class="tarifa-badge">Paso 3</div>
+      <h3>Promoción</h3>
+      <div class="tarifa-precio">+30 portales</div>
+      <div class="tarifa-periodo">difusión masiva</div>
+      <p class="tarifa-desc">Difusión masiva, visitas filtradas y negociación experta en tu nombre.</p>
+    </div>
+  </div>
+  <div class="tarifas-grid" style="margin-top:18px;grid-template-columns:repeat(1,1fr)">
+    <div class="tarifa-card">
+      <div class="tarifa-badge">Paso 4</div>
+      <h3>Cierre</h3>
+      <div class="tarifa-precio rose">Garantizado</div>
+      <div class="tarifa-periodo">notaría y cobro</div>
+      <p class="tarifa-desc">Firma ante notario, gestión fiscal completa y cobro garantizado de tu venta.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre *</label>
-          <input type="text" name="nombre" required placeholder="Tu nombre">
+<section class="sobre" id="nosotros">
+  <div class="sobre-in">
+    <div class="sobre-text">
+      <div class="section-tag">03 — Sobre nosotros</div>
+      <h2>Tu socio<br><span class="lav">estratégico</span></h2>
+      <p>Combinamos tecnología, marketing digital y un equipo humano experto para conseguir el máximo precio por tu propiedad. Honorarios entre el 3% y el 5% sobre el precio final, sin cobrar nada hasta que se cierra la operación.</p>
+      <p>Trabajamos con contratos transparentes y sin permanencias abusivas: puedes cancelar el mandato con un preaviso de 15 días, en cualquier momento.</p>
+      <div class="sobre-stats">
+        <div class="stat-box">
+          <div class="stat-num">+1.200</div>
+          <div class="stat-lbl">viviendas vendidas</div>
         </div>
-        <div class="form-group">
-          <label>Teléfono *</label>
-          <input type="tel" name="telefono" required placeholder="600 000 000">
+        <div class="stat-box rose-box">
+          <div class="stat-num">47 días</div>
+          <div class="stat-lbl">tiempo medio de venta</div>
+        </div>
+        <div class="stat-box rose-box">
+          <div class="stat-num">98%</div>
+          <div class="stat-lbl">clientes satisfechos</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">15 años</div>
+          <div class="stat-lbl">de experiencia</div>
         </div>
       </div>
-
-      <div class="form-group">
-        <label>Email *</label>
-        <input type="email" name="email" required placeholder="tu@email.com">
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Tipo de inmueble</label>
-          <select name="tipo">
-            <option>Piso</option>
-            <option>Casa / Chalet</option>
-            <option>Ático</option>
-            <option>Local / Oficina</option>
-            <option>Otro</option>
-          </select>
+    </div>
+    <div class="sobre-img-wrap">
+      <div style="background:linear-gradient(135deg,#0d1a2a,#1a2d3d);border-radius:20px;padding:40px 32px;text-align:center;border:2px solid rgba(91,143,214,.2);width:100%">
+        <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#5b8fd6,#c9a24b);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#070b14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
         </div>
-        <div class="form-group">
-          <label>Ubicación</label>
-          <input type="text" name="ubicacion" placeholder="Ciudad / Zona">
+        <div style="font-family:'Anton',sans-serif;font-size:1.8rem;margin-bottom:4px"><span style="color:#c9a24b">Inmo</span><span style="color:#5b8fd6">Élite</span></div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase">Agencia inmobiliaria</div>
+        <div style="height:1px;background:rgba(91,143,214,.2);margin-bottom:24px"></div>
+        <div style="background:linear-gradient(135deg,#1a2638,#0f1822);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;text-align:left">
+          <div style="flex:1">
+            <div style="font-size:.68rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px">Honorarios</div>
+            <div style="font-family:'Anton',sans-serif;font-size:1.05rem;color:#fff;letter-spacing:.02em">3% – 5%</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.7);margin-top:3px">Solo al cerrar la venta</div>
+          </div>
         </div>
       </div>
-
-      <div class="form-group">
-        <label>Cuéntanos brevemente (opcional)</label>
-        <textarea name="mensaje" rows="2" placeholder="m², estado, urgencia..."></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Quiero mi valoración gratis</button>
-      <p class="form-note">🔒 Tus datos están seguros. Sin compromiso.</p>
-      <div class="success-msg" id="successMsg">✅ ¡Gracias! Te contactaremos en menos de 24h.</div>
-    </form>
-  </div>
-</section>
-
-<!-- CONFIANZA -->
-<section class="trust" style="padding:50px 0">
-  <div class="container trust-grid">
-    <div class="trust-item"><h3>+1.200</h3><p>Viviendas vendidas</p></div>
-    <div class="trust-item"><h3>47 días</h3><p>Tiempo medio de venta</p></div>
-    <div class="trust-item"><h3>98%</h3><p>Clientes satisfechos</p></div>
-    <div class="trust-item"><h3>15 años</h3><p>De experiencia</p></div>
-  </div>
-</section>
-
-<!-- BENEFICIOS -->
-<section id="beneficios">
-  <div class="container">
-    <div class="section-title">
-      <span class="tag">Por qué elegirnos</span>
-      <h2>Más que una inmobiliaria, tu socio estratégico</h2>
-      <p>Combinamos tecnología, marketing digital y un equipo humano experto para conseguir el máximo precio por tu propiedad.</p>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit">
-        <div class="icon">📊</div>
-        <h3>Tasación precisa</h3>
-        <p>Análisis comparativo de mercado con datos reales para fijar el precio óptimo de venta.</p>
-      </div>
-      <div class="benefit">
-        <div class="icon">📸</div>
-        <h3>Marketing premium</h3>
-        <p>Fotografía profesional, tour virtual 360º, home staging y campañas en +30 portales.</p>
-      </div>
-      <div class="benefit">
-        <div class="icon">🤝</div>
-        <h3>Asesoría legal</h3>
-        <p>Gestionamos contratos, certificados, hipotecas y toda la documentación sin coste.</p>
-      </div>
-      <div class="benefit">
-        <div class="icon">⚡</div>
-        <h3>Venta rápida</h3>
-        <p>Nuestra cartera de compradores cualificados acelera el proceso de forma notable.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESO -->
-<section class="proceso" id="proceso">
-  <div class="container">
-    <div class="section-title">
-      <span class="tag">Cómo trabajamos</span>
-      <h2>4 pasos hasta la venta</h2>
+<div class="marquee-wrap2">
+  <div class="marquee-track2">
+    <span class="marquee-item2">Venta de viviendas ·</span>
+    <span class="marquee-item2">Alquiler gestionado ·</span>
+    <span class="marquee-item2">Inversión inmobiliaria ·</span>
+    <span class="marquee-item2">Home staging ·</span>
+    <span class="marquee-item2">Tasaciones gratuitas ·</span>
+    <span class="marquee-item2">Venta de viviendas ·</span>
+    <span class="marquee-item2">Alquiler gestionado ·</span>
+    <span class="marquee-item2">Inversión inmobiliaria ·</span>
+    <span class="marquee-item2">Home staging ·</span>
+    <span class="marquee-item2">Tasaciones gratuitas ·</span>
+  </div>
+</div>
+
+<section class="contacto" id="contacto">
+  <div class="contacto-in">
+    <div class="contacto-text">
+      <div class="section-tag">04 — Contacto</div>
+      <h2>Pide tu<br><span class="lav">valoración gratis</span></h2>
+      <p>Si tienes dudas o quieres dar el primer paso, puedes llamarnos, escribirnos o hablar con nuestro asistente Carlos. Te ayudamos a tasar tu vivienda sin compromiso.</p>
+      <div class="contact-items">
+        <div class="c-item"><span class="c-dot"></span>643 199 580 — WhatsApp / teléfono</div>
+        <div class="c-item"><span class="c-dot"></span>C/ Gran Vía 25, Madrid</div>
+        <div class="c-item"><span class="c-dot"></span>comercial@whitemoon.es</div>
+      </div>
     </div>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><h3>Valoración</h3><p>Visitamos tu inmueble y te entregamos un informe de valor gratuito en 24h.</p></div>
-      <div class="step"><div class="step-num">2</div><h3>Preparación</h3><p>Sesión fotográfica, tour virtual y optimización para portales y redes.</p></div>
-      <div class="step"><div class="step-num">3</div><h3>Promoción</h3><p>Difusión masiva, visitas filtradas y negociación experta por ti.</p></div>
-      <div class="step"><div class="step-num">4</div><h3>Cierre</h3><p>Firma ante notario, gestión fiscal y cobro garantizado.</p></div>
+    <div class="contacto-box">
+      <h3>Valoración gratuita sin compromiso</h3>
+      <p>Llámanos o habla con Carlos y te ayudamos a saber cuánto vale tu propiedad hoy mismo.</p>
+      <a href="tel:643199580" class="btn-primary" style="justify-content:center;width:100%;margin-bottom:12px">Llamar ahora</a>
+      <button type="button" class="btn-outline" data-openchat style="justify-content:center;width:100%">Habla con Carlos</button>
     </div>
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-  <div class="container">
-    <div class="section-title">
-      <span class="tag">Nuestros servicios</span>
-      <h2>Todo lo que necesitas bajo un mismo techo</h2>
-    </div>
-    <div class="servicios-grid">
-      <div class="servicio">
-        <h3>🏡 Venta de viviendas</h3>
-        <p>Servicio integral para vender tu piso, casa o chalet al mejor precio.</p>
-        <ul>
-          <li>Tasación gratuita</li>
-          <li>Home staging</li>
-          <li>Fotografía HDR</li>
-          <li>Tour virtual 360º</li>
-        </ul>
-      </div>
-      <div class="servicio">
-        <h3>🔑 Alquiler gestionado</h3>
-        <p>Encontramos inquilinos fiables y nos encargamos de todo el proceso.</p>
-        <ul>
-          <li>Filtro de solvencia</li>
-          <li>Contratos legales</li>
-          <li>Cobro de rentas</li>
-          <li>Seguro impago</li>
-        </ul>
-      </div>
-      <div class="servicio">
-        <h3>💼 Inversión inmobiliaria</h3>
-        <p>Asesoramos a inversores para maximizar la rentabilidad de su capital.</p>
-        <ul>
-          <li>Estudio de rentabilidad</li>
-          <li>Búsqueda a medida</li>
-          <li>Reformas llave en mano</li>
-          <li>Gestión patrimonial</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section class="testimonios" id="testimonios">
-  <div class="container">
-    <div class="section-title">
-      <span class="tag" style="color:var(--dorado-claro)">Opiniones reales</span>
-      <h2>Lo que dicen nuestros clientes</h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <p>"Vendieron mi piso en 3 semanas y por encima del precio que pedía. Profesionalidad absoluta."</p>
-        <div class="test-author"><div class="test-avatar">LM</div><div><strong>Laura Martínez</strong><span>Vendió piso en Madrid</span></div></div>
-      </div>
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <p>"El tour virtual fue clave. Recibimos 40 visitas en la primera semana y cerramos con una familia encantadora."</p>
-        <div class="test-author"><div class="test-avatar">JR</div><div><strong>Javier Ruiz</strong><span>Vendió chalet en Valencia</span></div></div>
-      </div>
-      <div class="test-card">
-        <div class="stars">★★★★★</div>
-        <p>"Me gestionaron todo: papeles, hipoteca del comprador, notaría... solo tuve que firmar. 10/10."</p>
-        <div class="test-author"><div class="test-avatar">AS</div><div><strong>Ana Sánchez</strong><span>Vendió ático en Barcelona</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="container">
-    <div class="section-title">
-      <span class="tag">Preguntas frecuentes</span>
-      <h2>Resolvemos tus dudas</h2>
-    </div>
+<section class="faq" id="faq">
+  <div class="faq-in">
+    <div class="section-tag" style="text-align:center">05 — Preguntas frecuentes</div>
+    <h2 class="section-title" style="text-align:center;margin:10px 0 0">Resolvemos<br><span class="lav">tus dudas</span></h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q">¿Cuánto cobráis por vender mi vivienda?</div><div class="faq-a"><p>Nuestros honorarios son entre un 3% y un 5% sobre el precio final de venta, según el tipo de inmueble y ubicación. No cobramos nada hasta que se cierra la operación.</p></div></div>
-      <div class="faq-item"><div class="faq-q">¿Cuánto tardaréis en vender mi piso?</div><div class="faq-a"><p>Nuestro tiempo medio de venta es de 47 días. Depende del precio, ubicación y estado, pero te daremos una estimación realista desde la primera visita.</p></div></div>
-      <div class="faq-item"><div class="faq-q">¿Puedo cancelar el mandato en cualquier momento?</div><div class="faq-a"><p>Sí. Trabajamos con contratos transparentes y sin permanencias abusivas. Puedes cancelar con un preaviso de 15 días.</p></div></div>
-      <div class="faq-item"><div class="faq-q">¿Os encargáis de la documentación legal?</div><div class="faq-a"><p>Completamente. Revisamos cédulas, certificados energéticos, cargas registrales y preparamos toda la documentación para la notaría.</p></div></div>
-      <div class="faq-item"><div class="faq-q">¿Qué es el home staging y por qué lo recomendáis?</div><div class="faq-a"><p>Es una técnica de presentación del inmueble que puede aumentar el precio final entre un 5% y un 15% y reducir el tiempo de venta a la mitad. Lo incluimos en nuestros paquetes premium.</p></div></div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Cuánto cobráis por vender mi vivienda?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Nuestros honorarios son entre un 3% y un 5% sobre el precio final de venta, según el tipo de inmueble y ubicación. No cobramos nada hasta que se cierra la operación.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Cuánto tardaréis en vender mi piso?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Nuestro tiempo medio de venta es de 47 días. Depende del precio, ubicación y estado, pero te daremos una estimación realista desde la primera visita.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Puedo cancelar el mandato en cualquier momento?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Sí. Trabajamos con contratos transparentes y sin permanencias abusivas. Puedes cancelar con un preaviso de 15 días.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Os encargáis de la documentación legal?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Completamente. Revisamos cédulas, certificados energéticos, cargas registrales y preparamos toda la documentación para la notaría.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Qué es el home staging y por qué lo recomendáis?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Es una técnica de presentación del inmueble que puede aumentar el precio final entre un 5% y un 15% y reducir el tiempo de venta a la mitad. Lo incluimos en nuestros paquetes premium.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-final" id="contacto">
-  <div class="container">
-    <h2>¿Listo para vender tu inmueble al mejor precio?</h2>
-    <p>Solicita tu valoración gratuita hoy. Sin compromiso.</p>
-    <a href="#leadForm" class="btn">Quiero mi valoración gratis →</a>
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="section-tag" style="margin-bottom:14px">Da el primer paso</div>
+    <h2>Tu venta<br><span class="lav">empieza</span> <span class="rose">aquí</span></h2>
+    <p>Habla con Carlos y pide tu valoración gratuita sin compromiso. Sin esperas, sin complicaciones.</p>
+    <div class="cta-btns">
+      <a href="tel:643199580" class="btn-primary">643 199 580</a>
+      <button type="button" class="btn-outline" data-openchat style="border-color:rgba(201,162,75,.3);color:var(--rose);cursor:pointer;font-family:'Inter',sans-serif">Habla con Carlos</button>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <div class="logo" style="color:#fff;margin-bottom:12px">Inmo<span>Élite</span></div>
-        <p>Tu agencia inmobiliaria de confianza. Más de 15 años ayudando a familias a vender su hogar al mejor precio.</p>
+  <div class="footer-in">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-family:'Anton',sans-serif;font-size:1.2rem;margin-bottom:14px"><span style="color:#c9a24b">Inmo</span><span style="color:#5b8fd6">Élite</span><div style="font-size:.7rem;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-weight:400;margin-top:2px">Tu agencia inmobiliaria · Madrid</div></div>
+        <p>Más de 15 años ayudando a familias a vender su hogar al mejor precio. Marketing premium y venta media en 47 días.</p>
       </div>
-      <div class="foot-col">
+      <div class="footer-col">
         <h4>Servicios</h4>
-        <a href="#">Venta</a><a href="#">Alquiler</a><a href="#">Inversión</a><a href="#">Tasaciones</a>
+        <a href="#servicios">Venta de viviendas</a>
+        <a href="#servicios">Alquiler gestionado</a>
+        <a href="#servicios">Inversión inmobiliaria</a>
+        <a href="#servicios">Tasaciones</a>
       </div>
-      <div class="foot-col">
+      <div class="footer-col">
         <h4>Empresa</h4>
-        <a href="#">Sobre nosotros</a><a href="#">Equipo</a><a href="#">Blog</a><a href="#">Trabaja con nosotros</a>
+        <p>Sobre nosotros</p>
+        <p>Equipo</p>
+        <p>Blog</p>
+        <p>Trabaja con nosotros</p>
       </div>
-      <div class="foot-col">
+      <div class="footer-col">
         <h4>Contacto</h4>
-        <p>📞 +34 900 123 456</p>
-        <p>✉️ hola@inmoelite.es</p>
-        <p>📍 C/ Gran Vía 25, Madrid</p>
+        <a href="tel:643199580">643 199 580</a>
+        <a href="mailto:comercial@whitemoon.es">comercial@whitemoon.es</a>
+        <p>C/ Gran Vía 25, Madrid</p>
       </div>
     </div>
-    <div class="foot-bottom">© 2026 InmoÉlite. Todos los derechos reservados. | <a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 InmoÉlite · Demo · Powered by <a href="https://whitemoon.es">WhiteMoon Agencia IA</a></p>
+      <div class="footer-badge">DEMO · WHITEMOON · whitemoon.es</div>
+    </div>
   </div>
 </footer>
 
-<script>
-  // FAQ acordeón
-  document.querySelectorAll('.faq-item').forEach(item=>{
-    item.querySelector('.faq-q').addEventListener('click',()=>{
-      item.classList.toggle('active');
-    });
-  });
+<!-- CHATBOT FAB -->
+<button class="cb-fab" id="cb-fab" onclick="openChat()" aria-label="Hablar con Carlos">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#070b14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/>
+  </svg>
+  <span class="notif"></span>
+</button>
 
-  // Envío formulario (simulado - conectar con backend/CRM)
-  function enviarForm(e){
-    e.preventDefault();
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form));
-    console.log('Lead recibido:',data);
-    // TODO: enviar a tu CRM / email / webhook
-    // fetch('/api/leads',{method:'POST',body:JSON.stringify(data)})
-    document.getElementById('successMsg').style.display='block';
-    form.reset();
-    setTimeout(()=>document.getElementById('successMsg').style.display='none',6000);
-    return false;
+<!-- CHATBOT MODAL -->
+<div class="cb-mod" id="cb-mod">
+  <div class="cb-head">
+    <div class="cb-head-ava" style="background:linear-gradient(135deg,#5b8fd6,#c9a24b);font-family:'Anton',sans-serif;font-size:1rem;color:#070b14;font-weight:700">C</div>
+    <div class="cb-head-info">
+      <div class="cb-head-name">Asistente Carlos</div>
+      <div class="cb-head-sub">InmoÉlite · Valoraciones</div>
+    </div>
+    <span class="cb-head-dot"></span>
+    <button class="cb-close" onclick="closeChat()" aria-label="Cerrar">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+      </svg>
+    </button>
+  </div>
+  <div class="cb-tabs">
+    <button class="cb-tab active-lav" id="tab-cita" onclick="showTab('cita')">Valoración</button>
+    <button class="cb-tab" id="tab-info" onclick="showTab('info')">Servicios</button>
+    <button class="cb-tab" id="tab-texto" onclick="showTab('texto')">Preguntas</button>
+  </div>
+  <div class="cb-body" id="cb-body"></div>
+
+  <div class="cb-panel show" id="panel-cita">
+    <button class="cita-btn" onclick="cbCita('mesa')">
+      <span class="cb-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </span>
+      <div><span class="cb-label">Pedir valoración</span><span class="cb-sub">Gratuita y sin compromiso</span></div>
+    </button>
+    <button class="cita-btn urgente-btn" onclick="cbCita('urgente')" style="border-color:rgba(201,162,75,.4)">
+      <span class="cb-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </span>
+      <div><span class="cb-label">Quiero vender ya</span><span class="cb-sub">Respuesta prioritaria</span></div>
+    </button>
+  </div>
+
+  <div class="cb-panel" id="panel-info">
+    <button class="cita-btn" onclick="cbInfo('servicios')">
+      <span class="cb-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </span>
+      <div><span class="cb-label">Nuestros servicios</span><span class="cb-sub">Venta, alquiler, inversión</span></div>
+    </button>
+    <button class="cita-btn rose-btn" onclick="cbInfo('partidos')">
+      <span class="cb-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </span>
+      <div><span class="cb-label">Cómo trabajamos</span><span class="cb-sub">Los 4 pasos hasta la venta</span></div>
+    </button>
+    <button class="cita-btn" onclick="cbInfo('donde')">
+      <span class="cb-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </span>
+      <div><span class="cb-label">Dónde estamos</span><span class="cb-sub">Oficina en Madrid</span></div>
+    </button>
+  </div>
+
+  <div class="cb-text-panel" id="panel-texto">
+    <div class="cb-text-row">
+      <input class="cb-input" id="cb-input" type="text" placeholder="Escribe tu pregunta..." autocomplete="off"
+        onkeydown="if(event.key==='Enter')sendMsg()">
+      <button class="cb-send" onclick="sendMsg()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="cb-foot2">INMOÉLITE · ASISTENTE CARLOS · DEMO WHITEMOON IA</div>
+</div>
+
+<!-- BADGE FIJO INFERIOR IZQUIERDA -->
+<div style="position:fixed;bottom:28px;left:28px;z-index:400;background:linear-gradient(135deg,#1a2638,#0f1822);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(0,0,0,.5);border:1px solid rgba(91,143,214,.25);max-width:260px">
+  <div style="flex:1">
+    <div style="font-size:.6rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-bottom:2px">Resultados</div>
+    <div style="font-family:'Anton',sans-serif;font-size:.95rem;color:#fff;letter-spacing:.02em">98% satisfacción</div>
+    <div style="font-size:.68rem;color:rgba(255,255,255,.65);margin-top:2px;line-height:1.3">+1.200 viviendas vendidas</div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+window.addEventListener('load',function(){
+  setTimeout(function(){document.getElementById('pre').classList.add('hide');},900);
+});
+
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+window.toggleFaq = function(btn){
+  var item=btn.closest('.faq-item');
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)item.classList.add('open');
+};
+
+/* ====================================================
+   CONFIG — Edge Function de Supabase (sin apikeys en cliente)
+==================================================== */
+var SUPABASE_URL = 'https://mlaqtniujnvfxcvcourm.supabase.co';
+var NOTIFY_FN = SUPABASE_URL + '/functions/v1/inmoelite-notify';
+
+function notifyWhatsApp(data){
+  return fetch(NOTIFY_FN, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  }).catch(function(e){ console.warn('notify', e); });
+}
+
+var greeted=false;
+var estado='libre';
+var reserva={asunto:'',tipo:'',ubicacion:'',fecha:'',hora:'',nombre:'',telefono:'',email:''};
+
+function openChat(){
+  document.getElementById('cb-mod').classList.add('open');
+  document.getElementById('cb-fab').style.display='none';
+  if(!greeted){
+    greeted=true;
+    setTimeout(function(){
+      botSay('Hola, soy Carlos, asistente de InmoÉlite. Puedo ayudarte a pedir tu valoración gratuita o resolver dudas sobre nuestros servicios. ¿En qué te ayudo?');
+    },350);
+  }
+}
+
+function closeChat(){
+  document.getElementById('cb-mod').classList.remove('open');
+  document.getElementById('cb-fab').style.display='flex';
+}
+
+function showTab(tab){
+  ['cita','info','texto'].forEach(function(t){
+    document.getElementById('panel-'+t).classList.remove('show');
+    var btn=document.getElementById('tab-'+t);
+    btn.classList.remove('active-lav','active-rose');
+  });
+  document.getElementById('panel-'+tab).classList.add('show');
+  var activeBtn=document.getElementById('tab-'+tab);
+  activeBtn.classList.add(tab==='info'?'active-rose':'active-lav');
+  if(tab==='texto')setTimeout(function(){document.getElementById('cb-input').focus();},100);
+}
+
+function botSay(txt){
+  var body=document.getElementById('cb-body');
+  var m=document.createElement('div');m.className='msg bot';
+  var b=document.createElement('div');b.className='bub';b.textContent=txt;
+  m.appendChild(b);body.appendChild(m);
+  body.scrollTop=body.scrollHeight;
+}
+
+function usrSay(txt){
+  var body=document.getElementById('cb-body');
+  var m=document.createElement('div');m.className='msg usr';
+  var b=document.createElement('div');b.className='bub';b.textContent=txt;
+  m.appendChild(b);body.appendChild(m);
+  body.scrollTop=body.scrollHeight;
+}
+
+function addWidget(){
+  var body=document.getElementById('cb-body');
+  var w=document.createElement('div');w.className='chat-widget';
+  body.appendChild(w);body.scrollTop=body.scrollHeight;
+  return w;
+}
+
+function lockWidget(w){
+  w.classList.add('used');
+  w.querySelectorAll('button,input').forEach(function(el){el.disabled=true;});
+}
+
+var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+var DOW=['L','M','X','J','V','S','D'];
+function pad(n){return (n<10?'0':'')+n;}
+
+function cbCita(tipo){
+  reserva={asunto:(tipo==='urgente'?'QUIERE VENDER YA':'Solicitud de valoración'),tipo:'',ubicacion:'',fecha:'',hora:'',nombre:'',telefono:'',email:''};
+  showTab('texto');
+  usrSay(tipo==='urgente'?'Quiero vender ya':'Pedir valoración');
+
+  if(tipo==='urgente'){
+    setTimeout(function(){
+      botSay('Entendido. Para poder ayudarte cuanto antes necesito unos datos. ¿Cuál es tu nombre?');
+      estado='nombre-urgente';
+    },400);
+    return;
   }
 
-  // Cerrar menú móvil al hacer clic
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+  setTimeout(function(){
+    botSay('¿Qué tipo de inmueble quieres vender o alquilar?');
+    setTimeout(stepTipo,300);
+  },400);
+}
+
+function stepTipo(){
+  var w=addWidget();
+  var tipos=['Piso','Casa / Chalet','Ático','Local / Oficina','Otro'];
+  w.innerHTML='<div class="flow-opts">'+tipos.map(function(p){
+    return '<button type="button" data-p="'+p+'">'+p+'</button>';
+  }).join('')+'</div>';
+  w.querySelectorAll('[data-p]').forEach(function(b){
+    b.addEventListener('click',function(){
+      reserva.tipo=b.getAttribute('data-p');
+      lockWidget(w);b.classList.add('is-selected');
+      usrSay(reserva.tipo);
+      setTimeout(function(){botSay('Para tu valoración, necesito unos datos.\n\n¿Cómo te llamas?');setTimeout(stepFecha,300);},400);
+    });
   });
+}
+
+function stepFecha(){
+  var w=addWidget();
+  w.innerHTML='<div class="flow-form">'
+    +'<input type="text" data-f="nombre" placeholder="Tu nombre" autocomplete="name">'
+    +'<input type="tel" data-f="telefono" placeholder="Tu teléfono" autocomplete="tel" inputmode="tel">'
+    +'<input type="text" data-f="ubicacion" placeholder="Ciudad / zona del inmueble" autocomplete="off">'
+    +'<button type="button" class="flow-submit">Continuar</button>'
+    +'<div class="flow-err" aria-live="polite"></div></div>';
+  var nombre=w.querySelector('[data-f="nombre"]'),tel=w.querySelector('[data-f="telefono"]'),ubicacion=w.querySelector('[data-f="ubicacion"]');
+  var btn=w.querySelector('.flow-submit'),err=w.querySelector('.flow-err');
+  function submit(){
+    var n=nombre.value.trim(),t=tel.value.trim(),u=ubicacion.value.trim();
+    if(!n){err.textContent='Por favor, indica tu nombre.';return;}
+    if(!/^[6-9]\d{8}$/.test(t.replace(/\s/g,''))){err.textContent='Indica un teléfono válido (9 dígitos).';return;}
+    reserva.nombre=n;reserva.telefono=t;reserva.ubicacion=u;
+    lockWidget(w);
+    usrSay(n+' · '+t+(u?' · '+u:''));
+    setTimeout(function(){botSay('Por último, elige el día que prefieres para que te llamemos.');setTimeout(stepCalendario,300);},400);
+  }
+  btn.addEventListener('click',submit);
+  ubicacion.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit();}});
+  setTimeout(function(){nombre.focus();},50);
+}
+
+function stepCalendario(){
+  var w=addWidget();
+  var today=new Date();today.setHours(0,0,0,0);
+  var view={y:today.getFullYear(),m:today.getMonth()};
+  function render(){
+    var startOffset=(new Date(view.y,view.m,1).getDay()+6)%7;
+    var daysInMonth=new Date(view.y,view.m+1,0).getDate();
+    var atCurrent=(view.y===today.getFullYear()&&view.m===today.getMonth());
+    var h='<div class="cal"><div class="cal-head">'
+      +'<button type="button" class="cal-nav" data-nav="-1"'+(atCurrent?' disabled':'')+'>‹</button>'
+      +'<span class="cal-title">'+MESES[view.m]+' '+view.y+'</span>'
+      +'<button type="button" class="cal-nav" data-nav="1">›</button></div>';
+    h+='<div class="cal-dow">'+DOW.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div>';
+    h+='<div class="cal-grid">';
+    for(var i=0;i<startOffset;i++)h+='<span class="cal-day is-empty"></span>';
+    for(var d=1;d<=daysInMonth;d++){
+      var date=new Date(view.y,view.m,d);
+      var past=date<today;
+      var isToday=date.getTime()===today.getTime();
+      var cls='cal-day'+(past?' is-disabled':'')+(isToday?' is-today':'');
+      h+='<button type="button" class="'+cls+'"'+(past?' disabled':' data-day="'+d+'"')+'>'+d+'</button>';
+    }
+    h+='</div></div>';
+    w.innerHTML=h;
+    w.querySelectorAll('[data-nav]').forEach(function(b){
+      b.addEventListener('click',function(){
+        view.m+=parseInt(b.getAttribute('data-nav'),10);
+        if(view.m<0){view.m=11;view.y--;}
+        if(view.m>11){view.m=0;view.y++;}
+        render();
+      });
+    });
+    w.querySelectorAll('[data-day]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var d=parseInt(b.getAttribute('data-day'),10);
+        reserva.fecha=pad(d)+'/'+pad(view.m+1)+'/'+view.y;
+        lockWidget(w);
+        b.classList.add('is-selected');
+        usrSay(reserva.fecha);
+        setTimeout(function(){botSay('¿A qué hora le viene mejor?');setTimeout(stepHora,300);},400);
+      });
+    });
+    document.getElementById('cb-body').scrollTop=document.getElementById('cb-body').scrollHeight;
+  }
+  render();
+}
+
+function stepHora(){
+  var w=addWidget();
+  var horas=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','16:00','16:30','17:00','17:30','18:00'];
+  w.innerHTML='<div class="flow-opts">'+horas.map(function(h){
+    return '<button type="button" data-h="'+h+'">'+h+'</button>';
+  }).join('')+'</div>';
+  w.querySelectorAll('[data-h]').forEach(function(b){
+    b.addEventListener('click',function(){
+      reserva.hora=b.getAttribute('data-h');
+      lockWidget(w);b.classList.add('is-selected');
+      usrSay(reserva.hora);
+      setTimeout(function(){
+        botSay('Perfecto, '+reserva.nombre+'. Resumen de tu solicitud:\n\n'+
+          '• Nombre: '+reserva.nombre+'\n'+
+          '• Tel: '+reserva.telefono+'\n'+
+          '• Tipo de inmueble: '+(reserva.tipo||'-')+'\n'+
+          '• Ubicación: '+(reserva.ubicacion||'-')+'\n'+
+          '• Fecha de contacto: '+reserva.fecha+' a las '+reserva.hora+'\n\n'+
+          'Enviando la solicitud...');
+        setTimeout(finishReserva,1000);
+      },600);
+    });
+  });
+}
+
+function finishReserva(){
+  notifyWhatsApp({
+    nombre:reserva.nombre,
+    telefono:reserva.telefono,
+    tipo:reserva.tipo||'',
+    ubicacion:reserva.ubicacion||'',
+    asunto:reserva.asunto,
+    fecha:reserva.fecha||'',
+    hora:reserva.hora||'',
+    urgente:(reserva.asunto==='QUIERE VENDER YA'),
+    origen:'inmoelite-chat-carlos'
+  });
+  setTimeout(function(){
+    botSay('Tu solicitud ya está registrada. Nos pondremos en contacto contigo para tu valoración gratuita. Gracias por tu confianza.');
+  },400);
+}
+
+function cbInfo(tipo){
+  showTab('texto');
+  var msgs={
+    'servicios':'Nuestros servicios:\n\n- Venta de viviendas (tasación, home staging, fotografía HDR, tour 360º)\n- Alquiler gestionado (filtro de solvencia, contratos, cobro de rentas)\n- Inversión inmobiliaria (estudio de rentabilidad, búsqueda a medida)\n\nTodo bajo un mismo techo.',
+    'partidos':'Nuestro proceso en 4 pasos:\n\n1. Valoración gratuita en 24h\n2. Preparación: fotos, tour virtual, home staging\n3. Promoción en +30 portales y visitas filtradas\n4. Cierre: notaría, gestión fiscal y cobro garantizado\n\nVenta media en 47 días.',
+    'donde':'Oficina en Madrid.\n\nDirección: C/ Gran Vía 25, Madrid\nTeléfono / WhatsApp: 643 199 580\nEmail: comercial@whitemoon.es'
+  };
+  setTimeout(function(){botSay(msgs[tipo]);},200);
+}
+
+function sendMsg(){
+  var inp=document.getElementById('cb-input');
+  var txt=inp.value.trim();
+  if(!txt)return;
+  inp.value='';
+  usrSay(txt);
+
+  if(estado==='nombre-urgente'){
+    reserva.nombre=txt;estado='telefono-urgente';
+    setTimeout(function(){botSay('Gracias, '+txt+'. ¿Un teléfono para llamarte ahora mismo?');},400);
+    return;
+  }
+  if(estado==='telefono-urgente'){
+    if(!/^[6-9]\d{8}$/.test(txt.replace(/\s/g,''))){
+      setTimeout(function(){botSay('Ese número no parece correcto. ¿Me lo repites?');},400);
+      return;
+    }
+    reserva.telefono=txt;estado='libre';
+    setTimeout(function(){botSay('Recibido. Nos pondremos en contacto contigo en breve.');setTimeout(finishReserva,400);},400);
+    return;
+  }
+
+  var t=txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+  if(/hola|buenas|buenos|hey/.test(t)){
+    setTimeout(function(){botSay('¡Hola! Puedo ayudarte a pedir tu valoración gratuita o resolver dudas sobre nuestros servicios.');},400);
+  } else if(/precio|cuanto|coste|tarifa|honorario|comision/.test(t)){
+    setTimeout(function(){botSay('Nuestros honorarios son entre un 3% y un 5% sobre el precio final de venta. No cobramos nada hasta que se cierra la operación.\n\n¿Pedimos tu valoración?');},400);
+  } else if(/donde|direccion|ubicacion|llegar|oficina/.test(t)){
+    setTimeout(function(){botSay('Nuestra oficina está en C/ Gran Vía 25, Madrid. Teléfono / WhatsApp: 643 199 580.');},400);
+  } else if(/urgente|vender ya|rapido/.test(t)){
+    setTimeout(function(){botSay('Entendido, vamos rápido. Usa la opción "Quiero vender ya" en la pestaña Valoración.');showTab('cita');},400);
+  } else if(/alquiler|inquilino/.test(t)){
+    setTimeout(function(){botSay('Gestionamos el alquiler completo: filtro de solvencia, contratos legales, cobro de rentas y seguro de impago. ¿Pedimos tu valoración?');showTab('cita');},400);
+  } else if(/inversion|invertir|rentabilidad/.test(t)){
+    setTimeout(function(){botSay('Asesoramos a inversores con estudio de rentabilidad, búsqueda a medida y gestión patrimonial. ¿Quieres que te ayude a empezar?');},400);
+  } else if(/valoracion|tasacion|quiero|vender/.test(t)){
+    showTab('cita');
+    setTimeout(function(){botSay('Elige el tipo de solicitud en las opciones de arriba.');},300);
+  } else if(/gracias|perfecto|genial|ok|vale/.test(t)){
+    setTimeout(function(){botSay('De nada. Si necesitas algo más, aquí estoy.');},400);
+  } else {
+    setTimeout(function(){botSay('No tengo esa información exacta, pero puedo ayudarte a pedir tu valoración, o puedes llamarnos al 643 199 580.');},400);
+  }
+}
+
+document.querySelectorAll('[data-openchat]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); openChat(); });
+});
 </script>
+
 </body>
 </html>
