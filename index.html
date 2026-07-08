@@ -188,81 +188,54 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
 .footer-copy a{color:var(--blue)}
 .footer-badge{font-family:'Anton',sans-serif;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.2);text-transform:uppercase}
 
-/* CHATBOT */
-.cb-fab{position:fixed;bottom:28px;right:28px;z-index:500;width:60px;height:60px;background:#5b8fd6;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(91,143,214,.45);font-size:1.4rem;transition:all .25s;color:#fff}
-.cb-fab:hover{transform:scale(1.1);background:#f08080}
-.cb-fab .notif{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:var(--rose);border-radius:50%;border:2px solid var(--black);animation:blink 2s infinite}
-.cb-mod{position:fixed;bottom:100px;right:28px;z-index:499;width:360px;max-width:calc(100vw - 32px);background:#0e1623;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);transform:scale(.85) translateY(20px);opacity:0;pointer-events:none;transition:all .3s;display:flex;flex-direction:column;max-height:600px}
-.cb-mod.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
-.cb-head{background:linear-gradient(135deg,#5b8fd6 0%,#c9a24b 100%);padding:16px 18px;display:flex;align-items:center;gap:12px}
-.cb-head-ava{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;color:#fff}
-.cb-head-info{flex:1}
-.cb-head-name{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.02em;color:#070b14}
-.cb-head-sub{font-size:.7rem;color:rgba(7,11,20,.7);margin-top:1px}
-.cb-head-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0}
-.cb-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.75);line-height:1;transition:color .2s;display:flex;align-items:center;justify-content:center}
-.cb-close:hover{color:#fff}
-.cb-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);background:#0a1120}
-.cb-tab{flex:1;padding:10px 6px;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:all .2s;border-bottom:2px solid transparent}
-.cb-tab.active-lav{color:var(--blue);border-bottom-color:var(--blue)}
-.cb-tab.active-rose{color:var(--rose);border-bottom-color:var(--rose)}
-.cb-body{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:10px;min-height:120px;max-height:180px}
-.cb-body::-webkit-scrollbar{width:4px}
-.cb-body::-webkit-scrollbar-track{background:transparent}
-.cb-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-.msg{display:flex}
-.msg.bot{justify-content:flex-start}
-.msg.usr{justify-content:flex-end}
-.bub{max-width:82%;padding:10px 14px;border-radius:14px;font-size:.83rem;line-height:1.55;white-space:pre-line}
-.msg.bot .bub{background:#141d2e;color:var(--white);border-radius:14px 14px 14px 4px}
-.msg.usr .bub{background:var(--blue);color:#070b14;border-radius:14px 14px 4px 14px}
-.cb-panel{display:none;padding:12px 14px;gap:8px;flex-direction:column;overflow-y:auto;max-height:300px}
-.cb-panel.show{display:flex}
-.cita-btn{background:#101728;border:1px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;color:var(--white);text-align:left;display:flex;align-items:center;gap:10px;transition:all .2s}
-.cita-btn:hover{border-color:var(--blue);background:#10203a;color:var(--blue)}
-.cita-btn.rose-btn{border-color:var(--border-rose)}
-.cita-btn.rose-btn:hover{border-color:var(--rose);color:var(--rose);background:#1f1424}
-.cb-icon{font-size:1.1rem;flex-shrink:0}
-.cb-label{font-weight:600;display:block;font-size:.82rem;margin-bottom:2px}
-.cb-sub{font-size:.72rem;color:var(--muted)}
-.cb-text-panel{display:none;padding:10px 14px 12px}
-.cb-text-panel.show{display:block}
-.cb-text-row{display:flex;gap:8px;align-items:center}
-.cb-input{flex:1;background:#101728;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:.84rem;color:var(--white);outline:none;transition:border-color .2s}
-.cb-input:focus{border-color:var(--blue)}
-.cb-input::placeholder{color:var(--muted)}
-.cb-send{width:38px;height:38px;border-radius:50%;background:#5b8fd6;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:#070b14;flex-shrink:0}
-.cb-send:hover{background:#f08080;transform:scale(1.08)}
-.cb-foot2{background:#080d18;border-top:1px solid rgba(255,255,255,.04);text-align:center;padding:8px;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+/* CHATBOT CARLOS */
+.carlos-fab{position:fixed;bottom:28px;right:28px;z-index:500;width:60px;height:60px;background:#5b8fd6;color:#070b14;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(91,143,214,.45);font-family:'Anton',sans-serif;transition:all .25s}
+.carlos-fab:hover{transform:scale(1.1);background:#f08080}
+.carlos-fab .av{font-size:1.5rem;line-height:1}
+.carlos-fab .pulse{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:var(--rose);border:2px solid var(--black);border-radius:50%;animation:blink 2s infinite}
+.carlos-fab.hidden{display:none}
 
-/* Calendario inline en chat */
-.cal{background:#101728;border:1px solid var(--border);border-radius:12px;padding:.9rem;margin-bottom:.5rem;max-width:280px}
-.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}
-.cal-title{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--white)}
-.cal-nav{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--white);cursor:pointer;font-size:.95rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:.2s}
-.cal-nav:hover:not(:disabled){background:rgba(91,143,214,.3)}
-.cal-nav:disabled{opacity:.3;cursor:not-allowed}
-.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:.3rem}
-.cal-dow span{text-align:center;font-size:.6rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;padding:.2rem 0}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
-.cal-day{aspect-ratio:1;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--white);font-family:'Inter',sans-serif;font-size:.76rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s ease}
-.cal-day.is-empty{visibility:hidden;cursor:default}
-.cal-day:hover:not(:disabled):not(.is-selected){background:rgba(91,143,214,.3)}
-.cal-day.is-disabled{color:#37445c;cursor:not-allowed}
-.cal-day.is-today{border-color:var(--blue)}
-.cal-day.is-selected{background:var(--blue);color:#070b14;border-color:var(--blue)}
-.flow-opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
-.flow-opts button{border:1px solid var(--border);background:#101728;color:var(--white);font-family:'Inter',sans-serif;font-size:.8rem;padding:.5rem .85rem;border-radius:18px;cursor:pointer;transition:.2s}
-.flow-opts button:hover:not(:disabled){background:rgba(91,143,214,.3)}
-.flow-opts button.is-selected{background:var(--blue);border-color:var(--blue);color:#070b14}
-.flow-form{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.5rem}
-.flow-form input{background:#101728;border:1px solid var(--border);border-radius:10px;padding:.65rem .85rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.84rem}
-.flow-form input:focus{outline:none;border-color:var(--blue)}
-.flow-submit{border:none;border-radius:10px;background:var(--blue);color:#070b14;font-family:'Inter',sans-serif;font-weight:600;padding:.7rem;cursor:pointer;transition:.2s}
-.flow-submit:hover{background:#f08080}
-.flow-err{color:#f87171;font-size:.74rem;min-height:1em}
-.chat-widget.used{opacity:.7;pointer-events:none}
-.chat-widget.used button:disabled,.chat-widget.used input:disabled{opacity:.6}
+.carlos-panel{position:fixed;bottom:100px;right:28px;z-index:499;width:372px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100vh - 130px);background:#0e1623;border:1px solid var(--border);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden;font-family:'Inter',sans-serif}
+.carlos-panel.open{display:flex;animation:carlosIn .3s ease}
+@keyframes carlosIn{from{opacity:0;transform:scale(.9) translateY(20px)}to{opacity:1;transform:none}}
+.carlos-head{background:linear-gradient(135deg,#5b8fd6 0%,#c9a24b 100%);padding:15px 18px;display:flex;align-items:center;gap:12px}
+.carlos-head .av{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);color:#070b14;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:1.1rem;flex-shrink:0}
+.carlos-head .who{flex:1;color:#070b14}
+.carlos-head .who strong{display:block;font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.02em}
+.carlos-head .who span{font-size:.7rem;color:rgba(7,11,20,.72);display:flex;align-items:center;gap:6px}
+.carlos-head .who span::before{content:"";width:7px;height:7px;border-radius:50%;background:#22c55e}
+.carlos-close{background:none;border:none;color:rgba(7,11,20,.7);cursor:pointer;font-size:1.15rem;line-height:1;transition:color .2s}
+.carlos-close:hover{color:#070b14}
+
+.carlos-body{flex:1;overflow-y:auto;padding:16px 14px;background:#0a1120;display:flex;flex-direction:column;gap:10px}
+.carlos-body::-webkit-scrollbar{width:4px}
+.carlos-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.cmsg{max-width:82%;padding:10px 14px;border-radius:14px;font-size:.84rem;line-height:1.55;white-space:pre-wrap;word-wrap:break-word}
+.cmsg.bot{align-self:flex-start;background:#141d2e;color:var(--white);border-radius:14px 14px 14px 4px}
+.cmsg.user{align-self:flex-end;background:#5b8fd6;color:#070b14;border-radius:14px 14px 4px 14px}
+.cmsg.alert{align-self:flex-start;background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);color:#e0bd68}
+.cmsg.ok{align-self:center;text-align:center;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#4ade80;font-weight:600;max-width:92%}
+.ctyping{align-self:flex-start;background:#141d2e;border-radius:14px 14px 14px 4px;padding:12px 16px;display:flex;gap:5px}
+.ctyping span{width:7px;height:7px;background:#47597a;border-radius:50%;animation:cbounce 1.2s infinite}
+.ctyping span:nth-child(2){animation-delay:.15s}
+.ctyping span:nth-child(3){animation-delay:.3s}
+@keyframes cbounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
+
+.cchips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 2px 4px}
+.cchip{background:#101728;border:1px solid var(--border);color:var(--white);padding:9px 15px;border-radius:20px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;transition:all .18s}
+.cchip:hover{border-color:#5b8fd6;background:rgba(91,143,214,.15);color:#5b8fd6}
+.cchip.gold{border-color:var(--border-rose)}
+.cchip.gold:hover{border-color:#c9a24b;background:rgba(201,162,75,.12);color:#e0bd68}
+
+.carlos-foot{border-top:1px solid rgba(255,255,255,.06);padding:10px;background:#0e1623;display:flex;gap:8px;align-items:flex-end}
+.carlos-foot textarea{flex:1;background:#101728;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:.84rem;color:var(--white);resize:none;max-height:80px;line-height:1.4;transition:border-color .2s}
+.carlos-foot textarea:focus{outline:none;border-color:#5b8fd6}
+.carlos-foot textarea::placeholder{color:var(--muted)}
+.carlos-foot textarea:disabled{opacity:.5;cursor:not-allowed}
+.carlos-send{background:#5b8fd6;color:#070b14;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.carlos-send:hover:not(:disabled){background:#f08080;transform:scale(1.08)}
+.carlos-send:disabled{opacity:.4;cursor:not-allowed}
+.carlos-disc{background:#080d18;border-top:1px solid rgba(255,255,255,.04);text-align:center;padding:8px 10px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.24)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -277,8 +250,6 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   .contacto-in{grid-template-columns:1fr;gap:40px}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px}
   .cta-btns{flex-direction:column;align-items:center}
-  .cb-mod{right:12px;left:12px;width:auto}
-  .cb-fab{bottom:20px;right:20px}
   .marquee-wrap,.marquee-wrap2{display:none}
 }
 @media(max-width:600px){
@@ -617,84 +588,24 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   </div>
 </footer>
 
-<!-- CHATBOT FAB -->
-<button class="cb-fab" id="cb-fab" onclick="openChat()" aria-label="Hablar con Carlos">
-  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#070b14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/>
-  </svg>
-  <span class="notif"></span>
+<!-- CHATBOT CARLOS -->
+<button class="carlos-fab" id="carlosFab" data-openchat aria-label="Hablar con Carlos">
+  <span class="av">C</span>
+  <span class="pulse"></span>
 </button>
 
-<!-- CHATBOT MODAL -->
-<div class="cb-mod" id="cb-mod">
-  <div class="cb-head">
-    <div class="cb-head-ava" style="background:linear-gradient(135deg,#5b8fd6,#c9a24b);font-family:'Anton',sans-serif;font-size:1rem;color:#070b14;font-weight:700">C</div>
-    <div class="cb-head-info">
-      <div class="cb-head-name">Asistente Carlos</div>
-      <div class="cb-head-sub">InmoÉlite · Valoraciones</div>
-    </div>
-    <span class="cb-head-dot"></span>
-    <button class="cb-close" onclick="closeChat()" aria-label="Cerrar">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-        <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
-      </svg>
-    </button>
+<div class="carlos-panel" id="carlosPanel" role="dialog" aria-label="Chat con Carlos">
+  <div class="carlos-head">
+    <div class="av">C</div>
+    <div class="who"><strong>Carlos</strong><span>Asistente · InmoÉlite</span></div>
+    <button class="carlos-close" id="carlosClose" aria-label="Cerrar">&#10005;</button>
   </div>
-  <div class="cb-tabs">
-    <button class="cb-tab active-lav" id="tab-cita" onclick="showTab('cita')">Valoración</button>
-    <button class="cb-tab" id="tab-info" onclick="showTab('info')">Servicios</button>
-    <button class="cb-tab" id="tab-texto" onclick="showTab('texto')">Preguntas</button>
+  <div class="carlos-body" id="carlosBody"></div>
+  <div class="carlos-foot">
+    <textarea id="carlosInput" rows="1" placeholder="Escribe aquí…"></textarea>
+    <button class="carlos-send" id="carlosSend" aria-label="Enviar">&#10148;</button>
   </div>
-  <div class="cb-body" id="cb-body"></div>
-
-  <div class="cb-panel show" id="panel-cita">
-    <button class="cita-btn" onclick="cbCita('mesa')">
-      <span class="cb-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </span>
-      <div><span class="cb-label">Pedir valoración</span><span class="cb-sub">Gratuita y sin compromiso</span></div>
-    </button>
-    <button class="cita-btn urgente-btn" onclick="cbCita('urgente')" style="border-color:rgba(201,162,75,.4)">
-      <span class="cb-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </span>
-      <div><span class="cb-label">Quiero vender ya</span><span class="cb-sub">Respuesta prioritaria</span></div>
-    </button>
-  </div>
-
-  <div class="cb-panel" id="panel-info">
-    <button class="cita-btn" onclick="cbInfo('servicios')">
-      <span class="cb-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </span>
-      <div><span class="cb-label">Nuestros servicios</span><span class="cb-sub">Venta, alquiler, inversión</span></div>
-    </button>
-    <button class="cita-btn rose-btn" onclick="cbInfo('partidos')">
-      <span class="cb-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      </span>
-      <div><span class="cb-label">Cómo trabajamos</span><span class="cb-sub">Los 4 pasos hasta la venta</span></div>
-    </button>
-    <button class="cita-btn" onclick="cbInfo('donde')">
-      <span class="cb-icon">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      </span>
-      <div><span class="cb-label">Dónde estamos</span><span class="cb-sub">Oficina en Madrid</span></div>
-    </button>
-  </div>
-
-  <div class="cb-text-panel" id="panel-texto">
-    <div class="cb-text-row">
-      <input class="cb-input" id="cb-input" type="text" placeholder="Escribe tu pregunta..." autocomplete="off"
-        onkeydown="if(event.key==='Enter')sendMsg()">
-      <button class="cb-send" onclick="sendMsg()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-  <div class="cb-foot2">INMOÉLITE · ASISTENTE CARLOS · DEMO WHITEMOON IA</div>
+  <div class="carlos-disc">Carlos no da valoraciones · un asesor te llama sin compromiso</div>
 </div>
 
 <!-- BADGE FIJO INFERIOR IZQUIERDA -->
@@ -725,290 +636,248 @@ window.toggleFaq = function(btn){
 };
 
 /* ====================================================
-   CONFIG — Edge Function de Supabase (sin apikeys en cliente)
+   CHATBOT CARLOS — triaje 3 ramas → inmo-lead
+   (Edge Function pública verify_jwt:false · sin apikeys en cliente)
 ==================================================== */
-var SUPABASE_URL = 'https://mlaqtniujnvfxcvcourm.supabase.co';
-var NOTIFY_FN = SUPABASE_URL + '/functions/v1/inmoelite-notify';
+var INMO_LEAD_URL = 'https://mlaqtniujnvfxcvcourm.supabase.co/functions/v1/inmo-lead';
 
-function notifyWhatsApp(data){
-  return fetch(NOTIFY_FN, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(data)
-  }).catch(function(e){ console.warn('notify', e); });
-}
+(function(){
+  var ZONAS = ['Majadahonda','Las Rozas','Pozuelo','Boadilla','Madrid Centro','Otro Madrid'];
+  var TIPOS = ['Piso','Casa','Local','Otro'];
+  var PRESU_COMPRA = ['<200k','200-400k','400-700k','+700k'];
+  var PRESU_ALQ = ['<1.000 €/mes','1.000-1.500 €/mes','1.500-2.500 €/mes','+2.500 €/mes'];
 
-var greeted=false;
-var estado='libre';
-var reserva={asunto:'',tipo:'',ubicacion:'',fecha:'',hora:'',nombre:'',telefono:'',email:''};
+  var fab = document.getElementById('carlosFab');
+  var panel = document.getElementById('carlosPanel');
+  var body = document.getElementById('carlosBody');
+  var input = document.getElementById('carlosInput');
+  var sendBtn = document.getElementById('carlosSend');
 
-function openChat(){
-  document.getElementById('cb-mod').classList.add('open');
-  document.getElementById('cb-fab').style.display='none';
-  if(!greeted){
-    greeted=true;
-    setTimeout(function(){
-      botSay('Hola, soy Carlos, asistente de InmoÉlite. Puedo ayudarte a pedir tu valoración gratuita o resolver dudas sobre nuestros servicios. ¿En qué te ayudo?');
-    },350);
-  }
-}
+  var step = null;      // paso actual
+  var data = {};        // operacion, zona, tipo, presupuesto, descripcion, nombre, telefono
+  var started = false;
+  var busy = false;
 
-function closeChat(){
-  document.getElementById('cb-mod').classList.remove('open');
-  document.getElementById('cb-fab').style.display='flex';
-}
+  function scroll(){ body.scrollTop = body.scrollHeight; }
 
-function showTab(tab){
-  ['cita','info','texto'].forEach(function(t){
-    document.getElementById('panel-'+t).classList.remove('show');
-    var btn=document.getElementById('tab-'+t);
-    btn.classList.remove('active-lav','active-rose');
-  });
-  document.getElementById('panel-'+tab).classList.add('show');
-  var activeBtn=document.getElementById('tab-'+tab);
-  activeBtn.classList.add(tab==='info'?'active-rose':'active-lav');
-  if(tab==='texto')setTimeout(function(){document.getElementById('cb-input').focus();},100);
-}
-
-function botSay(txt){
-  var body=document.getElementById('cb-body');
-  var m=document.createElement('div');m.className='msg bot';
-  var b=document.createElement('div');b.className='bub';b.textContent=txt;
-  m.appendChild(b);body.appendChild(m);
-  body.scrollTop=body.scrollHeight;
-}
-
-function usrSay(txt){
-  var body=document.getElementById('cb-body');
-  var m=document.createElement('div');m.className='msg usr';
-  var b=document.createElement('div');b.className='bub';b.textContent=txt;
-  m.appendChild(b);body.appendChild(m);
-  body.scrollTop=body.scrollHeight;
-}
-
-function addWidget(){
-  var body=document.getElementById('cb-body');
-  var w=document.createElement('div');w.className='chat-widget';
-  body.appendChild(w);body.scrollTop=body.scrollHeight;
-  return w;
-}
-
-function lockWidget(w){
-  w.classList.add('used');
-  w.querySelectorAll('button,input').forEach(function(el){el.disabled=true;});
-}
-
-var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-var DOW=['L','M','X','J','V','S','D'];
-function pad(n){return (n<10?'0':'')+n;}
-
-function cbCita(tipo){
-  reserva={asunto:(tipo==='urgente'?'QUIERE VENDER YA':'Solicitud de valoración'),tipo:'',ubicacion:'',fecha:'',hora:'',nombre:'',telefono:'',email:''};
-  showTab('texto');
-  usrSay(tipo==='urgente'?'Quiero vender ya':'Pedir valoración');
-
-  if(tipo==='urgente'){
-    setTimeout(function(){
-      botSay('Entendido. Para poder ayudarte cuanto antes necesito unos datos. ¿Cuál es tu nombre?');
-      estado='nombre-urgente';
-    },400);
-    return;
+  function addMsg(text, cls){
+    var d = document.createElement('div');
+    d.className = 'cmsg ' + cls;
+    d.textContent = text;
+    body.appendChild(d); scroll();
+    return d;
   }
 
-  setTimeout(function(){
-    botSay('¿Qué tipo de inmueble quieres vender o alquilar?');
-    setTimeout(stepTipo,300);
-  },400);
-}
+  function typing(){
+    var t = document.createElement('div');
+    t.className = 'ctyping';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(t); scroll();
+    return t;
+  }
 
-function stepTipo(){
-  var w=addWidget();
-  var tipos=['Piso','Casa / Chalet','Ático','Local / Oficina','Otro'];
-  w.innerHTML='<div class="flow-opts">'+tipos.map(function(p){
-    return '<button type="button" data-p="'+p+'">'+p+'</button>';
-  }).join('')+'</div>';
-  w.querySelectorAll('[data-p]').forEach(function(b){
-    b.addEventListener('click',function(){
-      reserva.tipo=b.getAttribute('data-p');
-      lockWidget(w);b.classList.add('is-selected');
-      usrSay(reserva.tipo);
-      setTimeout(function(){botSay('Para tu valoración, necesito unos datos.\n\n¿Cómo te llamas?');setTimeout(stepFecha,300);},400);
+  // Mensaje del bot con "typing" y opcionalmente chips
+  function botSay(text, chips, opts){
+    busy = true; setInputEnabled(false);
+    var t = typing();
+    var delay = Math.min(900, 350 + text.length * 8);
+    setTimeout(function(){
+      t.remove();
+      addMsg(text, (opts && opts.cls) || 'bot');
+      if(chips && chips.length) renderChips(chips);
+      busy = false;
+      // El input permanece siempre activo: así el guard de valoración
+      // (REGLA ABSOLUTA) puede dispararse en cualquier paso.
+      setInputEnabled(true);
+      if(opts && opts.freeInput) input.focus();
+    }, delay);
+  }
+
+  function renderChips(chips){
+    var wrap = document.createElement('div');
+    wrap.className = 'cchips';
+    chips.forEach(function(c){
+      var b = document.createElement('button');
+      b.className = 'cchip' + (c.gold ? ' gold' : '');
+      b.textContent = c.label;
+      b.addEventListener('click', function(){
+        if(busy) return;
+        wrap.remove();
+        addMsg(c.label, 'user');
+        c.onClick(c.value !== undefined ? c.value : c.label);
+      });
+      wrap.appendChild(b);
     });
-  });
-}
-
-function stepFecha(){
-  var w=addWidget();
-  w.innerHTML='<div class="flow-form">'
-    +'<input type="text" data-f="nombre" placeholder="Tu nombre" autocomplete="name">'
-    +'<input type="tel" data-f="telefono" placeholder="Tu teléfono" autocomplete="tel" inputmode="tel">'
-    +'<input type="text" data-f="ubicacion" placeholder="Ciudad / zona del inmueble" autocomplete="off">'
-    +'<button type="button" class="flow-submit">Continuar</button>'
-    +'<div class="flow-err" aria-live="polite"></div></div>';
-  var nombre=w.querySelector('[data-f="nombre"]'),tel=w.querySelector('[data-f="telefono"]'),ubicacion=w.querySelector('[data-f="ubicacion"]');
-  var btn=w.querySelector('.flow-submit'),err=w.querySelector('.flow-err');
-  function submit(){
-    var n=nombre.value.trim(),t=tel.value.trim(),u=ubicacion.value.trim();
-    if(!n){err.textContent='Por favor, indica tu nombre.';return;}
-    if(!/^[6-9]\d{8}$/.test(t.replace(/\s/g,''))){err.textContent='Indica un teléfono válido (9 dígitos).';return;}
-    reserva.nombre=n;reserva.telefono=t;reserva.ubicacion=u;
-    lockWidget(w);
-    usrSay(n+' · '+t+(u?' · '+u:''));
-    setTimeout(function(){botSay('Por último, elige el día que prefieres para que te llamemos.');setTimeout(stepCalendario,300);},400);
+    body.appendChild(wrap); scroll();
   }
-  btn.addEventListener('click',submit);
-  ubicacion.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit();}});
-  setTimeout(function(){nombre.focus();},50);
-}
 
-function stepCalendario(){
-  var w=addWidget();
-  var today=new Date();today.setHours(0,0,0,0);
-  var view={y:today.getFullYear(),m:today.getMonth()};
-  function render(){
-    var startOffset=(new Date(view.y,view.m,1).getDay()+6)%7;
-    var daysInMonth=new Date(view.y,view.m+1,0).getDate();
-    var atCurrent=(view.y===today.getFullYear()&&view.m===today.getMonth());
-    var h='<div class="cal"><div class="cal-head">'
-      +'<button type="button" class="cal-nav" data-nav="-1"'+(atCurrent?' disabled':'')+'>‹</button>'
-      +'<span class="cal-title">'+MESES[view.m]+' '+view.y+'</span>'
-      +'<button type="button" class="cal-nav" data-nav="1">›</button></div>';
-    h+='<div class="cal-dow">'+DOW.map(function(d){return '<span>'+d+'</span>';}).join('')+'</div>';
-    h+='<div class="cal-grid">';
-    for(var i=0;i<startOffset;i++)h+='<span class="cal-day is-empty"></span>';
-    for(var d=1;d<=daysInMonth;d++){
-      var date=new Date(view.y,view.m,d);
-      var past=date<today;
-      var isToday=date.getTime()===today.getTime();
-      var cls='cal-day'+(past?' is-disabled':'')+(isToday?' is-today':'');
-      h+='<button type="button" class="'+cls+'"'+(past?' disabled':' data-day="'+d+'"')+'>'+d+'</button>';
+  function setInputEnabled(on){
+    input.disabled = !on;
+    sendBtn.disabled = !on;
+  }
+
+  // ---- Guard de valoración (REGLA ABSOLUTA) ----
+  var VAL_RE = /(cu[aá]nto|cuanto).*(vale|cuesta|pagar[ií]|dar[ií]|sacar[ií])|valoraci[oó]n|valorar|tasaci[oó]n|tasar|precio de mercado|qu[eé] precio|por cu[aá]nto|cu[aá]nto me dan|estimaci[oó]n|estimar precio|vale mi/i;
+  function isValuation(txt){ return VAL_RE.test(txt || ''); }
+
+  // ---- Flujo ----
+  function start(){
+    if(started) return;
+    started = true;
+    botSay('¡Hola! 👋 Soy Carlos, el asistente de InmoÉlite. ¿Qué quieres hacer?', [
+      {label:'🏷️ Vender mi propiedad', gold:true, onClick:function(){ pickOperacion('vender'); }},
+      {label:'🔑 Comprar', onClick:function(){ pickOperacion('comprar'); }},
+      {label:'📄 Alquilar', onClick:function(){ pickOperacion('alquilar'); }}
+    ]);
+  }
+
+  function pickOperacion(op){
+    data = { operacion: op };
+    step = 'zona';
+    var verbo = op === 'vender' ? 'vender' : (op === 'comprar' ? 'comprar' : 'alquilar');
+    botSay('Genial. ¿En qué zona quieres ' + verbo + '?', zonaChips());
+  }
+
+  function zonaChips(){
+    return ZONAS.map(function(z){ return {label:z, onClick:function(){ data.zona = z; askTipo(); }}; });
+  }
+
+  function askTipo(){
+    step = 'tipo';
+    botSay('¿Qué tipo de inmueble es?', TIPOS.map(function(t){
+      return {label:t, onClick:function(){ data.tipo = t; afterTipo(); }};
+    }));
+  }
+
+  function afterTipo(){
+    if(data.operacion === 'vender'){
+      step = 'descripcion';
+      botSay('Cuéntame un poco más si quieres: zona exacta, m², estado… (o pulsa Saltar)', [
+        {label:'Saltar ↷', onClick:function(){ data.descripcion=''; askNombre(); }}
+      ], {freeInput:true});
+    } else if(data.operacion === 'comprar'){
+      step = 'presupuesto';
+      botSay('¿Cuál es tu presupuesto de compra?', PRESU_COMPRA.map(function(p){
+        return {label:p, onClick:function(){ data.presupuesto=p; askNombre(); }};
+      }));
+    } else {
+      step = 'presupuesto';
+      botSay('¿Cuál es tu presupuesto de alquiler al mes?', PRESU_ALQ.map(function(p){
+        return {label:p, onClick:function(){ data.presupuesto=p; askNombre(); }};
+      }));
     }
-    h+='</div></div>';
-    w.innerHTML=h;
-    w.querySelectorAll('[data-nav]').forEach(function(b){
-      b.addEventListener('click',function(){
-        view.m+=parseInt(b.getAttribute('data-nav'),10);
-        if(view.m<0){view.m=11;view.y--;}
-        if(view.m>11){view.m=0;view.y++;}
-        render();
-      });
-    });
-    w.querySelectorAll('[data-day]').forEach(function(b){
-      b.addEventListener('click',function(){
-        var d=parseInt(b.getAttribute('data-day'),10);
-        reserva.fecha=pad(d)+'/'+pad(view.m+1)+'/'+view.y;
-        lockWidget(w);
-        b.classList.add('is-selected');
-        usrSay(reserva.fecha);
-        setTimeout(function(){botSay('¿A qué hora le viene mejor?');setTimeout(stepHora,300);},400);
-      });
-    });
-    document.getElementById('cb-body').scrollTop=document.getElementById('cb-body').scrollHeight;
   }
-  render();
-}
 
-function stepHora(){
-  var w=addWidget();
-  var horas=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','16:00','16:30','17:00','17:30','18:00'];
-  w.innerHTML='<div class="flow-opts">'+horas.map(function(h){
-    return '<button type="button" data-h="'+h+'">'+h+'</button>';
-  }).join('')+'</div>';
-  w.querySelectorAll('[data-h]').forEach(function(b){
-    b.addEventListener('click',function(){
-      reserva.hora=b.getAttribute('data-h');
-      lockWidget(w);b.classList.add('is-selected');
-      usrSay(reserva.hora);
-      setTimeout(function(){
-        botSay('Perfecto, '+reserva.nombre+'. Resumen de tu solicitud:\n\n'+
-          '• Nombre: '+reserva.nombre+'\n'+
-          '• Tel: '+reserva.telefono+'\n'+
-          '• Tipo de inmueble: '+(reserva.tipo||'-')+'\n'+
-          '• Ubicación: '+(reserva.ubicacion||'-')+'\n'+
-          '• Fecha de contacto: '+reserva.fecha+' a las '+reserva.hora+'\n\n'+
-          'Enviando la solicitud...');
-        setTimeout(finishReserva,1000);
-      },600);
-    });
-  });
-}
-
-function finishReserva(){
-  notifyWhatsApp({
-    nombre:reserva.nombre,
-    telefono:reserva.telefono,
-    tipo:reserva.tipo||'',
-    ubicacion:reserva.ubicacion||'',
-    asunto:reserva.asunto,
-    fecha:reserva.fecha||'',
-    hora:reserva.hora||'',
-    urgente:(reserva.asunto==='QUIERE VENDER YA'),
-    origen:'inmoelite-chat-carlos'
-  });
-  setTimeout(function(){
-    botSay('Tu solicitud ya está registrada. Nos pondremos en contacto contigo para tu valoración gratuita. Gracias por tu confianza.');
-  },400);
-}
-
-function cbInfo(tipo){
-  showTab('texto');
-  var msgs={
-    'servicios':'Nuestros servicios:\n\n- Venta de viviendas (tasación, home staging, fotografía HDR, tour 360º)\n- Alquiler gestionado (filtro de solvencia, contratos, cobro de rentas)\n- Inversión inmobiliaria (estudio de rentabilidad, búsqueda a medida)\n\nTodo bajo un mismo techo.',
-    'partidos':'Nuestro proceso en 4 pasos:\n\n1. Valoración gratuita en 24h\n2. Preparación: fotos, tour virtual, home staging\n3. Promoción en +30 portales y visitas filtradas\n4. Cierre: notaría, gestión fiscal y cobro garantizado\n\nVenta media en 47 días.',
-    'donde':'Oficina en Madrid.\n\nDirección: C/ Gran Vía 25, Madrid\nTeléfono / WhatsApp: 643 199 580\nEmail: comercial@whitemoon.es'
-  };
-  setTimeout(function(){botSay(msgs[tipo]);},200);
-}
-
-function sendMsg(){
-  var inp=document.getElementById('cb-input');
-  var txt=inp.value.trim();
-  if(!txt)return;
-  inp.value='';
-  usrSay(txt);
-
-  if(estado==='nombre-urgente'){
-    reserva.nombre=txt;estado='telefono-urgente';
-    setTimeout(function(){botSay('Gracias, '+txt+'. ¿Un teléfono para llamarte ahora mismo?');},400);
-    return;
+  function askNombre(){
+    step = 'nombre';
+    botSay('¿Cómo te llamas?', null, {freeInput:true});
   }
-  if(estado==='telefono-urgente'){
-    if(!/^[6-9]\d{8}$/.test(txt.replace(/\s/g,''))){
-      setTimeout(function(){botSay('Ese número no parece correcto. ¿Me lo repites?');},400);
+
+  function askTelefono(){
+    step = 'telefono';
+    botSay('Encantado, ' + data.nombre.split(' ')[0] + ' 🙂 ¿A qué teléfono te llamamos?', null, {freeInput:true});
+  }
+
+  function buildDetalle(){
+    if(data.operacion === 'vender'){
+      return [data.tipo, data.descripcion].filter(Boolean).join(' · ');
+    }
+    return data.tipo + ' · Presupuesto ' + data.presupuesto;
+  }
+
+  function confirmar(){
+    step = 'enviando';
+    var payload = {
+      nombre: data.nombre,
+      telefono: data.telefono,
+      operacion: data.operacion,
+      zona: data.zona,
+      detalle: buildDetalle().slice(0,400)
+    };
+    var t = typing(); busy = true; setInputEnabled(false);
+    fetch(INMO_LEAD_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+      .then(function(res){
+        t.remove();
+        if(!res.ok || !res.j.ok) throw new Error((res.j && res.j.error) || 'error');
+        var asesor = res.j.comercial_asignado || 'Un asesor';
+        addMsg('¡Gracias, ' + data.nombre.split(' ')[0] + '! ' + asesor + ' te llamará muy pronto ✓', 'ok');
+        step = 'done'; busy = false;
+        input.placeholder = 'Conversación finalizada';
+        setInputEnabled(false);
+      })
+      .catch(function(){
+        t.remove(); busy = false;
+        addMsg('Ups, no he podido registrar tus datos ahora mismo ⚠️. ¿Probamos otra vez?', 'alert');
+        renderChips([{label:'Reintentar', gold:true, onClick:function(){ confirmar(); }}]);
+      });
+  }
+
+  // ---- Entrada de texto libre ----
+  function handleText(raw){
+    var txt = (raw || '').trim();
+    if(!txt) return;
+    addMsg(txt, 'user');
+    input.value=''; autoGrow();
+
+    // REGLA ABSOLUTA: nunca dar valoraciones/precios
+    if(isValuation(txt)){
+      var free = (step==='nombre' || step==='telefono' || step==='descripcion') ? {freeInput:true} : {};
+      botSay('Eso te lo dirá nuestro asesor con datos reales de tu zona ⚠️. Déjame tus datos y te llama sin compromiso.', null, free);
+      if(step==='zona') setTimeout(function(){ renderChips(zonaChips()); }, 950);
+      else if(step==='tipo') setTimeout(function(){ renderChips(TIPOS.map(function(t){ return {label:t,onClick:function(){data.tipo=t;afterTipo();}}; })); }, 950);
       return;
     }
-    reserva.telefono=txt;estado='libre';
-    setTimeout(function(){botSay('Recibido. Nos pondremos en contacto contigo en breve.');setTimeout(finishReserva,400);},400);
-    return;
+
+    if(step === 'descripcion'){
+      data.descripcion = txt.slice(0,300);
+      askNombre();
+    } else if(step === 'nombre'){
+      if(txt.length < 2){ botSay('¿Me dices tu nombre, por favor?', null, {freeInput:true}); return; }
+      data.nombre = txt.slice(0,80);
+      askTelefono();
+    } else if(step === 'telefono'){
+      var digits = txt.replace(/\D/g,'');
+      if(digits.length < 9){ botSay('Necesito un teléfono válido (9 dígitos) para que te llamemos 📞', null, {freeInput:true}); return; }
+      data.telefono = txt.slice(0,20);
+      var resumen = 'Resumen:\n• ' + data.operacion.toUpperCase() + ' en ' + data.zona + '\n• ' + buildDetalle() + '\n• ' + data.nombre + ' · ' + data.telefono;
+      botSay(resumen, [
+        {label:'✓ Confirmar', gold:true, onClick:function(){ confirmar(); }},
+        {label:'Empezar de nuevo', onClick:function(){ started=false; body.innerHTML=''; start(); }}
+      ]);
+    } else {
+      botSay('Para ayudarte mejor, elige una de las opciones de arriba 👆', null, {});
+    }
   }
 
-  var t=txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-
-  if(/hola|buenas|buenos|hey/.test(t)){
-    setTimeout(function(){botSay('¡Hola! Puedo ayudarte a pedir tu valoración gratuita o resolver dudas sobre nuestros servicios.');},400);
-  } else if(/precio|cuanto|coste|tarifa|honorario|comision/.test(t)){
-    setTimeout(function(){botSay('Nuestros honorarios son entre un 3% y un 5% sobre el precio final de venta. No cobramos nada hasta que se cierra la operación.\n\n¿Pedimos tu valoración?');},400);
-  } else if(/donde|direccion|ubicacion|llegar|oficina/.test(t)){
-    setTimeout(function(){botSay('Nuestra oficina está en C/ Gran Vía 25, Madrid. Teléfono / WhatsApp: 643 199 580.');},400);
-  } else if(/urgente|vender ya|rapido/.test(t)){
-    setTimeout(function(){botSay('Entendido, vamos rápido. Usa la opción "Quiero vender ya" en la pestaña Valoración.');showTab('cita');},400);
-  } else if(/alquiler|inquilino/.test(t)){
-    setTimeout(function(){botSay('Gestionamos el alquiler completo: filtro de solvencia, contratos legales, cobro de rentas y seguro de impago. ¿Pedimos tu valoración?');showTab('cita');},400);
-  } else if(/inversion|invertir|rentabilidad/.test(t)){
-    setTimeout(function(){botSay('Asesoramos a inversores con estudio de rentabilidad, búsqueda a medida y gestión patrimonial. ¿Quieres que te ayude a empezar?');},400);
-  } else if(/valoracion|tasacion|quiero|vender/.test(t)){
-    showTab('cita');
-    setTimeout(function(){botSay('Elige el tipo de solicitud en las opciones de arriba.');},300);
-  } else if(/gracias|perfecto|genial|ok|vale/.test(t)){
-    setTimeout(function(){botSay('De nada. Si necesitas algo más, aquí estoy.');},400);
-  } else {
-    setTimeout(function(){botSay('No tengo esa información exacta, pero puedo ayudarte a pedir tu valoración, o puedes llamarnos al 643 199 580.');},400);
+  // ---- UI wiring ----
+  function openChat(){
+    panel.classList.add('open');
+    fab.classList.add('hidden');
+    start();
   }
-}
+  function closeChat(){
+    panel.classList.remove('open');
+    fab.classList.remove('hidden');
+  }
 
-document.querySelectorAll('[data-openchat]').forEach(function(el){
-  el.addEventListener('click', function(e){ e.preventDefault(); openChat(); });
-});
+  document.querySelectorAll('[data-openchat]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); openChat(); });
+  });
+  document.getElementById('carlosClose').addEventListener('click', closeChat);
+
+  function autoGrow(){
+    input.style.height='auto';
+    input.style.height = Math.min(80, input.scrollHeight) + 'px';
+  }
+  input.addEventListener('input', autoGrow);
+  input.addEventListener('keydown', function(e){
+    if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); if(!input.disabled) handleText(input.value); }
+  });
+  sendBtn.addEventListener('click', function(){ if(!input.disabled) handleText(input.value); });
+
+  setInputEnabled(false);
+})();
 </script>
 
 </body>
