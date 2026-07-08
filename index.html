@@ -151,6 +151,59 @@
     .form-row{grid-template-columns:1fr}
     section{padding:60px 0}
   }
+
+  /* ===== CHATBOT CARLOS ===== */
+  .carlos-fab{position:fixed;bottom:24px;right:24px;z-index:9000;background:var(--azul);color:#fff;border:none;border-radius:50px;padding:14px 22px 14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;box-shadow:0 10px 30px rgba(11,37,69,.35);font-family:inherit;font-size:.95rem;font-weight:600;transition:transform .2s,box-shadow .2s}
+  .carlos-fab:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(11,37,69,.45)}
+  .carlos-fab .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800}
+  .carlos-fab .pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:var(--g,#00d4aa);border:2px solid #fff;border-radius:50%}
+  .carlos-fab.hidden{display:none}
+
+  .carlos-panel{position:fixed;bottom:24px;right:24px;z-index:9001;width:380px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100vh - 48px);background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(11,37,69,.4);display:none;flex-direction:column;overflow:hidden;font-size:.95rem}
+  .carlos-panel.open{display:flex;animation:carlosIn .25s ease}
+  @keyframes carlosIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+  .carlos-head{background:linear-gradient(135deg,var(--azul),var(--azul-2));color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+  .carlos-head .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--dorado),var(--dorado-claro));color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;flex-shrink:0}
+  .carlos-head .who{flex:1}
+  .carlos-head .who strong{display:block;font-size:1.05rem;letter-spacing:-.2px}
+  .carlos-head .who span{font-size:.78rem;opacity:.85;display:flex;align-items:center;gap:6px}
+  .carlos-head .who span::before{content:"";width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block}
+  .carlos-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;transition:background .2s}
+  .carlos-close:hover{background:rgba(255,255,255,.3)}
+
+  .carlos-body{flex:1;overflow-y:auto;padding:18px 16px;background:#f7f8fb;display:flex;flex-direction:column;gap:12px}
+  .carlos-body::-webkit-scrollbar{width:6px}
+  .carlos-body::-webkit-scrollbar-thumb{background:#cfd6e2;border-radius:3px}
+  .cmsg{max-width:82%;padding:11px 14px;border-radius:14px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+  .cmsg.bot{align-self:flex-start;background:#fff;color:var(--texto);border:1px solid #e9edf3;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(11,37,69,.05)}
+  .cmsg.user{align-self:flex-end;background:var(--azul);color:#fff;border-bottom-right-radius:4px}
+  .cmsg.alert{background:#fff8e6;border-color:#f2dfa8;color:#7a5c12}
+  .cmsg.ok{background:#d1fae5;border-color:#a7f3cf;color:#065f46;align-self:center;text-align:center;max-width:92%;font-weight:600}
+  .ctyping{align-self:flex-start;background:#fff;border:1px solid #e9edf3;border-radius:14px;border-bottom-left-radius:4px;padding:13px 16px;display:flex;gap:5px}
+  .ctyping span{width:7px;height:7px;background:#b8c1d1;border-radius:50%;animation:cbounce 1.2s infinite}
+  .ctyping span:nth-child(2){animation-delay:.15s}
+  .ctyping span:nth-child(3){animation-delay:.3s}
+  @keyframes cbounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
+
+  .cchips{display:flex;flex-wrap:wrap;gap:8px;padding:0 4px 4px}
+  .cchip{background:#fff;border:1.5px solid var(--azul);color:var(--azul);padding:9px 15px;border-radius:22px;cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:600;transition:all .18s}
+  .cchip:hover{background:var(--azul);color:#fff;transform:translateY(-1px)}
+  .cchip.gold{border-color:var(--dorado);color:#8a6d1f}
+  .cchip.gold:hover{background:var(--dorado);color:var(--azul)}
+
+  .carlos-foot{border-top:1px solid #e9edf3;padding:10px;background:#fff;display:flex;gap:8px;align-items:flex-end}
+  .carlos-foot textarea{flex:1;border:1.5px solid #e5e7eb;border-radius:12px;padding:10px 12px;font-family:inherit;font-size:.92rem;resize:none;max-height:90px;line-height:1.4;transition:border-color .2s}
+  .carlos-foot textarea:focus{outline:none;border-color:var(--dorado)}
+  .carlos-foot textarea:disabled{background:#f3f4f6;cursor:not-allowed}
+  .carlos-send{background:var(--dorado);color:var(--azul);border:none;width:42px;height:42px;border-radius:12px;cursor:pointer;font-size:1.1rem;flex-shrink:0;transition:transform .15s,opacity .2s}
+  .carlos-send:hover:not(:disabled){transform:scale(1.06)}
+  .carlos-send:disabled{opacity:.4;cursor:not-allowed}
+  .carlos-disc{font-size:.68rem;color:#9aa3b2;text-align:center;padding:0 10px 8px;background:#fff}
+
+  @media(max-width:480px){
+    .carlos-panel{bottom:0;right:0;width:100vw;height:100dvh;max-height:none;border-radius:0}
+    .carlos-fab{bottom:16px;right:16px}
+  }
 </style>
 </head>
 <body>
@@ -425,17 +478,46 @@
     });
   });
 
-  // Envío formulario (simulado - conectar con backend/CRM)
-  function enviarForm(e){
+  // Endpoint del backend (ya desplegado — funciones públicas verify_jwt:false)
+  const INMO_LEAD_URL = 'https://mlaqtniujnvfxcvcourm.supabase.co/functions/v1/inmo-lead';
+
+  // Envío formulario del hero → inmo-lead (operación = vender / captación)
+  async function enviarForm(e){
     e.preventDefault();
     const form = e.target;
+    const btn = form.querySelector('button[type=submit]');
     const data = Object.fromEntries(new FormData(form));
-    console.log('Lead recibido:',data);
-    // TODO: enviar a tu CRM / email / webhook
-    // fetch('/api/leads',{method:'POST',body:JSON.stringify(data)})
-    document.getElementById('successMsg').style.display='block';
-    form.reset();
-    setTimeout(()=>document.getElementById('successMsg').style.display='none',6000);
+    const detalle = [data.tipo, data.mensaje, data.email && ('Email: '+data.email)]
+      .filter(Boolean).join(' · ').slice(0,400);
+    const payload = {
+      nombre: (data.nombre||'').trim(),
+      telefono: (data.telefono||'').trim(),
+      operacion: 'vender',
+      zona: (data.ubicacion||'').trim() || 'Otro Madrid',
+      detalle
+    };
+    const prev = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    try{
+      const r = await fetch(INMO_LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const j = await r.json();
+      if(!r.ok || !j.ok) throw new Error(j.error||'error');
+      const msg = document.getElementById('successMsg');
+      msg.textContent = j.comercial_asignado
+        ? `✅ ¡Gracias! ${j.comercial_asignado} te llamará en menos de 24h.`
+        : '✅ ¡Gracias! Te contactaremos en menos de 24h.';
+      msg.style.display='block';
+      form.reset();
+      setTimeout(()=>msg.style.display='none',8000);
+    }catch(err){
+      const msg = document.getElementById('successMsg');
+      msg.style.background='#fee2e2'; msg.style.color='#991b1b';
+      msg.textContent='⚠️ No se pudo enviar. Inténtalo de nuevo o usa el chat.';
+      msg.style.display='block';
+      setTimeout(()=>{msg.style.display='none';msg.style.background='';msg.style.color='';},7000);
+    }finally{
+      btn.disabled=false; btn.textContent=prev;
+    }
     return false;
   }
 
@@ -443,6 +525,267 @@
   document.querySelectorAll('.nav-links a').forEach(a=>{
     a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
   });
+</script>
+
+<!-- ===== CHATBOT CARLOS ===== -->
+<button class="carlos-fab" id="carlosFab" data-openchat aria-label="Abrir chat con CARLOS">
+  <span class="av">C<span class="pulse"></span></span>
+  <span>Habla con CARLOS</span>
+</button>
+
+<div class="carlos-panel" id="carlosPanel" role="dialog" aria-label="Chat CARLOS">
+  <div class="carlos-head">
+    <div class="av">C</div>
+    <div class="who"><strong>CARLOS</strong><span>Asesor virtual · InmoÉlite</span></div>
+    <button class="carlos-close" id="carlosClose" aria-label="Cerrar chat">✕</button>
+  </div>
+  <div class="carlos-body" id="carlosBody"></div>
+  <div class="carlos-foot">
+    <textarea id="carlosInput" rows="1" placeholder="Escribe aquí…"></textarea>
+    <button class="carlos-send" id="carlosSend" aria-label="Enviar">➤</button>
+  </div>
+  <div class="carlos-disc">CARLOS no da valoraciones. Un asesor te llama sin compromiso.</div>
+</div>
+
+<script>
+(function(){
+  const ZONAS = ['Majadahonda','Las Rozas','Pozuelo','Boadilla','Madrid Centro','Otro Madrid'];
+  const TIPOS = ['Piso','Casa','Local','Otro'];
+  const PRESU_COMPRA = ['<200k','200-400k','400-700k','+700k'];
+  const PRESU_ALQ = ['<1.000 €/mes','1.000-1.500 €/mes','1.500-2.500 €/mes','+2.500 €/mes'];
+
+  const fab = document.getElementById('carlosFab');
+  const panel = document.getElementById('carlosPanel');
+  const body = document.getElementById('carlosBody');
+  const input = document.getElementById('carlosInput');
+  const sendBtn = document.getElementById('carlosSend');
+
+  // Estado del flujo
+  let step = null;                 // paso actual
+  let data = {};                   // operacion, zona, tipo, presupuesto, descripcion, nombre, telefono
+  let started = false;
+  let busy = false;
+
+  function scroll(){ body.scrollTop = body.scrollHeight; }
+
+  function addMsg(text, cls){
+    const d = document.createElement('div');
+    d.className = 'cmsg ' + cls;
+    d.textContent = text;
+    body.appendChild(d); scroll();
+    return d;
+  }
+
+  function typing(){
+    const t = document.createElement('div');
+    t.className = 'ctyping';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(t); scroll();
+    return t;
+  }
+
+  // Encola un mensaje del bot con "typing" y opcionalmente chips
+  function botSay(text, chips, opts){
+    busy = true; setInputEnabled(false);
+    const t = typing();
+    const delay = Math.min(900, 350 + text.length * 8);
+    setTimeout(()=>{
+      t.remove();
+      addMsg(text, (opts && opts.cls) || 'bot');
+      if(chips && chips.length) renderChips(chips);
+      busy = false;
+      // El input permanece siempre activo: así el guard de valoración
+      // (REGLA ABSOLUTA) puede dispararse en cualquier paso.
+      setInputEnabled(true);
+      if(opts && opts.freeInput) input.focus();
+    }, delay);
+  }
+
+  function renderChips(chips){
+    const wrap = document.createElement('div');
+    wrap.className = 'cchips';
+    chips.forEach(c=>{
+      const b = document.createElement('button');
+      b.className = 'cchip' + (c.gold ? ' gold' : '');
+      b.textContent = c.label;
+      b.addEventListener('click', ()=>{
+        if(busy) return;
+        wrap.remove();
+        addMsg(c.label, 'user');
+        c.onClick(c.value !== undefined ? c.value : c.label);
+      });
+      wrap.appendChild(b);
+    });
+    body.appendChild(wrap); scroll();
+  }
+
+  function setInputEnabled(on){
+    input.disabled = !on;
+    sendBtn.disabled = !on;
+  }
+
+  // ---- Guard de valoración (REGLA ABSOLUTA) ----
+  const VAL_RE = /(cu[aá]nto|cuanto).*(vale|cuesta|pagar[ií]|dar[ií]|sacar[ií])|valoraci[oó]n|valorar|tasaci[oó]n|tasar|precio de mercado|qu[eé] precio|por cu[aá]nto|cu[aá]nto me dan|estimaci[oó]n|estimar precio|vale mi/i;
+  function isValuation(txt){ return VAL_RE.test(txt || ''); }
+
+  // ---- Flujo ----
+  function start(){
+    if(started) return;
+    started = true;
+    botSay('¡Hola! 👋 Soy CARLOS, el asesor virtual de InmoÉlite. ¿Qué quieres hacer?', [
+      {label:'🏷️ Vender mi propiedad', gold:true, onClick:()=>pickOperacion('vender')},
+      {label:'🔑 Comprar', onClick:()=>pickOperacion('comprar')},
+      {label:'📄 Alquilar', onClick:()=>pickOperacion('alquilar')},
+    ]);
+  }
+
+  function pickOperacion(op){
+    data = { operacion: op };
+    step = 'zona';
+    const verbo = op==='vender' ? 'vender' : (op==='comprar' ? 'comprar' : 'alquilar');
+    botSay(`Genial. ¿En qué zona quieres ${verbo}?`, zonaChips());
+  }
+
+  function zonaChips(){
+    return ZONAS.map(z=>({label:z, onClick:()=>{ data.zona = z; askTipo(); }}));
+  }
+
+  function askTipo(){
+    step = 'tipo';
+    botSay('¿Qué tipo de inmueble es?', TIPOS.map(t=>({
+      label:t, onClick:()=>{ data.tipo = t; afterTipo(); }
+    })));
+  }
+
+  function afterTipo(){
+    if(data.operacion === 'vender'){
+      step = 'descripcion';
+      botSay('Cuéntame un poco más si quieres: zona exacta, m², estado… (o pulsa Saltar)', [
+        {label:'Saltar ↷', onClick:()=>{ data.descripcion=''; askNombre(); }}
+      ], {freeInput:true});
+    } else if(data.operacion === 'comprar'){
+      step = 'presupuesto';
+      botSay('¿Cuál es tu presupuesto de compra?', PRESU_COMPRA.map(p=>({
+        label:p, onClick:()=>{ data.presupuesto=p; askNombre(); }
+      })));
+    } else {
+      step = 'presupuesto';
+      botSay('¿Cuál es tu presupuesto de alquiler al mes?', PRESU_ALQ.map(p=>({
+        label:p, onClick:()=>{ data.presupuesto=p; askNombre(); }
+      })));
+    }
+  }
+
+  function askNombre(){
+    step = 'nombre';
+    botSay('¿Cómo te llamas?', null, {freeInput:true});
+  }
+
+  function askTelefono(){
+    step = 'telefono';
+    botSay(`Encantado, ${data.nombre.split(' ')[0]} 🙂 ¿A qué teléfono te llamamos?`, null, {freeInput:true});
+  }
+
+  function buildDetalle(){
+    if(data.operacion === 'vender'){
+      return [data.tipo, data.descripcion].filter(Boolean).join(' · ');
+    }
+    return `${data.tipo} · Presupuesto ${data.presupuesto}`;
+  }
+
+  async function confirmar(){
+    step = 'enviando';
+    const payload = {
+      nombre: data.nombre,
+      telefono: data.telefono,
+      operacion: data.operacion,
+      zona: data.zona,
+      detalle: buildDetalle().slice(0,400)
+    };
+    const t = typing(); busy = true; setInputEnabled(false);
+    try{
+      const r = await fetch(INMO_LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const j = await r.json();
+      t.remove();
+      if(!r.ok || !j.ok) throw new Error(j.error||'error');
+      const asesor = j.comercial_asignado || 'Un asesor';
+      addMsg(`¡Gracias, ${data.nombre.split(' ')[0]}! ${asesor} te llamará muy pronto ✓`, 'ok');
+      step = 'done'; busy = false;
+      input.placeholder = 'Conversación finalizada';
+      setInputEnabled(false);
+    }catch(err){
+      t.remove(); busy = false;
+      addMsg('Ups, no he podido registrar tus datos ahora mismo ⚠️. ¿Probamos otra vez?', 'alert');
+      renderChips([{label:'Reintentar', gold:true, onClick:()=>confirmar()}]);
+    }
+  }
+
+  // ---- Entrada de texto libre ----
+  function handleText(raw){
+    const txt = (raw||'').trim();
+    if(!txt) return;
+    addMsg(txt, 'user');
+    input.value=''; autoGrow();
+
+    // REGLA ABSOLUTA: nunca dar valoraciones/precios
+    if(isValuation(txt)){
+      botSay('Eso te lo dirá nuestro asesor con datos reales de tu zona ⚠️. Déjame tus datos y te llama sin compromiso.', null,
+        step==='nombre'||step==='telefono'||step==='descripcion' ? {freeInput:true} : {});
+      // Si estábamos en un paso de chips, re-mostramos las opciones
+      if(step==='zona') setTimeout(()=>renderChips(zonaChips()), 950);
+      else if(step==='tipo') setTimeout(()=>renderChips(TIPOS.map(t=>({label:t,onClick:()=>{data.tipo=t;afterTipo();}}))), 950);
+      return;
+    }
+
+    if(step === 'descripcion'){
+      data.descripcion = txt.slice(0,300);
+      askNombre();
+    } else if(step === 'nombre'){
+      if(txt.length < 2){ botSay('¿Me dices tu nombre, por favor?', null, {freeInput:true}); return; }
+      data.nombre = txt.slice(0,80);
+      askTelefono();
+    } else if(step === 'telefono'){
+      const digits = txt.replace(/\D/g,'');
+      if(digits.length < 9){ botSay('Necesito un teléfono válido (9 dígitos) para que te llamemos 📞', null, {freeInput:true}); return; }
+      data.telefono = txt.slice(0,20);
+      // Resumen + confirmar
+      const resumen = `Resumen:\n• ${data.operacion.toUpperCase()} en ${data.zona}\n• ${buildDetalle()}\n• ${data.nombre} · ${data.telefono}`;
+      botSay(resumen, [
+        {label:'✓ Confirmar', gold:true, onClick:()=>confirmar()},
+        {label:'Empezar de nuevo', onClick:()=>{ started=false; body.innerHTML=''; start(); }}
+      ]);
+    } else {
+      // Fuera de un paso de texto: guiar hacia las opciones
+      botSay('Para ayudarte mejor, elige una de las opciones de arriba 👆', null, {});
+    }
+  }
+
+  // ---- UI wiring ----
+  function openChat(){
+    panel.classList.add('open');
+    fab.classList.add('hidden');
+    start();
+  }
+  function closeChat(){
+    panel.classList.remove('open');
+    fab.classList.remove('hidden');
+  }
+
+  document.querySelectorAll('[data-openchat]').forEach(el=>el.addEventListener('click', openChat));
+  document.getElementById('carlosClose').addEventListener('click', closeChat);
+
+  function autoGrow(){
+    input.style.height='auto';
+    input.style.height = Math.min(90, input.scrollHeight) + 'px';
+  }
+  input.addEventListener('input', autoGrow);
+  input.addEventListener('keydown', e=>{
+    if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); if(!input.disabled) handleText(input.value); }
+  });
+  sendBtn.addEventListener('click', ()=>{ if(!input.disabled) handleText(input.value); });
+
+  setInputEnabled(false);
+})();
 </script>
 </body>
 </html>
