@@ -90,8 +90,11 @@ a{color:inherit;text-decoration:none}
 .section-title .lav{color:var(--blue)}
 .section-title .rose{color:var(--rose)}
 .section-subtitle{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:340px}
-.serv-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;transition:transform .35s,border-color .35s;position:relative;overflow:hidden}
+.serv-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:18px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;transition:transform .35s,border-color .35s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.serv-img{display:block;width:calc(100% + 60px);height:190px;object-fit:cover;margin:-30px -30px 22px;border-bottom:1px solid var(--border)}
+.serv-card.rose-card .serv-img{border-bottom-color:var(--border-rose)}
+.serv-card .serv-link{margin-top:auto}
 .serv-card:hover{transform:translateY(-7px);border-color:rgba(91,143,214,.5)}
 .serv-card.rose-card{border-color:var(--border-rose)}
 .serv-card.rose-card:hover{border-color:rgba(201,162,75,.5)}
@@ -335,36 +338,42 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   </div>
   <div class="serv-grid">
     <div class="serv-card">
+      <img class="serv-img" src="assets/img/tasacion-precisa.jpg" width="1200" height="901" loading="lazy" alt="Maqueta de vivienda con lupa y planos sobre la mesa para la tasación de un inmueble">
       <div class="serv-num">01</div>
       <h3>Tasación precisa</h3>
       <p>Análisis comparativo de mercado con datos reales para fijar el precio óptimo de venta.</p>
       <span class="serv-link">Valoración en 24h</span>
     </div>
     <div class="serv-card rose-card">
+      <img class="serv-img" src="assets/img/marketing-premium.jpg" width="1200" height="816" loading="lazy" alt="Salón moderno de diseño captado con fotografía profesional inmobiliaria">
       <div class="serv-num">02</div>
       <h3>Marketing premium</h3>
       <p>Fotografía profesional, tour virtual 360º, home staging y campañas en +30 portales.</p>
       <span class="serv-link">Máxima visibilidad</span>
     </div>
     <div class="serv-card">
+      <img class="serv-img" src="assets/img/asesoria-legal.jpg" width="1200" height="801" loading="lazy" alt="Firma de un contrato de compraventa inmobiliaria sobre la mesa">
       <div class="serv-num">03</div>
       <h3>Asesoría legal</h3>
       <p>Gestionamos contratos, certificados, hipotecas y toda la documentación sin coste.</p>
       <span class="serv-link">Incluida siempre</span>
     </div>
     <div class="serv-card rose-card">
+      <img class="serv-img" src="assets/img/venta-rapida.jpg" width="1200" height="800" loading="lazy" alt="Vivienda unifamiliar moderna lista para una venta rápida">
       <div class="serv-num">04</div>
       <h3>Venta rápida</h3>
       <p>Nuestra cartera de +12.000 compradores cualificados acelera el proceso de forma notable.</p>
       <span class="serv-link">47 días de media</span>
     </div>
     <div class="serv-card">
+      <img class="serv-img" src="assets/img/alquiler-gestionado.jpg" width="1200" height="800" loading="lazy" alt="Salón luminoso de un piso preparado para alquiler gestionado">
       <div class="serv-num">05</div>
       <h3>Alquiler gestionado</h3>
       <p>Filtro de solvencia, contratos legales, cobro de rentas y seguro de impago.</p>
       <span class="serv-link">Sin preocupaciones</span>
     </div>
     <div class="serv-card rose-card">
+      <img class="serv-img" src="assets/img/inversion-inmobiliaria.jpg" width="1200" height="800" loading="lazy" alt="Edificios de oficinas modernos representando la inversión inmobiliaria">
       <div class="serv-num">06</div>
       <h3>Inversión inmobiliaria</h3>
       <p>Estudio de rentabilidad, búsqueda a medida, reformas llave en mano y gestión patrimonial.</p>
