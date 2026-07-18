@@ -138,6 +138,9 @@ a{color:inherit;text-decoration:none}
 @keyframes marquee2{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* CONTACTO */
+.video-sec{padding:120px 52px;background:var(--black)}
+.video-wrap{max-width:900px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:#000;aspect-ratio:896 / 576;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.video-player{display:block;width:100%;height:100%;object-fit:cover}
 .contacto{padding:120px 52px;background:#0a0f1c}
 .contacto-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
 .contacto-text h2{font-family:'Anton',sans-serif;font-size:clamp(2rem,4vw,4rem);text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:20px}
@@ -246,7 +249,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   .nav-links{display:none}
   .hero{padding:100px 24px 52px}
   .hero h1{font-size:clamp(2.8rem,13vw,5.5rem)}
-  .servicios,.tarifas,.sobre,.contacto,.faq,.cta-sec{padding:80px 24px}
+  .servicios,.tarifas,.sobre,.video-sec,.contacto,.faq,.cta-sec{padding:80px 24px}
   .serv-grid,.tarifas-grid{grid-template-columns:1fr}
   .sobre-in{grid-template-columns:1fr;gap:40px}
   .sobre-img-wrap{display:none}
@@ -485,10 +488,25 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   </div>
 </div>
 
+<section class="video-sec" id="video">
+  <div class="section-header" style="justify-content:center;text-align:center;margin-bottom:44px">
+    <div>
+      <div class="section-tag" style="text-align:center">04 — Conócenos</div>
+      <h2 class="section-title" style="text-align:center;margin-top:8px">Así vendemos<br><span class="lav">tu vivienda</span></h2>
+    </div>
+  </div>
+  <div class="video-wrap">
+    <video class="video-player" controls playsinline preload="metadata" poster="assets/img/video-poster.jpg" width="896" height="576">
+      <source src="assets/video/inmoelite.mp4" type="video/mp4">
+      Tu navegador no admite la reproducción de vídeo. Puedes <a href="assets/video/inmoelite.mp4">descargar el vídeo</a>.
+    </video>
+  </div>
+</section>
+
 <section class="contacto" id="contacto">
   <div class="contacto-in">
     <div class="contacto-text">
-      <div class="section-tag">04 — Contacto</div>
+      <div class="section-tag">05 — Contacto</div>
       <h2>Pide tu<br><span class="lav">valoración gratis</span></h2>
       <p>Si tienes dudas o quieres dar el primer paso, puedes llamarnos, escribirnos o hablar con nuestro asistente Carlos. Te ayudamos a tasar tu vivienda sin compromiso.</p>
       <div class="contact-items">
@@ -508,7 +526,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
 
 <section class="faq" id="faq">
   <div class="faq-in">
-    <div class="section-tag" style="text-align:center">05 — Preguntas frecuentes</div>
+    <div class="section-tag" style="text-align:center">06 — Preguntas frecuentes</div>
     <h2 class="section-title" style="text-align:center;margin:10px 0 0">Resolvemos<br><span class="lav">tus dudas</span></h2>
     <div class="faq-list">
       <div class="faq-item">
