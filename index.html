@@ -7,8 +7,13 @@
 <meta name="description" content="Agencia inmobiliaria especializada en venta de viviendas. Valoración gratuita, marketing premium y venta media en 47 días.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero-800.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/anton-v27-latin.woff2" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:optional;src:url("assets/anton-v27-latin.woff2") format("woff2")}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --black:#070b14;
@@ -60,7 +65,8 @@ a{color:inherit;text-decoration:none}
 
 /* HERO */
 .hero{position:relative;height:100dvh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:110px 52px 72px}
-.hero-bg{position:absolute;inset:0;z-index:0;background:url("https://images.unsplash.com/photo-1757359056339-22968344cce6?fm=jpg&q=80&w=1600&auto=format&fit=crop") center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;z-index:0;background:#0a1120}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-bg::after{content:'';position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(7,11,20,.55) 0%,rgba(7,11,20,.88) 55%,rgba(7,11,20,.97) 100%),
   radial-gradient(ellipse at 75% 30%,rgba(91,143,214,.12),transparent 55%),
@@ -101,13 +107,15 @@ a{color:inherit;text-decoration:none}
 .section-subtitle{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:340px}
 .serv-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:18px}
 .serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;transition:transform .35s,border-color .35s;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.serv-img{display:block;width:calc(100% + 60px);height:190px;object-fit:cover;margin:-30px -30px 22px;border-bottom:1px solid var(--border)}
-.serv-card.rose-card .serv-img{border-bottom-color:var(--border-rose)}
+.serv-pic{display:block;width:calc(100% + 60px);height:190px;margin:-30px -30px 22px;border-bottom:1px solid var(--border);overflow:hidden}
+.serv-card.rose-card .serv-pic{border-bottom-color:var(--border-rose)}
+.serv-img{display:block;width:100%;height:100%;object-fit:cover}
 .serv-card .serv-link{margin-top:auto}
 .serv-card:hover{transform:translateY(-7px);border-color:rgba(91,143,214,.5)}
 .serv-card.rose-card{border-color:var(--border-rose)}
 .serv-card.rose-card:hover{border-color:rgba(201,162,75,.5)}
 .serv-num{font-family:'Anton',sans-serif;font-size:3.5rem;color:rgba(91,143,214,.06);line-height:1;margin-bottom:-8px}
+.serv-num::before{content:attr(data-num)}
 .serv-card.rose-card .serv-num{color:rgba(201,162,75,.06)}
 .serv-card h3{font-family:'Anton',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px;color:var(--white)}
 .serv-card p{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
@@ -195,13 +203,13 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
 .footer-brand .logo{font-family:'Anton',sans-serif;font-size:1.5rem;color:var(--white);margin-bottom:14px}
 .footer-brand .logo span{color:var(--rose)}
 .footer-brand p{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:260px}
-.footer-col h4{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.footer-col h3{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
 .footer-col a,.footer-col p{font-size:.82rem;color:var(--muted);display:block;margin-bottom:8px;transition:color .2s}
 .footer-col a:hover{color:var(--blue)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.footer-copy{font-size:.72rem;color:rgba(255,255,255,.3)}
-.footer-copy a{color:var(--blue)}
-.footer-badge{font-family:'Anton',sans-serif;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.2);text-transform:uppercase}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.58)}
+.footer-copy a{color:#7ea6e0;text-decoration:underline}
+.footer-badge{font-family:'Anton',sans-serif;font-size:.7rem;letter-spacing:.12em;color:rgba(255,255,255,.55);text-transform:uppercase}
 
 /* CHATBOT CARLOS */
 .carlos-fab{position:fixed;bottom:28px;right:28px;z-index:500;width:60px;height:60px;background:#5b8fd6;color:#070b14;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(91,143,214,.45);font-family:'Anton',sans-serif;transition:all .25s}
@@ -250,7 +258,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
 .carlos-send{background:#5b8fd6;color:#070b14;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
 .carlos-send:hover:not(:disabled){background:#f08080;transform:scale(1.08)}
 .carlos-send:disabled{opacity:.4;cursor:not-allowed}
-.carlos-disc{background:#080d18;border-top:1px solid rgba(255,255,255,.04);text-align:center;padding:8px 10px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.24)}
+.carlos-disc{background:#080d18;border-top:1px solid rgba(255,255,255,.04);text-align:center;padding:8px 10px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -315,7 +323,14 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
 </nav>
 
 <section class="hero" id="top">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <picture>
+      <source type="image/webp" media="(max-width:900px)" srcset="assets/img/hero-800.webp">
+      <source type="image/jpeg" media="(max-width:900px)" srcset="assets/img/hero-800.jpg">
+      <source type="image/webp" srcset="assets/img/hero.webp">
+      <img src="assets/img/hero.jpg" alt="" width="1400" height="791" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
   <div class="hero-in">
     <div class="hero-tag">
       <span class="dot"></span>
@@ -368,43 +383,43 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
   </div>
   <div class="serv-grid">
     <div class="serv-card">
-      <img class="serv-img" src="assets/img/tasacion-precisa.jpg" width="1200" height="901" loading="lazy" alt="Maqueta de vivienda con lupa y planos sobre la mesa para la tasación de un inmueble">
-      <div class="serv-num">01</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/tasacion-precisa.webp"><img class="serv-img" src="assets/img/tasacion-precisa.jpg" width="800" height="601" loading="lazy" decoding="async" alt="Maqueta de vivienda con lupa y planos sobre la mesa para la tasación de un inmueble"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="01"></div>
       <h3>Tasación precisa</h3>
       <p>Análisis comparativo de mercado con datos reales para fijar el precio óptimo de venta.</p>
       <span class="serv-link">Valoración en 24h</span>
     </div>
     <div class="serv-card rose-card">
-      <img class="serv-img" src="assets/img/marketing-premium.jpg" width="1200" height="816" loading="lazy" alt="Salón moderno de diseño captado con fotografía profesional inmobiliaria">
-      <div class="serv-num">02</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/marketing-premium.webp"><img class="serv-img" src="assets/img/marketing-premium.jpg" width="800" height="544" loading="lazy" decoding="async" alt="Salón moderno de diseño captado con fotografía profesional inmobiliaria"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="02"></div>
       <h3>Marketing premium</h3>
       <p>Fotografía profesional, tour virtual 360º, home staging y campañas en +30 portales.</p>
       <span class="serv-link">Máxima visibilidad</span>
     </div>
     <div class="serv-card">
-      <img class="serv-img" src="assets/img/asesoria-legal.jpg" width="1200" height="801" loading="lazy" alt="Firma de un contrato de compraventa inmobiliaria sobre la mesa">
-      <div class="serv-num">03</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/asesoria-legal.webp"><img class="serv-img" src="assets/img/asesoria-legal.jpg" width="800" height="534" loading="lazy" decoding="async" alt="Firma de un contrato de compraventa inmobiliaria sobre la mesa"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="03"></div>
       <h3>Asesoría legal</h3>
       <p>Gestionamos contratos, certificados, hipotecas y toda la documentación sin coste.</p>
       <span class="serv-link">Incluida siempre</span>
     </div>
     <div class="serv-card rose-card">
-      <img class="serv-img" src="assets/img/venta-rapida.jpg" width="1200" height="800" loading="lazy" alt="Vivienda unifamiliar moderna lista para una venta rápida">
-      <div class="serv-num">04</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/venta-rapida.webp"><img class="serv-img" src="assets/img/venta-rapida.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Vivienda unifamiliar moderna lista para una venta rápida"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="04"></div>
       <h3>Venta rápida</h3>
       <p>Nuestra cartera de +12.000 compradores cualificados acelera el proceso de forma notable.</p>
       <span class="serv-link">47 días de media</span>
     </div>
     <div class="serv-card">
-      <img class="serv-img" src="assets/img/alquiler-gestionado.jpg" width="1200" height="800" loading="lazy" alt="Salón luminoso de un piso preparado para alquiler gestionado">
-      <div class="serv-num">05</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/alquiler-gestionado.webp"><img class="serv-img" src="assets/img/alquiler-gestionado.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Salón luminoso de un piso preparado para alquiler gestionado"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="05"></div>
       <h3>Alquiler gestionado</h3>
       <p>Filtro de solvencia, contratos legales, cobro de rentas y seguro de impago.</p>
       <span class="serv-link">Sin preocupaciones</span>
     </div>
     <div class="serv-card rose-card">
-      <img class="serv-img" src="assets/img/inversion-inmobiliaria.jpg" width="1200" height="800" loading="lazy" alt="Edificios de oficinas modernos representando la inversión inmobiliaria">
-      <div class="serv-num">06</div>
+      <picture class="serv-pic"><source type="image/webp" srcset="assets/img/inversion-inmobiliaria.webp"><img class="serv-img" src="assets/img/inversion-inmobiliaria.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Edificios de oficinas modernos representando la inversión inmobiliaria"></picture>
+      <div class="serv-num" aria-hidden="true" data-num="06"></div>
       <h3>Inversión inmobiliaria</h3>
       <p>Estudio de rentabilidad, búsqueda a medida, reformas llave en mano y gestión patrimonial.</p>
       <span class="serv-link">Para inversores</span>
@@ -524,7 +539,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
     </div>
   </div>
   <div class="video-wrap">
-    <video class="video-player" controls playsinline preload="metadata" poster="assets/img/video-poster.jpg" width="896" height="576">
+    <video class="video-player" controls playsinline preload="none" poster="assets/img/video-poster.jpg" width="896" height="576">
       <source src="assets/video/inmoelite.mp4" type="video/mp4">
       Tu navegador no admite la reproducción de vídeo. Puedes <a href="assets/video/inmoelite.mp4">descargar el vídeo</a>.
     </video>
@@ -616,21 +631,21 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
         <p>Más de 15 años ayudando a familias a vender su hogar al mejor precio. Marketing premium y venta media en 47 días.</p>
       </div>
       <div class="footer-col">
-        <h4>Servicios</h4>
+        <h3>Servicios</h3>
         <a href="#servicios">Venta de viviendas</a>
         <a href="#servicios">Alquiler gestionado</a>
         <a href="#servicios">Inversión inmobiliaria</a>
         <a href="#servicios">Tasaciones</a>
       </div>
       <div class="footer-col">
-        <h4>Empresa</h4>
+        <h3>Empresa</h3>
         <p>Sobre nosotros</p>
         <p>Equipo</p>
         <p>Blog</p>
         <p>Trabaja con nosotros</p>
       </div>
       <div class="footer-col">
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <a href="tel:643199580">643 199 580</a>
         <a href="mailto:comercial@whitemoon.es">comercial@whitemoon.es</a>
         <p>C/ Gran Vía 25, Madrid</p>
