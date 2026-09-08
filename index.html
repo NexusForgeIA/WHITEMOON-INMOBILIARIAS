@@ -542,9 +542,7 @@ p{margin:0}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .btn-gold:hover,.wm-fab:hover,.sv-card:hover,.sv-feat:hover{transform:none}
-  .wm-js .tr-card{opacity:1;transform:none}
   .wm-js .ft-glass{opacity:1;transform:none}
-  .tr-card:hover img,.tr-card:focus-within img{transform:none}
 }
 </style>
 <script>document.documentElement.className+=' wm-js';</script>
@@ -1449,14 +1447,12 @@ p{margin:0}
   abrirDetalleDelHash();
 
   /* ====================================================
-     REVEAL AL SCROLL · galería + cristal del footer
+     REVEAL AL SCROLL · cristal del footer
   ==================================================== */
   var noMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var cards = document.querySelectorAll('.tr-card');
   var glass = document.getElementById('ftGlass');
 
   if (!('IntersectionObserver' in window) || noMotion){
-    for (var r = 0; r < cards.length; r++) cards[r].classList.add('is-in');
     if (glass) glass.classList.add('is-in');
   } else {
     var io = new IntersectionObserver(function(entries){
@@ -1466,10 +1462,6 @@ p{margin:0}
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
-    for (var k = 0; k < cards.length; k++){
-      cards[k].style.transitionDelay = (k % 2) * 90 + Math.floor(k / 2) * 40 + 'ms';
-      io.observe(cards[k]);
-    }
     if (glass) io.observe(glass);
   }
 })();
