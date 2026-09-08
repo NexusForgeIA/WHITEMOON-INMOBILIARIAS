@@ -32,8 +32,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;500;600;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;500;600;700&display=swap"></noscript>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230a0a0c'/%3E%3Cpath d='M16 5.6 5.8 13.4v13h7.1v-7.2h6.2v7.2h7.1v-13L16 5.6Z' fill='%23c9a86a'/%3E%3C/svg%3E">
 
@@ -392,62 +392,6 @@ p{margin:0}
 }
 .vd-frame video{width:100%;height:auto;display:block;background:#000}
 .vd-note{max-width:920px;margin:16px auto 0;text-align:center;font-size:12px;color:var(--muted)}
-
-/* ===================== SECCIÓN 5 · PROPIEDADES ===================== */
-.tr{background:#0d0d11;border-top:1px solid var(--line-soft);padding:clamp(56px,7vw,100px) clamp(16px,3vw,40px)}
-.tr-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:clamp(14px,1.6vw,24px)}
-@media(min-width:640px){.tr-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){
-  .tr-grid{grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(230px,25vw,330px)}
-  .tr-card:nth-child(4n+1),.tr-card:nth-child(4n+4){grid-column:span 7}
-  .tr-card:nth-child(4n+2),.tr-card:nth-child(4n+3){grid-column:span 5}
-}
-
-.tr-card{
-  position:relative;display:block;width:100%;overflow:hidden;
-  border-radius:20px;background:var(--surface);border:1px solid var(--line-soft);
-  aspect-ratio:3/2;
-}
-@media(min-width:1024px){.tr-card{aspect-ratio:auto;height:100%}}
-.tr-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.tr-card:hover img,.tr-card:focus-within img{transform:scale(1.05)}
-.tr-card::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(8,8,11,0) 32%,rgba(8,8,11,.72) 78%,rgba(8,8,11,.94) 100%);
-}
-.tr-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(14px,1.5vw,22px);transition:opacity .3s ease}
-.tr-cap b{display:block;font-family:var(--serif);font-size:clamp(16px,1.4vw,20px);font-weight:500;line-height:1.25;color:var(--text)}
-.tr-cap small{display:block;margin-top:5px;font-size:12px;color:var(--gold-2)}
-
-.tr-veil{
-  position:absolute;inset:0;z-index:3;display:grid;place-items:center;
-  opacity:0;transition:opacity .3s ease;
-  background:rgba(8,8,11,.62);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
-}
-.tr-card:hover .tr-veil,.tr-card:focus-within .tr-veil{opacity:1}
-.tr-card:hover .tr-cap,.tr-card:focus-within .tr-cap{opacity:0}
-
-.tr-pill{
-  position:relative;border-radius:999px;padding:11px 22px;max-width:calc(100% - 32px);text-align:center;
-  font-size:clamp(12.5px,1.05vw,14px);letter-spacing:.06em;line-height:1.3;color:var(--text);
-  background:rgba(8,8,11,.72);transform:translateY(6px);transition:transform .3s ease;
-}
-.tr-pill::after{content:"";position:absolute;inset:-1000px;z-index:1}
-.tr-card:hover .tr-pill,.tr-card:focus-within .tr-pill{transform:none}
-.tr-pill::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;
-  background:linear-gradient(90deg,var(--gold),#f0dcb4,var(--gold),#8d7442,var(--gold));
-  background-size:200% 100%;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  mask-composite:exclude;animation:trBorder 3.4s linear infinite;
-}
-@keyframes trBorder{from{background-position:0% 50%}to{background-position:200% 50%}}
-
-.tr-note{max-width:1400px;margin:clamp(20px,2.4vw,30px) auto 0;text-align:center;font-size:12px;line-height:1.6;color:var(--muted)}
-
-.wm-js .tr-card{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.wm-js .tr-card.is-in{opacity:1;transform:none}
 
 /* ===================== SECCIÓN 6 · FOOTER GLASS ===================== */
 .ft{
@@ -884,82 +828,178 @@ p{margin:0}
   <p class="vd-note">Vídeo de ejemplo generado con IA para esta demo.</p>
 </section>
 
-<!-- ============ SECCIÓN 5 · PROPIEDADES ============ -->
-<section class="tr" id="propiedades" aria-labelledby="trTitle">
-
-  <div class="sec-head">
-    <span class="sec-eyebrow">— Propiedades</span>
-    <h2 class="sec-title" id="trTitle">El tipo de casa <em>que movemos</em></h2>
-    <div class="rule"></div>
-    <p class="sec-sub">Una muestra del tipo de inmueble con el que trabajamos en Madrid y alrededores. Dinos cuál se parece a lo que buscas.</p>
+<!-- ============================================================
+     WHITEMOON · PROPIEDADES DINÁMICAS (InmoÉlite)
+     Lee las propiedades PUBLICADAS desde Supabase y las pinta.
+     Se actualiza solo: lo que se publica en el panel aparece aquí.
+     Todo scoped con prefijo .wmp- para no chocar con la web.
+     ============================================================ -->
+<section id="propiedades" class="wmp-wrap">
+  <div class="wmp-head">
+    <h2 class="wmp-h2">Propiedades destacadas</h2>
+    <p class="wmp-sub">Selección actual de nuestra cartera. Actualizada al instante.</p>
   </div>
-
-  <div class="tr-grid">
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/venta-rapida.webp">
-        <img src="assets/img/venta-rapida.jpg" width="800" height="533" loading="lazy" decoding="async"
-           alt="Chalé contemporáneo de líneas rectas iluminado al anochecer, rodeado de césped">
-      </picture>
-      <span class="tr-cap"><b>Chalés y villas</b><small>Orientativo · desde 750.000 €</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Chalés y villas</button></span>
-    </article>
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/villa-piscina.webp">
-        <img src="assets/img/villa-piscina.jpg" width="1200" height="800" loading="lazy" decoding="async"
-           alt="Villa moderna con piscina exterior, terraza de madera y grandes cristaleras">
-      </picture>
-      <span class="tr-cap"><b>Villas con piscina</b><small>Orientativo · desde 890.000 €</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Villas con piscina</button></span>
-    </article>
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/salon-premium.webp">
-        <img src="assets/img/salon-premium.jpg" width="1200" height="800" loading="lazy" decoding="async"
-           alt="Salón comedor de diseño con mesa larga, cocina abierta y paneles de madera">
-      </picture>
-      <span class="tr-cap"><b>Interiores de autor</b><small>Orientativo · desde 520.000 €</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Interiores de autor</button></span>
-    </article>
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/marketing-premium.webp">
-        <img src="assets/img/marketing-premium.jpg" width="800" height="544" loading="lazy" decoding="async"
-           alt="Salón luminoso de obra nueva con sofá gris, cocina integrada y frente de madera">
-      </picture>
-      <span class="tr-cap"><b>Obra nueva</b><small>Orientativo · desde 430.000 €</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Obra nueva</button></span>
-    </article>
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/video-poster.webp">
-        <img src="assets/img/video-poster.jpg" width="896" height="576" loading="lazy" decoding="async"
-           alt="Terraza de ático amueblada con sofás de exterior, toldo y plantas">
-      </picture>
-      <span class="tr-cap"><b>Áticos con terraza</b><small>Orientativo · desde 610.000 €</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Áticos con terraza</button></span>
-    </article>
-
-    <article class="tr-card">
-      <picture>
-        <source type="image/webp" srcset="assets/img/alquiler-gestionado.webp">
-        <img src="assets/img/alquiler-gestionado.jpg" width="800" height="533" loading="lazy" decoding="async"
-           alt="Salón amplio con butacas, chimenea y ventanal corrido con vistas a la ciudad">
-      </picture>
-      <span class="tr-cap"><b>Alquiler gestionado</b><small>Orientativo · desde 1.400 €/mes</small></span>
-      <span class="tr-veil"><button class="tr-pill" data-openchat type="button">Agenda una visita — Alquiler gestionado</button></span>
-    </article>
-
+  <div class="wmp-filtros">
+    <button class="wmp-f on" data-f="todas">Todas</button>
+    <button class="wmp-f" data-f="venta">Venta</button>
+    <button class="wmp-f" data-f="alquiler">Alquiler</button>
   </div>
-
-  <p class="tr-note">Demo de WhiteMoon · las imágenes son de referencia y los importes, orientativos: no corresponden a inmuebles reales en venta ni a una oferta.</p>
+  <div id="wmp-grid" class="wmp-grid"><div class="wmp-load">Cargando propiedades…</div></div>
 </section>
+
+<!-- Modal detalle -->
+<div id="wmp-modal" class="wmp-modal" hidden>
+  <div class="wmp-modal-bg" data-close></div>
+  <div class="wmp-modal-box">
+    <button class="wmp-close" data-close aria-label="Cerrar">×</button>
+    <div id="wmp-modal-body"></div>
+  </div>
+</div>
+
+<style>
+.wmp-wrap{--wmp-p:#7c4dff;--wmp-p2:#9d70ff;--wmp-g:#00d4aa;--wmp-gold:#f5c842;
+  --wmp-card:#111118;--wmp-bg2:#0e0e16;--wmp-text:#f0f0f5;--wmp-muted:#8888a0;--wmp-border:rgba(124,77,255,.18);--wmp-line:rgba(240,240,245,.07);
+  max-width:1200px;margin:0 auto;padding:64px 20px;font-family:'Sora',system-ui,sans-serif;color:var(--wmp-text)}
+.wmp-head{margin-bottom:8px}
+.wmp-h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.5px;margin:0}
+.wmp-sub{color:var(--wmp-muted);font-size:14px;margin:8px 0 0;font-weight:300}
+.wmp-filtros{display:flex;gap:8px;margin:22px 0 26px;flex-wrap:wrap}
+.wmp-f{background:transparent;border:1px solid var(--wmp-border);color:var(--wmp-muted);padding:8px 18px;border-radius:100px;font:inherit;font-size:13px;cursor:pointer;transition:.2s}
+.wmp-f:hover{color:var(--wmp-text)}
+.wmp-f.on{background:var(--wmp-p);border-color:var(--wmp-p);color:#fff}
+.wmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wmp-load,.wmp-empty{grid-column:1/-1;color:var(--wmp-muted);font-size:14px;padding:30px 0}
+.wmp-card{background:var(--wmp-card);border:1px solid var(--wmp-border);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .25s ease,border-color .25s ease;display:flex;flex-direction:column}
+.wmp-card:hover{transform:translateY(-4px);border-color:var(--wmp-p2)}
+.wmp-ph{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1428,#241a3a);background-size:cover;background-position:center}
+.wmp-ph .wmp-noimg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--wmp-p2);opacity:.5;font-size:34px}
+.wmp-tipo{position:absolute;top:12px;left:12px;background:rgba(8,8,13,.72);backdrop-filter:blur(4px);color:#fff;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px;border:1px solid var(--wmp-border)}
+.wmp-dest{position:absolute;top:12px;right:12px;background:var(--wmp-gold);color:#2a2205;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:100px}
+.wmp-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.wmp-price{color:var(--wmp-p2);font-size:20px;font-weight:700;letter-spacing:-.3px}
+.wmp-price small{color:var(--wmp-muted);font-size:12px;font-weight:400}
+.wmp-title{font-size:16px;font-weight:600;margin:2px 0 0;line-height:1.3}
+.wmp-meta{color:var(--wmp-muted);font-size:12.5px}
+.wmp-desc{color:var(--wmp-muted);font-size:13px;font-weight:300;line-height:1.55;margin:4px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wmp-cta{margin-top:14px;align-self:flex-start;background:var(--wmp-p);color:#fff;border:0;border-radius:9px;padding:11px 20px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:.2s}
+.wmp-cta:hover{background:var(--wmp-p2)}
+/* modal */
+.wmp-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Sora',system-ui,sans-serif}
+.wmp-modal[hidden]{display:none}
+.wmp-modal-bg{position:absolute;inset:0;background:rgba(4,4,8,.82);backdrop-filter:blur(3px)}
+.wmp-modal-box{position:relative;background:var(--wmp-card,#111118);border:1px solid rgba(124,77,255,.18);border-radius:18px;max-width:760px;width:100%;max-height:88vh;overflow:auto;color:#f0f0f5}
+.wmp-close{position:absolute;top:14px;right:14px;z-index:2;background:rgba(8,8,13,.7);color:#fff;border:1px solid rgba(124,77,255,.18);border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer;line-height:1}
+.wmp-gal{display:grid;grid-template-columns:1fr;gap:2px}
+.wmp-gal img{width:100%;max-height:420px;object-fit:cover;display:block}
+.wmp-gal .wmp-noimg-lg{aspect-ratio:16/9;background:linear-gradient(135deg,#1a1428,#241a3a);display:flex;align-items:center;justify-content:center;color:#9d70ff;font-size:44px}
+.wmp-mthumbs{display:flex;gap:6px;padding:8px;flex-wrap:wrap}
+.wmp-mthumbs img{width:70px;height:56px;object-fit:cover;border-radius:7px;cursor:pointer;border:1px solid rgba(124,77,255,.18)}
+.wmp-mbody{padding:8px 26px 28px}
+.wmp-mbody .wmp-price{font-size:26px}
+.wmp-mbody h3{font-size:22px;font-weight:600;margin:6px 0 2px}
+.wmp-mfeat{display:flex;gap:18px;flex-wrap:wrap;color:#8888a0;font-size:13px;margin:12px 0 16px;padding:14px 0;border-top:1px solid rgba(240,240,245,.07);border-bottom:1px solid rgba(240,240,245,.07)}
+.wmp-mfeat b{color:#f0f0f5;font-weight:600;display:block;font-size:17px}
+.wmp-mdesc{color:#c6c6d4;font-size:14px;font-weight:300;line-height:1.7;white-space:pre-wrap}
+.wmp-mcta{margin-top:20px;background:var(--wmp-p,#7c4dff);color:#fff;border:0;border-radius:10px;padding:14px 26px;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.wmp-mcta:hover{background:#9d70ff}
+@media(max-width:900px){.wmp-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.wmp-grid{grid-template-columns:1fr}}
+</style>
+
+<script>
+(function(){
+  var SB="https://mlaqtniujnvfxcvcourm.supabase.co";
+  var APIKEY="sb_publishable_6no6BuOgiA_2nonTJntAuQ_DTqEgrcV"; // pública por diseño
+  var grid=document.getElementById("wmp-grid");
+  var DATA=[], FILTRO="todas";
+  function eur(v){return v?Number(v).toLocaleString("es-ES")+" €":"";}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+  function feats(p){var a=[];if(p.zona)a.push(esc(p.zona));if(p.m2)a.push(p.m2+" m²");if(p.habitaciones)a.push(p.habitaciones+" hab");if(p.banos)a.push(p.banos+" baños");return a.join(" · ");}
+
+  function card(p){
+    var foto=(p.fotos&&p.fotos[0])?p.fotos[0]:null;
+    var ph=foto?'<div class="wmp-ph" style="background-image:url('+esc(foto)+')">':'<div class="wmp-ph"><span class="wmp-noimg">⌂</span>';
+    return '<article class="wmp-card" data-id="'+esc(p.id)+'">'+
+      ph+
+        '<span class="wmp-tipo">'+(p.tipo==="alquiler"?"Alquiler":"Venta")+'</span>'+
+        (p.destacada?'<span class="wmp-dest">Destacada</span>':'')+
+      '</div>'+
+      '<div class="wmp-body">'+
+        '<div class="wmp-price">'+eur(p.precio)+(p.tipo==="alquiler"?' <small>/mes</small>':'')+'</div>'+
+        '<h3 class="wmp-title">'+esc(p.titulo)+'</h3>'+
+        '<div class="wmp-meta">'+feats(p)+'</div>'+
+        (p.descripcion?'<p class="wmp-desc">'+esc(p.descripcion)+'</p>':'')+
+        '<button class="wmp-cta" data-cta="'+esc(p.id)+'">Me interesa</button>'+
+      '</div>'+
+    '</article>';
+  }
+  function pintar(){
+    var arr=DATA.filter(function(p){return FILTRO==="todas"||p.tipo===FILTRO;});
+    if(!arr.length){grid.innerHTML='<div class="wmp-empty">No hay propiedades en esta categoría ahora mismo.</div>';return;}
+    grid.innerHTML=arr.map(card).join("");
+    grid.querySelectorAll(".wmp-card").forEach(function(el){
+      el.addEventListener("click",function(e){ if(e.target.closest("[data-cta]"))return; abrir(el.getAttribute("data-id")); });
+    });
+    grid.querySelectorAll("[data-cta]").forEach(function(b){
+      b.addEventListener("click",function(e){e.stopPropagation();interes(b.getAttribute("data-cta"));});
+    });
+  }
+  function abrir(id){
+    var p=DATA.find(function(x){return String(x.id)===String(id);});if(!p)return;
+    var fotos=(p.fotos&&p.fotos.length)?p.fotos:[];
+    var gal=fotos.length?'<img id="wmp-main" src="'+esc(fotos[0])+'" alt="">':'<div class="wmp-noimg-lg">⌂</div>';
+    var thumbs=fotos.length>1?'<div class="wmp-mthumbs">'+fotos.map(function(u){return '<img src="'+esc(u)+'" alt="">';}).join("")+'</div>':'';
+    document.getElementById("wmp-modal-body").innerHTML=
+      '<div class="wmp-gal">'+gal+'</div>'+thumbs+
+      '<div class="wmp-mbody">'+
+        '<div class="wmp-price">'+eur(p.precio)+(p.tipo==="alquiler"?' <small>/mes</small>':'')+'</div>'+
+        '<h3>'+esc(p.titulo)+'</h3>'+
+        '<div class="wmp-mfeat">'+
+          (p.zona?'<span><b>'+esc(p.zona)+'</b>Zona</span>':'')+
+          (p.m2?'<span><b>'+p.m2+'</b>m² construidos</span>':'')+
+          (p.habitaciones?'<span><b>'+p.habitaciones+'</b>Dormitorios</span>':'')+
+          (p.banos?'<span><b>'+p.banos+'</b>Baños</span>':'')+
+        '</div>'+
+        (p.descripcion?'<div class="wmp-mdesc">'+esc(p.descripcion)+'</div>':'')+
+        '<button class="wmp-mcta" data-cta="'+esc(p.id)+'">Me interesa · contactar</button>'+
+      '</div>';
+    document.getElementById("wmp-modal-body").querySelectorAll(".wmp-mthumbs img").forEach(function(t){
+      t.addEventListener("click",function(){document.getElementById("wmp-main").src=t.src;});
+    });
+    document.getElementById("wmp-modal-body").querySelector("[data-cta]").addEventListener("click",function(){interes(id);});
+    var m=document.getElementById("wmp-modal");m.hidden=false;document.body.style.overflow="hidden";
+  }
+  function cerrar(){document.getElementById("wmp-modal").hidden=true;document.body.style.overflow="";}
+  document.querySelectorAll("#wmp-modal [data-close]").forEach(function(b){b.addEventListener("click",cerrar);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrar();});
+
+  // "Me interesa": abre el chatbot de la web si existe; si no, va a la sección de contacto.
+  function interes(id){
+    var p=DATA.find(function(x){return String(x.id)===String(id);});
+    var titulo=p?p.titulo:"";
+    if(typeof window.wmAbrirChat==="function"){window.wmAbrirChat("Me interesa la propiedad: "+titulo);return;}
+    var fab=document.querySelector(".chat-fab,#chat-fab,[data-chat-toggle],.wm-chat-launcher");
+    if(fab){fab.click();return;}
+    var contacto=document.querySelector("#contacto,#contact,[data-contacto]");
+    if(contacto){contacto.scrollIntoView({behavior:"smooth"});return;}
+    cerrar();
+  }
+
+  document.querySelectorAll(".wmp-f").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll(".wmp-f").forEach(function(x){x.classList.remove("on");});
+      b.classList.add("on");FILTRO=b.getAttribute("data-f");pintar();
+    });
+  });
+
+  fetch(SB+"/rest/v1/inmo_propiedades?select=*&publicada=eq.true&order=destacada.desc,orden.desc,created_at.desc",
+    {headers:{apikey:APIKEY,Authorization:"Bearer "+APIKEY}})
+    .then(function(r){return r.json();})
+    .then(function(d){DATA=Array.isArray(d)?d:[];pintar();})
+    .catch(function(){grid.innerHTML='<div class="wmp-empty">No se pudieron cargar las propiedades.</div>';});
+})();
+</script>
+<!-- ============ FIN PROPIEDADES DINÁMICAS ============ -->
 
 </main>
 
@@ -1369,6 +1409,9 @@ p{margin:0}
     fab.classList.remove('hidden');
     fab.focus();
   }
+
+  // Puente para el bloque de propiedades: abre el chat con un mensaje ya escrito.
+  window.wmAbrirChat = function(mensaje){ openChat(); if (mensaje) handleText(mensaje); };
 
   document.querySelectorAll('[data-openchat]').forEach(function(el){
     el.addEventListener('click', function(e){ e.preventDefault(); openChat(); });
