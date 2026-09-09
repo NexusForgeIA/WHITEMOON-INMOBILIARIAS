@@ -1,0 +1,509 @@
+/* =========================================================================
+   InmoElite · Madrid — hoja principal
+   Lujo oscuro: champagne (#c9a86a) sobre negro (#0a0a0c).
+   La paleta entera vive en :root; ningún componente hardcodea color.
+   ========================================================================= */
+@font-face{font-family:'Sora';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/sora-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/sora-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/sora-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/sora-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/sora-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/sora-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/sora-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/sora-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:800;font-display:swap;src:url(../fonts/sora-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:800;font-display:swap;src:url(../fonts/sora-800-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/fraunces-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  /* ---- Fondos ----
+     Cuatro niveles de negro que dan el ritmo de secciones. La diferencia
+     entre ellos es corta a propósito: en oscuro un salto grande se lee
+     como una franja, no como un cambio de sección. */
+  --bg:#0a0a0c;               /* negro base: cuerpo */
+  --bg2:#101015;              /* negro 2: primer ritmo (.sec--alt) */
+  --bg3:#141419;              /* negro 3: segundo ritmo (.sec--alt2) */
+  --surface:#14141a;          /* tarjetas */
+  --surface-2:#1c1c24;        /* superficie elevada (chips, thumbs) */
+
+  /* ---- Tinta ---- */
+  --text:#f5f5f0;             /* titulares — 17.4:1 sobre --bg */
+  --ink-2:#d9d9d2;            /* cuerpo — 13.3:1 */
+  --muted:#a0a0a8;            /* secundario — 7.6:1 */
+
+  /* ---- Champagne ----
+     Al revés que en un tema claro, aquí el oro SÍ puede pintar texto:
+     #c9a86a da 8.7:1 sobre el negro base. El que no puede es el negro
+     sobre oro en tamaños pequeños, así que --gold-ink solo se usa en
+     relleno grande (botones, chips activos). */
+  --gold:#c9a86a;             /* champagne de marca — 8.7:1 sobre --bg */
+  --gold-2:#e2c691;           /* champagne claro: hover y texto fuerte */
+  --gold-3:#8a6f3c;           /* champagne apagado: bordes y detalle */
+  --gold-chip:rgba(201,168,106,.12);   /* chip champagne muy suave */
+  --gold-ink:#0a0a0c;         /* tinta sobre relleno champagne — 8.7:1 */
+  --gold-rgb:201,168,106;
+
+  /* ---- Neutro (el "negro" del tema claro, invertido) ---- */
+  --neutral-chip:rgba(245,245,240,.06);
+  --gris:rgba(245,245,240,.16);        /* SOLO borde / detalle */
+
+  /* ---- Líneas y sombras ----
+     En oscuro la sombra no separa: lo que separa es el borde. Por eso las
+     sombras son suaves y el peso lo lleva --line-2. */
+  --line:rgba(245,245,240,.08);
+  --line-2:rgba(201,168,106,.22);
+  --sh-sm:0 1px 2px rgba(0,0,0,.5),0 2px 8px rgba(0,0,0,.35);
+  --sh-md:0 2px 6px rgba(0,0,0,.5),0 14px 34px -14px rgba(0,0,0,.8);
+  --sh-lg:0 4px 14px rgba(0,0,0,.5),0 30px 70px -28px rgba(0,0,0,.95);
+
+  /* ---- Tipografía y métrica ---- */
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1240px;
+  --nav-h:80px;
+  --strip-h:33px;             /* franja de demo, fija sobre la cabecera */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + var(--strip-h) + 16px);-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink-2);
+  font-family:var(--body);font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gold);color:var(--gold-ink)}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+button,input,textarea{font:inherit;color:inherit}
+/* De Fraunces solo se carga el peso 600: pedir 700/800 haría que el navegador
+   lo engordara sintéticamente y se ve sucio. */
+h1,h2{font-family:var(--display);font-weight:600;color:var(--text);line-height:1.06;letter-spacing:-.018em}
+h3,h4{font-family:var(--body);font-weight:700;color:var(--text);line-height:1.2;letter-spacing:-.015em}
+:where(a,button,input,textarea,summary,[tabindex]):focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Franja de demo. Va fija por encima del nav (900) porque la cabecera
+   tambien es fija: si fuera estatica, al primer scroll el nav se le montaria
+   encima. Su alto vive en --strip-h y de ahi lo toman el nav, el hero y el
+   scroll-padding de los anclajes. */
+.demo-strip{
+  position:fixed;inset:0 0 auto 0;height:var(--strip-h);z-index:902;
+  /* Linea unica centrada con line-height, no con flex: un contenedor flex
+     parte el contenido en items anonimos por cada nodo de texto y se come
+     los espacios de los bordes, que aqui son los separadores del "·". */
+  display:block;line-height:calc(var(--strip-h) - 1px);
+  background:var(--bg2);color:var(--gold);overflow:hidden;
+  border-bottom:1px solid var(--line-2);text-align:center;padding:0 14px;
+  font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+}
+.demo-strip a{color:var(--gold-2);text-decoration:underline;text-underline-offset:2px}
+
+.eyebrow{
+  font-family:var(--body);font-weight:700;text-transform:uppercase;
+  letter-spacing:.16em;font-size:.72rem;color:var(--gold);
+  display:inline-flex;align-items:center;gap:.75em;
+}
+.eyebrow::before{content:"";width:26px;height:2px;border-radius:2px;background:var(--gold);flex-shrink:0}
+.eyebrow.alt{color:var(--ink-2)}
+.eyebrow.alt::before{background:var(--gris)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--body);font-weight:700;font-size:.95rem;letter-spacing:-.01em;
+  padding:14px 26px;border-radius:12px;border:1.5px solid transparent;
+  background:var(--gold);color:var(--gold-ink);cursor:pointer;
+  transition:background .25s,transform .2s,box-shadow .3s,border-color .25s,color .25s;
+}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.btn:hover{background:var(--gold-2);transform:translateY(-2px);box-shadow:0 14px 32px -12px rgba(var(--gold-rgb),.5)}
+.btn--ghost{background:transparent;color:var(--gold);border-color:var(--line-2)}
+.btn--ghost:hover{background:var(--gold-chip);color:var(--gold-2);border-color:var(--gold);box-shadow:none}
+.btn--sm{padding:11px 20px;font-size:.88rem;border-radius:10px}
+.btn--block{width:100%}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:var(--strip-h);left:0;right:0;z-index:900;background:rgba(10,10,12,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .35s,border-color .35s,box-shadow .35s}
+.nav.scrolled{background:rgba(10,10,12,.94);border-bottom-color:var(--line);box-shadow:0 1px 24px rgba(0,0,0,.6)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand__mark{width:30px;height:30px;flex-shrink:0;color:var(--gold)}
+.brand__name{font-family:var(--display);font-weight:600;font-size:1.32rem;color:var(--text);letter-spacing:-.02em;line-height:1}
+.brand__name i{font-style:normal;color:var(--gold)}
+/* Bajada de marca, separada por un filete fino. En dos líneas para no
+   ensanchar la cabecera y dejar sitio a los siete enlaces del nav. */
+.brand__sub{
+  font-family:var(--body);font-weight:700;font-size:.58rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);line-height:1.35;
+  padding-left:12px;border-left:1px solid var(--line-2);
+}
+.foot-brand .brand__mark{width:35px;height:35px}
+.foot-brand .brand__name{font-size:1.5rem}
+/* Por debajo de 420px la bajada estorba al botón de menú. */
+@media (max-width:420px){.nav .brand__sub{display:none}}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--muted);position:relative;padding:6px 0;white-space:nowrap;transition:color .22s}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;border-radius:2px;background:var(--gold);transition:right .28s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;place-items:center;color:var(--text)}
+.burger svg{width:22px;height:22px}
+/* visibility:hidden ademas de opacity:0. Sin ella el navegador sigue
+   componiendo el backdrop-filter de una capa a pantalla completa que no
+   se ve, y los enlaces del menu cerrado siguen en el orden de tabulacion. */
+.mobile-menu{position:fixed;inset:var(--strip-h) 0 0;z-index:899;background:rgba(10,10,12,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:auto}
+.mobile-menu a{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--text);padding:10px 18px;border-radius:12px;transition:color .2s,background .2s}
+.mobile-menu a:hover{color:var(--gold-2);background:var(--gold-chip)}
+.mobile-menu .btn{margin-top:18px}
+
+/* ---------- HERO ----------
+   El oscurecido de la foto va horneado en el propio archivo, no en un
+   filter CSS: se pinta igual en todos los motores y no cuesta un repintado
+   con filtro en cada scroll. El scrim solo termina de apagar el lado
+   izquierdo, que es donde cae el texto. */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--bg)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg .wash{position:absolute;inset:0;background:
+  radial-gradient(900px 620px at 86% 12%,rgba(var(--gold-rgb),.16),transparent 62%),
+  radial-gradient(760px 620px at 96% 88%,rgba(var(--gold-rgb),.08),transparent 64%),
+  linear-gradient(180deg,#0a0a0c 0%,#101015 100%)}
+.hero-bg .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;z-index:1}
+.hero-bg .scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:
+  linear-gradient(100deg,rgba(10,10,12,.95) 0%,rgba(10,10,12,.9) 34%,rgba(10,10,12,.7) 52%,rgba(10,10,12,.42) 74%,rgba(10,10,12,.3) 100%),
+  linear-gradient(180deg,rgba(10,10,12,.88) 0%,rgba(10,10,12,0) 26%,rgba(10,10,12,0) 58%,rgba(10,10,12,.96) 100%)}
+.hero-bg .dots{position:absolute;inset:0;z-index:3;opacity:.45;background-image:radial-gradient(rgba(var(--gold-rgb),.28) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(ellipse 70% 60% at 30% 45%,#000 20%,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 30% 45%,#000 20%,transparent 76%)}
+.hero-content{position:relative;z-index:4;width:100%;padding:calc(var(--nav-h) + var(--strip-h) + 44px) 0 44px}
+.hero h1{font-size:clamp(2.35rem,5.4vw,4.15rem);max-width:15ch}
+.hero h1 .accent{color:var(--gold);display:block}
+.hero-rot{display:flex;align-items:baseline;gap:.5em;flex-wrap:wrap;margin-top:20px;font-family:var(--body);font-weight:600;font-size:clamp(1rem,2.4vw,1.3rem);color:var(--muted)}
+.hero-rot .rot{color:var(--gold-2);font-weight:700;display:inline-block}
+.hero-rot .rot b{display:inline-block;font-weight:700;transition:opacity .4s,transform .4s}
+.hero-rot .rot b.out{opacity:0;transform:translateY(10px)}
+.hero-desc{max-width:56ch;color:var(--ink-2);font-size:1.05rem;margin-top:22px}
+.hero-desc strong{color:var(--text);font-weight:600}
+.hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.hero-contact{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font-size:.94rem;color:var(--muted)}
+.hero-contact a,.hero-contact span{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--text)}
+.hero-contact a:hover{color:var(--gold-2)}
+.hero-contact svg{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+
+/* Barra de confianza — sin cifras ni reseñas inventadas */
+.trust{position:relative;z-index:5;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.trust-i{background:var(--bg2);display:flex;align-items:center;gap:14px;padding:24px 22px}
+.trust-i .ic{width:42px;height:42px;border-radius:12px;background:var(--gold-chip);color:var(--gold-2);display:grid;place-items:center;flex-shrink:0}
+.trust-i:nth-child(2n) .ic{background:var(--neutral-chip);color:var(--text)}
+.trust-i .ic svg{width:21px;height:21px}
+.trust-i b{display:block;font-family:var(--body);font-weight:700;font-size:.98rem;color:var(--text);line-height:1.25}
+.trust-i span{display:block;font-size:.83rem;color:var(--muted);margin-top:3px}
+
+/* Marquee */
+.marquee-wrap{background:var(--bg3);border-bottom:1px solid var(--line);padding:13px 0;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.marquee-item{display:inline-flex;align-items:center;gap:10px;padding:0 26px;font-size:.86rem;color:var(--muted);white-space:nowrap}
+.marquee-item b{color:var(--text);font-weight:700}
+.marquee-item .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- SECCIONES ---------- */
+main{display:block}
+section{position:relative}
+section[id]{scroll-margin-top:calc(var(--nav-h) + var(--strip-h) + 12px)}
+.sec{padding:112px 0;position:relative;overflow:hidden}
+.sec--alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec--alt2{background:var(--bg3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:54px;max-width:740px}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);margin-top:16px}
+.sec-head p{color:var(--muted);margin-top:18px;font-size:1.04rem;max-width:62ch}
+.sec-head p strong{color:var(--ink-2);font-weight:600}
+.sec-head--center{margin-inline:auto;text-align:center}
+.sec-head--center .eyebrow{justify-content:center}
+/* Número fantasma de sección: puramente decorativo. Va como pseudo-elemento
+   (content:attr(data-n)) y no como nodo de texto, porque a 1.1:1 axe lo
+   contaría como texto real y tumbaría el contraste. */
+.bignum{position:absolute;font-family:var(--display);font-weight:600;font-size:clamp(7rem,15vw,15rem);color:var(--gold);opacity:.07;line-height:.8;pointer-events:none;z-index:0;letter-spacing:-.05em;user-select:none}
+.bignum::before{content:attr(data-n)}
+
+/* ---------- AGENCIA ---------- */
+.about-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center;position:relative;z-index:2}
+.about-copy p{color:var(--ink-2);font-size:1.05rem;margin-top:20px}
+.about-copy p strong{color:var(--text);font-weight:600}
+.about-media{position:relative}
+.framed{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--sh-lg);background:var(--surface);border:1px solid var(--line)}
+.framed img{width:100%;height:clamp(320px,42vw,460px);object-fit:cover}
+.framed::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(10,10,12,.42),transparent 52%);pointer-events:none}
+.about-badge{
+  position:absolute;left:18px;bottom:-20px;z-index:3;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:16px;
+  padding:16px 22px;box-shadow:var(--sh-md);display:flex;align-items:center;gap:13px;max-width:calc(100% - 36px);
+}
+.about-badge .ic{width:40px;height:40px;border-radius:12px;background:var(--gold-chip);color:var(--gold-2);display:grid;place-items:center;flex-shrink:0}
+.about-badge .ic svg{width:21px;height:21px}
+.about-badge b{display:block;font-family:var(--body);font-weight:700;font-size:1rem;color:var(--text);line-height:1.2}
+.about-badge span{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+
+/* ---------- SERVICIOS ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .35s,box-shadow .35s,border-color .35s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--line-2)}
+.svc-media{position:relative;aspect-ratio:18/11;overflow:hidden;background:var(--bg3)}
+.svc-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover .svc-media img{transform:scale(1.05)}
+/* Degradado hacia el color de la tarjeta: cose la foto con el cuerpo en vez
+   de dejar un corte duro, que en oscuro canta mucho mas que en claro. */
+.svc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.10) 0%,rgba(10,10,12,.06) 55%,rgba(20,20,26,.72) 100%)}
+.svc-tag{position:absolute;left:14px;top:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;background:rgba(10,10,12,.78);backdrop-filter:blur(6px);border:1px solid var(--line-2);border-radius:100px;padding:7px 13px;font-family:var(--body);font-weight:700;font-size:.74rem;color:var(--text);letter-spacing:.01em}
+.svc-tag svg{width:15px;height:15px;color:var(--gold)}
+.svc-body{padding:24px 24px 22px;display:flex;flex-direction:column;flex:1}
+.svc-body h3{font-size:1.24rem}
+.svc-body p{color:var(--muted);font-size:.93rem;margin-top:10px;flex:1}
+.svc-foot{margin-top:20px;padding-top:17px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.svc-price{font-family:var(--body);font-weight:800;font-size:1.2rem;color:var(--text);line-height:1.15}
+.svc-price small{display:block;font-weight:500;font-size:.71rem;color:var(--muted);letter-spacing:.01em;margin-top:2px}
+.svc-price.free{color:var(--gold-2);font-size:1.06rem}
+.svc-cta{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-weight:700;font-size:.86rem;color:var(--gold);background:none;border:0;cursor:pointer;padding:6px 2px;transition:gap .28s,color .2s}
+.svc-cta svg{width:15px;height:15px}
+.svc-card:hover .svc-cta{gap:12px;color:var(--gold-2)}
+
+/* ---------- PROCESO ---------- */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.proc-c{position:relative;padding:32px 24px 28px;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--sh-sm);transition:transform .35s,box-shadow .35s,border-color .35s}
+.proc-c:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:var(--gold-3)}
+.proc-c .n{position:absolute;top:18px;right:20px;font-family:var(--display);font-weight:600;font-size:1.9rem;color:var(--gold);opacity:.28;line-height:1;letter-spacing:-.04em}
+.proc-c .ic{width:50px;height:50px;border-radius:15px;background:var(--gold-chip);color:var(--gold-2);display:grid;place-items:center;margin-bottom:18px}
+.proc-c:nth-child(2n) .ic{background:var(--neutral-chip);color:var(--text)}
+.proc-c:nth-child(2n) .n{color:var(--text);opacity:.18}
+.proc-c .ic svg{width:24px;height:24px}
+.proc-c h3{font-size:1.12rem}
+.proc-c p{color:var(--muted);font-size:.91rem;margin-top:9px}
+
+/* ---------- POR QUE NOSOTROS ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:58px}
+.why-c{padding:28px 24px;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--sh-sm);transition:transform .35s,box-shadow .35s,border-color .35s}
+.why-c:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:var(--line-2)}
+.why-c .ic{width:48px;height:48px;border-radius:14px;background:var(--neutral-chip);color:var(--text);display:grid;place-items:center;margin-bottom:16px}
+.why-c:nth-child(2n) .ic{background:var(--gold-chip);color:var(--gold-2)}
+.why-c .ic svg{width:23px;height:23px}
+.why-c h3{font-size:1.06rem}
+.why-c p{color:var(--muted);font-size:.9rem;margin-top:9px}
+.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.nos-copy p{color:var(--ink-2);font-size:1.04rem;margin-top:18px}
+.nos-copy p strong{color:var(--text);font-weight:600}
+.check-list{border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--sh-md);overflow:hidden}
+.check-row{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.check-row:last-child{border-bottom:0}
+.check-row .ic{width:42px;height:42px;border-radius:12px;background:var(--gold-chip);color:var(--gold-2);display:grid;place-items:center;flex-shrink:0}
+.check-row:nth-child(2n) .ic{background:var(--neutral-chip);color:var(--text)}
+.check-row .ic svg{width:21px;height:21px}
+.check-row b{display:block;font-family:var(--body);font-weight:700;font-size:1rem;color:var(--text);line-height:1.3}
+.check-row span{display:block;color:var(--muted);font-size:.88rem;margin-top:3px}
+
+/* ---------- AREAS ---------- */
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.area-c{padding:34px 28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--sh-sm);transition:transform .35s,box-shadow .35s,border-color .35s}
+.area-c:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--gold-3)}
+.area-c .ic{width:56px;height:56px;border-radius:17px;background:var(--gold-chip);color:var(--gold-2);display:grid;place-items:center;margin-bottom:20px}
+.area-c:nth-child(2) .ic{background:var(--neutral-chip);color:var(--text)}
+.area-c .ic svg{width:28px;height:28px}
+.area-c h3{font-size:1.28rem}
+.area-c > p{color:var(--muted);font-size:.94rem;margin-top:11px}
+.area-c ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+.area-c li{display:flex;align-items:flex-start;gap:10px;font-size:.89rem;color:var(--ink-2)}
+.area-c li svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;margin-top:3px}
+
+/* ---------- VIDEO IA ---------- */
+.vd-frame{max-width:896px;margin:0 auto;border:1px solid var(--line-2);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:var(--sh-lg)}
+.vd-frame video{width:100%;height:auto;display:block}
+.vd-note{text-align:center;margin-top:16px;font-size:.85rem;color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--sh-sm);overflow:hidden}
+.faq-item[open]{border-color:var(--line-2)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;font-family:var(--body);font-weight:700;font-size:1.02rem;color:var(--text);list-style:none}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q .pl{position:relative;width:20px;height:20px;flex-shrink:0}
+.faq-q .pl::before,.faq-q .pl::after{content:"";position:absolute;left:50%;top:50%;background:var(--gold);border-radius:2px;transform:translate(-50%,-50%);transition:transform .28s}
+.faq-q .pl::before{width:14px;height:2px}
+.faq-q .pl::after{width:2px;height:14px}
+.faq-item[open] .faq-q .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-a{padding:0 24px 22px}
+.faq-a p{color:var(--muted);font-size:.97rem}
+
+/* ---------- CONTACTO ---------- */
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+.contact-info{display:grid;grid-template-columns:1fr 1fr;gap:28px 36px;margin-top:34px}
+.cinfo .k{font-family:var(--body);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold);margin-bottom:7px}
+.cinfo .val{color:var(--text);font-size:1rem;line-height:1.55}
+.cinfo .val a{font-weight:600}
+.cinfo .val a:hover{color:var(--gold-2)}
+.contact-card{background:var(--surface);border:1px solid var(--line-2);border-radius:22px;padding:36px 32px;box-shadow:var(--sh-lg)}
+.contact-card h3{font-family:var(--display);font-weight:600;font-size:1.7rem;letter-spacing:-.018em}
+.contact-card > p{color:var(--muted);margin:14px 0 24px;font-size:.98rem}
+.contact-card .btn{margin-bottom:10px}
+.contact-urg{display:flex;align-items:center;gap:10px;justify-content:center;background:var(--gold-chip);border:1px solid var(--line-2);border-radius:12px;padding:12px;color:var(--gold-2);font-family:var(--body);font-weight:700;font-size:.86rem;margin-top:6px;text-align:center}
+.contact-urg svg{width:19px;height:19px;flex-shrink:0}
+
+/* ---------- FOOTER ---------- */
+.foot{background:var(--bg2);border-top:1px solid var(--line);padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+.foot-brand p{color:var(--muted);font-size:.9rem;margin-top:16px;max-width:38ch}
+.foot h4{font-family:var(--body);font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:9px}
+.foot ul a,.foot ul span{display:inline-flex;align-items:center;gap:9px;color:var(--muted);font-size:.9rem}
+.foot ul a:hover{color:var(--gold-2)}
+.foot ul svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
+/* Enlaces-boton dentro del pie: mismo aspecto que el resto de la lista */
+.foot ul button{background:none;border:0;padding:0;cursor:pointer;font:inherit;color:var(--muted);display:inline-flex;align-items:center;gap:9px;text-align:left;font-size:.9rem}
+.foot ul button:hover{color:var(--gold-2)}
+.foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:.82rem}
+.foot-bottom a{color:var(--gold);font-weight:600}
+.foot-bottom a:hover{color:var(--gold-2)}
+/* Aviso legal y privacidad. Van en <details> para conservar los anclajes
+   #aviso-legal y #privacidad, y en cuerpo pequeno porque es texto de
+   consulta, no de lectura continua. */
+.foot-legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:10px;max-width:94ch}
+.foot-legal details{border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.foot-legal summary{cursor:pointer;padding:13px 18px;font-family:var(--body);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);list-style:none}
+.foot-legal summary::-webkit-details-marker{display:none}
+.foot-legal summary::after{content:"+";float:right;font-size:1rem;line-height:1;color:var(--muted)}
+.foot-legal details[open] summary::after{content:"\2212"}
+.foot-legal p{color:var(--muted);font-size:.82rem;line-height:1.7;padding:0 18px 16px}
+.foot-legal p strong{color:var(--ink-2);font-weight:600}
+.foot-legal a{color:var(--gold);font-weight:600}
+
+/* ---------- REVEAL ----------
+   La transicion vive en la clase base, no en .in: si solo estuviera en el
+   estado final, un elemento revelado de golpe (enlace profundo, restaurar
+   scroll) saltaria sin animar. */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .nav-cta .btn{display:none}
+  .burger{display:grid}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .wrap{padding:0 22px}
+  .sec{padding:76px 0}
+  .sec-head{margin-bottom:40px}
+  .about-grid,.nos-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .about-media{order:-1}
+  .svc-grid,.proc-grid,.why-grid{grid-template-columns:1fr 1fr}
+  .areas-grid{grid-template-columns:1fr}
+  .contact-info{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  :root{--nav-h:70px;--strip-h:30px}
+  /* En movil la franja tiene que caber en una linea: si envuelve, se sale de
+     su alto fijo y se mete debajo de la cabecera. */
+  .demo-strip{font-size:.6rem;letter-spacing:.08em;white-space:nowrap}
+  .demo-strip__long{display:none}
+  .wrap{padding:0 18px}
+  .sec{padding:62px 0}
+  .svc-grid,.proc-grid,.why-grid,.trust-grid,.contact-info,.foot-grid{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+  .hero-actions .btn{flex:1 1 100%}
+  .contact-card{padding:28px 22px}
+  .foot-bottom{flex-direction:column;text-align:center}
+}
+
+/* ---------- MOVIMIENTO REDUCIDO ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .marquee-track{animation:none!important}
+}
+
+/* =========================================================================
+   AGENTE IA · CARLOS
+   Chat propio de InmoElite (llama a la Edge Function inmo-lead). Tema
+   oscuro: burbuja del usuario en champagne con tinta negra (8.7:1), burbuja
+   del bot en superficie elevada con texto --ink-2 (11.4:1 sobre #1c1c24).
+   ========================================================================= */
+.wm-fab{
+  position:fixed;right:16px;bottom:16px;z-index:70;
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  border:0;background:var(--gold);color:var(--gold-ink);cursor:pointer;
+  box-shadow:0 10px 30px -8px rgba(var(--gold-rgb),.45),0 0 0 1px rgba(var(--gold-rgb),.25);
+  transition:transform .25s,background .25s;
+}
+.wm-fab:hover{transform:translateY(-3px);background:var(--gold-2)}
+.wm-fab svg{width:24px;height:24px}
+.wm-fab.hidden{display:none}
+@media(min-width:768px){.wm-fab{right:24px;bottom:24px;width:60px;height:60px}}
+
+/* z-index por encima del nav (900): en movil el chat va a pantalla completa
+   y con un z-index menor la cabecera fija tapaba su titulo y la X de cerrar. */
+.wm-chat{
+  position:fixed;right:16px;bottom:16px;z-index:1000;
+  width:min(370px,calc(100vw - 32px));max-height:min(640px,calc(100vh - 32px));
+  display:none;flex-direction:column;overflow:hidden;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:20px;
+  box-shadow:var(--sh-lg);
+}
+.wm-chat.open{display:flex}
+@media(min-width:768px){.wm-chat{right:24px;bottom:24px}}
+
+.wm-head{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--bg3);border-bottom:1px solid var(--line)}
+.wm-av{width:42px;height:42px;border-radius:13px;flex:none;display:grid;place-items:center;
+  background:var(--gold);color:var(--gold-ink);font-family:var(--display);font-weight:600;font-size:18px}
+.wm-head b{display:block;font-family:var(--body);font-weight:700;font-size:1.02rem;color:var(--text);line-height:1.2}
+.wm-head small{display:block;font-size:.78rem;color:var(--muted);margin-top:2px}
+.wm-close{margin-left:auto;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:transparent;
+  color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:color .2s,border-color .2s}
+.wm-close:hover{color:var(--text);border-color:var(--line-2)}
+.wm-close svg{width:15px;height:15px}
+
+.wm-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;
+  background:var(--surface);scrollbar-width:thin;scrollbar-color:var(--gold-3) transparent}
+.wm-body::-webkit-scrollbar{width:6px}
+.wm-body::-webkit-scrollbar-thumb{background:var(--gold-3);border-radius:3px}
+.cmsg{max-width:86%;padding:11px 14px;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-line;animation:msgin .3s ease}
+@keyframes msgin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.cmsg.bot{align-self:flex-start;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);border-bottom-left-radius:5px}
+.cmsg.user{align-self:flex-end;background:var(--gold);color:var(--gold-ink);font-weight:500;border-bottom-right-radius:5px}
+.cmsg.ok{align-self:flex-start;background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.4);color:#7ce8cd;font-weight:600;border-bottom-left-radius:5px}
+.cmsg.alert{align-self:flex-start;background:var(--gold-chip);border:1px solid var(--gold-3);color:var(--gold-2);border-bottom-left-radius:5px}
+
+.ctyping{align-self:flex-start;display:flex;gap:5px;padding:13px 15px;background:var(--surface-2);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px}
+.ctyping span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:cbounce 1.2s infinite}
+.ctyping span:nth-child(2){animation-delay:.2s}
+.ctyping span:nth-child(3){animation-delay:.4s}
+@keyframes cbounce{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+
+.cchips{display:flex;flex-wrap:wrap;gap:8px;padding-top:2px}
+.cchip{font-family:var(--body);font-size:.82rem;font-weight:500;border:1px solid var(--line-2);background:var(--surface-2);
+  color:var(--ink-2);border-radius:100px;padding:9px 15px;cursor:pointer;transition:background .22s,border-color .22s,color .22s,transform .18s}
+.cchip:hover{background:var(--gold-chip);border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px)}
+.cchip.gold{background:var(--gold);border-color:var(--gold);color:var(--gold-ink);font-weight:700}
+.cchip.gold:hover{background:var(--gold-2);color:var(--gold-ink)}
+
+.wm-form{display:flex;gap:9px;padding:12px 14px;border-top:1px solid var(--line);background:var(--bg3)}
+.wm-form textarea{
+  flex:1;min-width:0;resize:none;max-height:80px;background:var(--bg);
+  border:1px solid var(--line-2);border-radius:12px;padding:11px 14px;
+  font-family:var(--body);font-size:.92rem;line-height:1.4;color:var(--text);outline:none;transition:border-color .22s;
+}
+.wm-form textarea:focus{border-color:var(--gold)}
+.wm-form textarea::placeholder{color:var(--muted)}
+.wm-form textarea:disabled{background:var(--surface);color:var(--muted)}
+.wm-send{width:46px;flex:none;border:0;border-radius:12px;background:var(--gold);color:var(--gold-ink);
+  cursor:pointer;display:grid;place-items:center;transition:background .22s,opacity .2s}
+.wm-send:hover:not(:disabled){background:var(--gold-2)}
+.wm-send:disabled{opacity:.45;cursor:default}
+.wm-send svg{width:17px;height:17px}
+.wm-disc{padding:9px 15px 12px;font-size:.68rem;line-height:1.45;color:var(--muted);background:var(--bg3);border-top:1px solid var(--line)}
+
+@media(max-width:620px){
+  /* Movil: el chat pasa a pantalla completa fluida */
+  .wm-chat{right:0;bottom:0;width:100vw;max-width:100vw;height:100svh;max-height:100svh;border-radius:0;border:0}
+}
